@@ -6,7 +6,7 @@ I'm not an artist and can barely handle a pencil, but I can write code. So I stu
 
 One of my favorite glyphs is `KIR7 (NIM× NÍG.KÁR)` (TBD add good link and definition), which shows different examples of stalks composited together to form a figure:
 
-![](/resources/KIR7_NIM_NIG_KAR_.png)
+![](/gallery/resources/KIR7_NIM_NIG_KAR_.png)
 
 ### Work-in-progress
 

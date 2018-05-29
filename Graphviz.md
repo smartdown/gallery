@@ -207,10 +207,10 @@ digraph diagram {
     subgraph cluster_all {
         label="Web Host, Content, Author and Reader"
 
-firewall2 [shape=none, label="firewall2", labelloc="b", image="/resources/lighthouse.svg"]
-firewall1 [shape=none, label="firewall1", labelloc="b", image="/resources/cloud.jpg"]
+firewall2 [shape=none, label="firewall2", labelloc="b", image="/gallery/resources/lighthouse.svg"]
+firewall1 [shape=none, label="firewall1", labelloc="b", image="/gallery/resources/cloud.jpg"]
 
-        Author [shape=none, label="Author DrBud", image="/resources/cloud.jpg"]
+        Author [shape=none, label="Author DrBud", image="/gallery/resources/cloud.jpg"]
         ContentABC [shape=tab, label="Content/ABC"]
         WebABC [shape=tab, label="Website/ABC"]
         Author -> ContentABC
