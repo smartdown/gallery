@@ -10,6 +10,7 @@ Exploring the possibilities of [Linked Data Fragments](http://linkeddatafragment
 [Query](:!query|code)
 
 ```javascript/playable/autoplay
+//smartdown.use=ldf
 var ldf = smartdown.ldf;
 smartdown.ldf.Logger.setLevel('NOTICE');
 
@@ -51,6 +52,11 @@ results.on('timeout', function(result) {
   console.log('###timeout', result);
 });
 
+function stripLang(s) {
+  return s.replace(/^"(.*)"(@(.*))?$/, '$1');
+}
+
+
 results.on('end', function(result) {
   // console.log('###end', triples);
   var colNames = [];
@@ -73,16 +79,23 @@ results.on('end', function(result) {
   triples.forEach(triple => {
     colNames.forEach(colName => {
       let url = triple[colName];
+      url = stripLang(url);
       table += `|`;
 
       if (url.indexOf('http://') === 0) {
         url = 'https' + url.slice(4);
       }
-      let purl = url;
-      if (url.endsWith('.jpg')) {
-        table += '!';
+      if (url.indexOf('https://') === 0) {
+        if (url.endsWith('.jpg')) {
+          table += `![thumbnail](${url})`;
+        }
+        else {
+          table += `[${url}](${url})`;
+        }
       }
-      table += `[${purl}](${url})`;
+      else {
+        table += url;
+      }
     });
     table += '|\n';
   });

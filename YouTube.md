@@ -208,7 +208,7 @@ this.depend = function() {
   var bounds = renderDiv.getBoundingClientRect();
   var width = bounds.width;
 
-  var d3 = smartdown.d3v4;
+  var d3 = smartdown.d3;
   var cloud = smartdown.d3cloud;
   words = env.TagList;
 
