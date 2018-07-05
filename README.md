@@ -10,4 +10,6 @@ See [Smartdown README](https://smartdown.site/lib/#README) for more info.
 
 - **0.0.1** Initial release to verify NPM publication
 - **0.0.2** Adds smartdown README. Removes Debug.md.
-- **0.0.3** Adds P5JS Global Mode Example. Updates examples to support Smartdown 0.0.76 and dynamic imports, D3v5, P5JS Global syntax, and more.
+- **0.0.3** Adds P5JS Global Mode Example.
+- **0.0.4** Updates examples to support Smartdown 0.0.76 and dynamic imports, D3v5, P5JS Global syntax, and more.
+
