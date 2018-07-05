@@ -5,6 +5,7 @@
 This example is adapted from [WebGL Interactive Cubes](https://threejs.org/examples/#webgl_interactive_cubes), although I'm still having difficulty with getting the mouseover to work properly due to coordinate system issues when the window is scrolled or resized. I eventually need to detect the coordinate system change and recalibrate the mouseover.
 
 ```javascript/playable
+//smartdown.use=three
 var container = this.div;
 container.style.margin = 'auto';
 container.style.width = '250px';
@@ -59,7 +60,6 @@ function init() {
   renderer.setSize( container.clientWidth, container.clientHeight );
   renderer.sortObjects = false;
   container.appendChild(renderer.domElement);
-
 
   document.addEventListener( 'mousemove', onDocumentMouseMove, false );
 }
@@ -137,16 +137,28 @@ renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(width, height);
 this.div.appendChild(renderer.domElement);
 
-d3.json("https://unpkg.com/world-atlas@1/world/50m.json", function(error, topology) {
-  if (error) throw error;
-  scene.add(graticule = wireframe(graticule10(), new THREE.LineBasicMaterial({color: 0xaaaaaa})));
-  scene.add(mesh = wireframe(topojson.mesh(topology, topology.objects.land), new THREE.LineBasicMaterial({color: 0xff0000})));
-  d3.timer(function(t) {
-    graticule.rotation.x = mesh.rotation.x = Math.sin(t / 11000) * Math.PI / 3 - Math.PI / 2;
-    graticule.rotation.z = mesh.rotation.z = t / 10000;
-    renderer.render(scene, camera);
-  });
-});
+// console.log('d3', d3, d3.version);
+const promise = d3.json('https://unpkg.com/world-atlas@1/world/50m.json');
+promise.
+  then(
+    function(topology) {
+      console.log('topology', topology);
+
+      scene.add(graticule = wireframe(graticule10(), new THREE.LineBasicMaterial({color: 0xaaaaaa})));
+      scene.add(mesh = wireframe(topojson.mesh(topology, topology.objects.land), new THREE.LineBasicMaterial({color: 0xff0000})));
+      d3.timer(function(t) {
+        graticule.rotation.x = mesh.rotation.x = Math.sin(t / 11000) * Math.PI / 3 - Math.PI / 2;
+        graticule.rotation.z = mesh.rotation.z = t / 10000;
+        renderer.render(scene, camera);
+      });
+    }
+  )
+  .catch(
+    function(error) {
+      console.log('error', error);
+      throw error;
+    }
+  );
 
 // Converts a point [longitude, latitude] in degrees to a THREE.Vector3.
 function vertex(point) {
@@ -190,7 +202,7 @@ function graticule10() {
   }
 
   return {
-    type: "MultiLineString",
+    type: 'MultiLineString',
     coordinates: d3.range(Math.ceil(X0 / DX) * DX, X1, DX).map(X)
         .concat(d3.range(Math.ceil(Y0 / DY) * DY, Y1, DY).map(Y))
         .concat(d3.range(Math.ceil(x0 / dx) * dx, x1, dx).filter(function(x) { return Math.abs(x % DX) > epsilon; }).map(x))
