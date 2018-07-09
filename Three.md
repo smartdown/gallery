@@ -122,7 +122,7 @@ function render() {
 
 From https://bl.ocks.org/mbostock/2b85250396c17a79155302f91ec21224
 
-```javascript/playable
+```three/playable
 var width = 480,
     height = 480,
     radius = 114,
@@ -142,8 +142,6 @@ const promise = d3.json('https://unpkg.com/world-atlas@1/world/50m.json');
 promise.
   then(
     function(topology) {
-      console.log('topology', topology);
-
       scene.add(graticule = wireframe(graticule10(), new THREE.LineBasicMaterial({color: 0xaaaaaa})));
       scene.add(mesh = wireframe(topojson.mesh(topology, topology.objects.land), new THREE.LineBasicMaterial({color: 0xff0000})));
       d3.timer(function(t) {

@@ -118,7 +118,7 @@ The Global Mode syntax is experimental in Smartdown currently, and can be access
 
 ### Tickle example with Instance mode Syntax
 
-```p5js/playable/autoplay
+```p5js/playable
 var message = "tickle",
   font,
   bounds, // holds x, y, w, h of the text's bounding box
@@ -161,7 +161,7 @@ p5.draw = function draw() {
 
 ### Tickle example with Global mode Syntax
 
-```P5JS/playable/autoplay
+```P5JS/playable
 var message = "tickle",
   font,
   bounds, // holds x, y, w, h of the text's bounding box

@@ -19,8 +19,7 @@ Based upon the Stdlib examples:
 - https://stdlib.io/develop/docs/api/@stdlib/plot/ctor/
 
 
-```javascript/playable
-//smartdown.use=stdlib
+```stdlib/playable
 
 const thisDiv = this.div;
 
