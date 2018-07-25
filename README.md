@@ -13,3 +13,4 @@ See [Smartdown README](https://smartdown.site/lib/#README) for more info.
 - **0.0.3** Adds P5JS Global Mode Example.
 - **0.0.4** Updates examples to support Smartdown 0.0.76 and dynamic imports, D3v5, P5JS Global syntax, and more.
 - **0.0.5** Updates examples to support SD 0.0.77
+- **0.0.6** Adds smartdown.use Externals examples. Adds Brython examples. Removes duplicate John Gruber quotation.

@@ -16,8 +16,8 @@ Use the navigation buttons below to explore different aspects of Smartdown. You 
 |[Images](:@Images)|[Plotly](:@Plotly)|[Temperature](:@Temperature)|[Mandelbrot](:@Mandelbrot)|
 |[Tweets](:@Tweets)|[Maps](:@Maps)|[Vector Field](:@VectorField)|[LDF](:@LDF)|
 |[Audio and Video](:@Video)|[Stdlib](:@Stdlib)|[Tree](:@Tree)|[YouTube](:@YouTube)|
-|[Gists](:@Gists)|[ThreeJS](:@Three)|[VectorTree](:@VectorTree)|
-|[Cells](:@Cells)|[P5JS](:@P5JS)|[Dungeon](:@Dungeon)|
+|[Gists](:@Gists)|[ThreeJS](:@Three)|[VectorTree](:@VectorTree)|[Extensions](:@Extensions)|
+|[Cells](:@Cells)|[P5JS](:@P5JS)|[Dungeon](:@Dungeon)|[Brython](:@Brython)|
 |[Multicards](:@Multicards)|[Mermaid](:@Mermaid)|[Dungeon3D](:@Games)|
 
 ---
