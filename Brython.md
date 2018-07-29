@@ -9,7 +9,7 @@ I recently explored the possibility of using [Brython](http://www.brython.info) 
 
 This simple example effectively uses the browser's `window.alert()` function, but does so via Brython and the [browser](http://www.brython.info/static_doc/en/browser.html) module.
 
-```brython/playable
+```brython/playable/debug
 """A very simple Python3 program"""
 
 import browser
@@ -33,6 +33,8 @@ sd = __BRYTHON__.smartdown
 
 def nameChanged():
     sd.this.div.innerHTML = "<h4>Hello, %s</h4>" % sd.env.NAME
+
+sd.smartdown.setVariable('NAME', '')
 
 sd.this.dependOn = ['NAME']
 sd.this.depend = nameChanged
@@ -228,6 +230,26 @@ sd.this.atExit(atExit)
 ### How it works
 
 Brython's default API is the `brython()` function which obtains Python3 source code from a `<script type="text/python3">` tag. Smartdown detects `brython` playables and generates a corresponding `<script ...>` tag. When the playable is *played*, the `Brython` compiler is invoked upon the target Python3 script and the translated Python is `eval`-ed in the context of a Smartdown-generated wrapper script that ensures that Smartdown's context is passed.
+
+### Inter-language Communication
+
+Because Smartdown's variables are available to all playables, whether Javascript or Brython, we can *compose* a document using multiple languages, depending on which language is appropriate and best expresses a concept. For example, we can write a Javascript playable that reacts to the same variable `NAME` as above. In this simple example, we'll just update the playable's DOM similar to how we did this in Brython above. For convenience, we have another input field below which will *reflect* and *affect* the value of the `NAME` variable.
+
+[What is your Name (again)?](:?NAME)
+
+```javascript/playable
+const myDiv = this.div;
+
+this.dependOn = ['NAME']
+this.depend = function() {
+    const name = env.NAME;
+    myDiv.innerHTML = `<h4>Hello, ${name}</h4>`
+};
+
+if (!env.NAME) {
+    smartdown.setVariable('NAME', '');
+}
+```
 
 
 #### What's next

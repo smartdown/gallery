@@ -68,7 +68,7 @@ var song;
 
 p5.preload = function () {
   // Load a sound file
-  song = p5.loadSound(p5.exampleSound);
+  song = p5.loadSound('https://unpkg.com/smartdown-gallery/resources/Damscray_DancingTiger.mp3');
   song.owner = p5;
 };
 

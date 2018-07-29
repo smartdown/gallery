@@ -10,7 +10,7 @@ Exploring the possibilities of [Linked Data Fragments](http://linkeddatafragment
 [Query](:!query|code)
 
 ```javascript/playable/autoplay
-//smartdown.use=ldf
+//smartdown.import=ldf
 var ldf = smartdown.ldf;
 smartdown.ldf.Logger.setLevel('NOTICE');
 

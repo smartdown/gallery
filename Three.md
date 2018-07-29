@@ -5,7 +5,7 @@
 This example is adapted from [WebGL Interactive Cubes](https://threejs.org/examples/#webgl_interactive_cubes), although I'm still having difficulty with getting the mouseover to work properly due to coordinate system issues when the window is scrolled or resized. I eventually need to detect the coordinate system change and recalibrate the mouseover.
 
 ```javascript/playable
-//smartdown.use=three
+//smartdown.import=three
 var container = this.div;
 container.style.margin = 'auto';
 container.style.width = '250px';

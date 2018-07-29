@@ -14,7 +14,7 @@ This is a one-pint demo of how ThreeJS and Smartdown can be used to understand t
 [Set X/Y/Zoom](:=useCoordinates=1) [](:?coordinates)
 
 ```javascript/playable/autoplay
-//smartdown.use=three
+//smartdown.import=three
 var vertexShader =
 `
 precision highp float;

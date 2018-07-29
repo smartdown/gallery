@@ -18,7 +18,7 @@ Use the navigation buttons below to explore different aspects of Smartdown. You 
 |[Audio and Video](:@Video)|[Stdlib](:@Stdlib)|[Tree](:@Tree)|[YouTube](:@YouTube)|
 |[Gists](:@Gists)|[ThreeJS](:@Three)|[VectorTree](:@VectorTree)|[Extensions](:@Extensions)|
 |[Cells](:@Cells)|[P5JS](:@P5JS)|[Dungeon](:@Dungeon)|[Brython](:@Brython)|
-|[Multicards](:@Multicards)|[Mermaid](:@Mermaid)|[Dungeon3D](:@Games)|
+|[Multicards](:@Multicards)|[Mermaid](:@Mermaid)|[Dungeon3D](:@Games)|[P5Play](:@P5Play)|
 
 ---
 

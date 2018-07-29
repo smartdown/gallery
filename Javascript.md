@@ -23,9 +23,14 @@ smartdown.setVariable('COUNTER', counter, 'integer');
 
 ---
 
-```javascript/playable/autoplay
+The following code will adjust the size, border and background of the playable's `<div>` via the use of `this.div`, which points to the DOM element and permit normal DOM manipulation.
+
+```javascript/playable
 var playableDiv = this.div;
-playableDiv.style.background='red';
+playableDiv.style.border = '5px solid purple';
+playableDiv.style.background='lightgreen';
+playableDiv.innerHTML = '<h1>Hello World</h1>';
+
 ```
 
 ---
