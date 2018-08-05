@@ -14,11 +14,23 @@ Thumbnail of https://youtu.be/m3dZl3yfGpc with syntax:
 ![thumbnail](https://youtu.be/m3dZl3yfGpc)
 
 
+Halfwidth of https://youtu.be/m3dZl3yfGpc with syntax:
+
+`![halfwidth](https://youtu.be/m3dZl3yfGpc)`
+
+![halfwidth](https://youtu.be/m3dZl3yfGpc)
+
+
 Fullwidth of https://youtu.be/m3dZl3yfGpc with syntax:
 
 `https://youtu.be/m3dZl3yfGpc`
 
 ![fullwidth](https://youtu.be/m3dZl3yfGpc)
+
+
+#### YouTube API Experiments
+
+[VideoAPI](:@VideoAPI)
 
 
 ### Vimeo
@@ -75,6 +87,7 @@ Embedding https://unpkg.com/smartdown/docs/lib/resources/Damscray_DancingTiger.m
 `![](https://unpkg.com/smartdown/docs/lib/resources/Damscray_DancingTiger.mp3)`
 
 ![](https://unpkg.com/smartdown/docs/lib/resources/Damscray_DancingTiger.mp3)
+
 
 
 ---
