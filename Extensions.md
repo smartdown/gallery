@@ -1,4 +1,3 @@
-
 ## Extension Mechanisms for Smartdown
 
 Smartdown tries to be extensible at several levels. One of these is the per-environment level that enables a teacher, for example, to create a topic-specific set of media and API urls (see `calc_handlers.js`, which is mostly undocumented right now).
@@ -182,6 +181,21 @@ Let's see what happens when an included file does not exist.
 //smartdown.include=../gallery/ExtensionsPlayableGraphviz.gv
 ```
 
+
+#### Simple UMD Inclusion
+
+
+```javascript/playable/debug
+//smartdown.import=/gallery/ExtensionsPlayableUMDImport.js
+
+console.log('It worked');
+console.log('example', example);
+
+// Let's call the funcs from our example
+
+example.someFunc(this.div, 'Called from Extensions.md');
+
+```
 
 
 ---

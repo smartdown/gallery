@@ -16,5 +16,5 @@ See [Smartdown README](https://smartdown.site/lib/#README) for more info.
 - **0.0.6** Adds smartdown.use Externals examples. Adds Brython examples. Removes duplicate John Gruber quotation.
 - **0.0.7** Extend Brython example to show integration with JS. Add smartdown.include examples to Extensions.md. Change smartdown.use to smartdown.import
 - **0.0.8** - Add VideoAPI.md experiment with YouTube API.
-
+- **0.0.9** - Add example for dc.fs. Clarify dynamic UMD example and make it flashier. Eliminate use of base href tag.
 
