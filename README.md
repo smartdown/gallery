@@ -18,3 +18,5 @@ See [Smartdown README](https://smartdown.site/lib/#README) for more info.
 - **0.0.8** - Add VideoAPI.md experiment with YouTube API.
 - **0.0.9** - Add example for dc.fs. Clarify dynamic UMD example and make it flashier. Eliminate use of base href tag.
 - **0.0.10** - Fix bad path in index.html.
+- **0.0.11** - Update YouTube cloud example to deal with D3V5. Fix Cells example to URIEncode spaces in URLs. Fix Cuneiform.md example so that the Glyphs are referenced via the correct gallery path. Use correct gallery path for the .mp3 example in Video.md.
+

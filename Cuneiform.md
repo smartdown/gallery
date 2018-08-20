@@ -80,8 +80,8 @@ window.stalk = stalk;
 
 var stalk = null;
 
-const ksimImage = p5.loadImage('resources/KSIMGlyph.png');
-const sirImage = p5.loadImage('resources/SIRGlyph.png');
+const ksimImage = p5.loadImage('/gallery/resources/KSIMGlyph.png');
+const sirImage = p5.loadImage('/gallery/resources/SIRGlyph.png');
 const bgColor = 'white';
 
 function drawQ() {

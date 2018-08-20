@@ -208,7 +208,6 @@ this.depend = function() {
   var bounds = renderDiv.getBoundingClientRect();
   var width = bounds.width;
 
-  var d3 = smartdown.d3;
   var cloud = smartdown.d3cloud;
   words = env.TagList;
 
@@ -216,7 +215,7 @@ this.depend = function() {
     // pass
   }
   else {
-    var fill = d3.scaleOrdinal(d3.schemeCategory20);
+    var fill = d3.scaleOrdinal(d3.schemeAccent);
     var layout = cloud()
         .size([width, width])
         .words(words)

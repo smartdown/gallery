@@ -82,11 +82,11 @@ Via `![fullwidth](https://media.giphy.com/media/8yywW6CcKIpgY/giphy.gif)`
 
 ### MP3 and other Audio Formats
 
-Embedding https://unpkg.com/smartdown/docs/lib/resources/Damscray_DancingTiger.mp3 with the syntax:
+Embedding https://unpkg.com/smartdown-gallery/resources/Damscray_DancingTiger.mp3 with the syntax:
 
-`![](https://unpkg.com/smartdown/docs/lib/resources/Damscray_DancingTiger.mp3)`
+`![](https://unpkg.com/smartdown-gallery/resources/Damscray_DancingTiger.mp3)`
 
-![](https://unpkg.com/smartdown/docs/lib/resources/Damscray_DancingTiger.mp3)
+![](https://unpkg.com/smartdown-gallery/resources/Damscray_DancingTiger.mp3)
 
 
 

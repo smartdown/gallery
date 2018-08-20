@@ -101,10 +101,10 @@ Examples:
 - [`WHAT` images](:=LOOKUP=/wikidataImages["`WHAT`"])
 
 
-- [Albert Einstein|Marie Curie|Max Plank (Slash, Thumbnails)](:=LOOKUP=/wikidataThumbs/Albert Einstein|Marie Curie|Max Plank)
-- [Albert Einstein (Falcor, Thumbnails)](:=LOOKUP=/wikidataThumbs["Albert Einstein"])
-- [Albert Einstein|Marie Curie|Max Plank (Slash, Original)](:=LOOKUP=/wikidataImages/Albert Einstein|Marie Curie|Max Plank)
-- [Albert Einstein (Falcor, Original)](:=LOOKUP=/wikidataImages["Albert Einstein"])
+- [Albert Einstein|Marie Curie|Max Plank (Slash, Thumbnails)](:=LOOKUP=/wikidataThumbs/Albert%20Einstein|Marie%20Curie|Max%20Plank)
+- [Albert Einstein (Falcor, Thumbnails)](:=LOOKUP=/wikidataThumbs["Albert%20Einstein"])
+- [Albert Einstein|Marie Curie|Max Plank (Slash, Original)](:=LOOKUP=/wikidataImages/Albert%20Einstein|Marie%20Curie|Max%20Plank)
+- [Albert Einstein (Falcor, Original)](:=LOOKUP=/wikidataImages["Albert%20Einstein"])
 - [Lookup result](:!LOOKUP)
 
 ---
