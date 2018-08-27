@@ -2,11 +2,9 @@
 
 [Markdown](https://en.wikipedia.org/wiki/Markdown) was originally conceived as an easier way to write prose and technical material for online presentation. Smartdown embraces and extends that philosophy, best expressed by the original mind behind Markdown, [John Gruber](https://daringfireball.net/projects/markdown/syntax#philosophy):
 
----
-
-> Philosophy
+> #### Philosophy
 > Markdown is intended to be as easy-to-read and easy-to-write as is feasible.
-> Readability, however, is emphasized above all else. A Markdown-formatted document should be publishable as-is, as plain text, without looking like it's been marked up with tags or formatting instructions. While Markdown's syntax has been influenced by several existing text-to-HTML filters -- including [Setext] [1], [atx] [2], [Textile] [3], [reStructuredText] [4], [Grutatext] [5], and [EtText] [6] -- the single biggest source of inspiration for Markdown's syntax is the format of plain text email.
+> Readability, however, is emphasized above all else. A Markdown-formatted document should be publishable as-is, as plain text, without looking like it's been marked up with tags or formatting instructions. While Markdown's syntax has been influenced by several existing text-to-HTML filters -- including [Setext][1], [atx][2], [Textile][3], [reStructuredText][4], [Grutatext][5], and [EtText][6] -- the single biggest source of inspiration for Markdown's syntax is the format of plain text email.
 > To this end, Markdown's syntax is comprised entirely of punctuation characters, which punctuation characters have been carefully chosen so as to look like what they mean. E.g., asterisks around a word actually look like \*emphasis\*. Markdown lists look like, well, lists. Even blockquotes look like quoted passages of text, assuming you've ever used email.
 
 
@@ -17,7 +15,6 @@
   [5]: http://www.triptico.com/software/grutatxt.html
   [6]: http://ettext.taint.org/doc/
 
----
 
 ### Markdown is worth learning
 
@@ -123,23 +120,33 @@ _You **can** combine styles ~~easily~~_
    1. Item 3b
 
 
-### Syntax Highlighting
+### Code/Syntax Highlighting
 
 ````markdown
-Inline: `const a = b + "foo"; // comment`
+
+Inline: `const a = b + "foo" + 300; // comment`
+
 Block:
 ```python
 print("Python is sort of a programming language")
+is_a_real_language = 0
 print("LOL, just kidding.")
 ```
+
+Link name with code: [`var a = 5;`](https://www.example.com)
+
 ````
 
-Inline: `const a = b + "foo"; // comment`
+Inline: `const a = b + "foo" + 300; // comment`
+
 Block:
 ```python
 print("Python is sort of a programming language")
+is_a_real_language = 0
 print("LOL, just kidding.")
 ```
+
+Link name with code: [`var xyz = 10001;`](https://www.example.com)
 
 ### Blockquotes
 

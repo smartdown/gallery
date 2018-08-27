@@ -84,7 +84,15 @@ which Smartdown now renders as:
 
 Note that AsciiMath via MathJax does not support *display-mode* equations, but centering can be achieved via Markdown table syntax:
 
-||
+```markdown
+|     |
+|:---:|
+|@sum_(i=1)^n i^3=((n(n+1))/2)^2@|
+```
+
+which renders as below:
+
+|     |
 |:---:|
 |@sum_(i=1)^n i^3=((n(n+1))/2)^2@|
 
