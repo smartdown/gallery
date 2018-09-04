@@ -50,8 +50,8 @@ In each of the examples below, the Markdown source will be shown, followed by it
 
 # Level 1 header [Link Test](https://en.wikipedia.org/wiki/Markdown)
 ## Level 2 header  $E=mc^2$
-### Level 3 header
-#### Level 4 header
+### Level 3 header `var a = 50; // Code`
+#### Level 4 header `var a = 50; // Smaller Code`
 ##### Level 5 header $E=mc^2$
 ###### Level 6 header [Link Test](https://en.wikipedia.org/wiki/Markdown)
 
@@ -223,6 +223,31 @@ And that has made all the difference.
 - [Markdown Philosophy](https://daringfireball.net/projects/markdown/syntax#philosophy)
 - ![Picture of Raven](https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Natural_History%2C_Birds_-_Raven.jpg/570px-Natural_History%2C_Birds_-_Raven.jpg)
 - ![](https://media.poetryfoundation.org/uploads/media/default/0001/08/22208df9f0df9b4e6d3e267b60d17d43f20252f3.mp3)
+
+
+### Autolinks
+
+The Markdown specification and the `marked.js` implementation that Smartown uses provide a feature called *autolinking*, which means that things that look *linkable* are rendered as clickable links. There are some current issues with how email addresses are rendered with [marked.js](https://github.com/markedjs/marked/issues/1218), so Smartdown has disabled the autolinking of email addresses for now.
+
+Here are some examples of autolinking, mostly for test purposes:
+
+- http://example.com
+- `http://example.com`
+- dan@example.com
+- `dan@example.com`
+- [dan@example.com](http://example.com)
+- `https://gist.github.com/DrBud/0d86d77875826743680a0d0a1cbe75ed`
+
+
+### Tables
+
+|Left|Center|Right|
+|:---|:---:|---:|
+|`left`|`center`|`right`|
+|Left|Center|Right|
+|$\leftarrow$|$\leftrightarrow$|$\rightarrow$|
+
+
 
 ### Try out some Markdown and Smartdown
 

@@ -20,4 +20,6 @@ See [Smartdown README](https://smartdown.site/lib/#README) for more info.
 - **0.0.10** - Fix bad path in index.html.
 - **0.0.11** - Update YouTube cloud example to deal with D3V5. Fix Cells example to URIEncode spaces in URLs. Fix Cuneiform.md example so that the Glyphs are referenced via the correct gallery path. Use correct gallery path for the .mp3 example in Video.md.
 - **0.0.12** - Fix Math.md so that the table syntax example is properly shown. Enhance Markdown.md to illustrate code highlighting better.
+- **0.0.13** - Add examples of email addresses and autolinking to ensure they are not improperly autolinked. Add MD table example with left/right/center justification.
+
 
