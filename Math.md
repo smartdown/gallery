@@ -46,9 +46,7 @@ U \ar@/_/[ddr]_y \ar@{.>}[dr]|{\langle x,y \rangle} \ar@/^/[drr]^x \\
 \end{xy}
 $$
 
-#### Testing out HTML entity escaping
 
-Often we'll use 
 #### MathJax $\LaTeX$ vs AsciiMath Syntax
 
 Recently, I learned that MathJax had an alternative syntax, [AsciiMath](http://asciimath.org) that is simpler for many purposes. Smartdown has enabled this feature, although we are currently using `@` as the delimiter instead of \` or `$`.
