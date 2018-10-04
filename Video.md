@@ -54,6 +54,8 @@ Fullwidth of https://vimeo.com/253898691 using the syntax:
 
 I'm experimenting with incorporating GIFs for the purpose of building a tutorial. The use of the keyword `player` in the label of the Smartdown link syntax indicates that a play/pause button should be added to the GIF viewer.
 
+The use of a *sizing* option in the title will also apply a play button. This default may be changed in the future.
+
 #### NASA Eclipse
 
 Embedding https://upload.wikimedia.org/wikipedia/commons/c/cb/An_EPIC_Eclipse.gif with the syntax:
@@ -67,15 +69,19 @@ By NASA (NASA Earth Observatory) [Public domain] via [Wikimedia Commons](https:/
 
 #### Classic Stick Man vs Door, translated to English:
 
-Via `![thumbnail](https://media.giphy.com/media/8yywW6CcKIpgY/giphy.gif)`
+- Via `![](https://media.giphy.com/media/8yywW6CcKIpgY/giphy.gif)`
+
+![](https://media.giphy.com/media/8yywW6CcKIpgY/giphy.gif)
+
+- Via `![thumbnail](https://media.giphy.com/media/8yywW6CcKIpgY/giphy.gif)`
 
 ![thumbnail](https://media.giphy.com/media/8yywW6CcKIpgY/giphy.gif)
 
-Via `![halfwidth](https://media.giphy.com/media/8yywW6CcKIpgY/giphy.gif)`
+- Via `![halfwidth](https://media.giphy.com/media/8yywW6CcKIpgY/giphy.gif)`
 
 ![halfwidth](https://media.giphy.com/media/8yywW6CcKIpgY/giphy.gif)
 
-Via `![fullwidth](https://media.giphy.com/media/8yywW6CcKIpgY/giphy.gif)`
+- Via `![fullwidth](https://media.giphy.com/media/8yywW6CcKIpgY/giphy.gif)`
 
 ![fullwidth](https://media.giphy.com/media/8yywW6CcKIpgY/giphy.gif)
 

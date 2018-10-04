@@ -13,7 +13,7 @@ Smartdown makes it easy to write multi-card notebooks that can be used to build 
 
 #### Dungeon Entrance
 
-![](https://upload.wikimedia.org/wikipedia/commons/b/bb/Basement-of-chillon-castle.jpg)
+![](/gallery/resources/Basement-of-chillon-castle.jpg)
 
 You are in a non-descript room, with a door to the [North ![](/gallery/resources/Dungeon_door.gif)](:@NorthRoom) and a metal gate to the [South ![](/gallery/resources/Gates_open.gif)](:@SouthRoom).
 
@@ -33,5 +33,5 @@ There is a door to the [South](:@DungeonEntrance).
 
 ## Welcome to the South Room
 
-There is a metal gate to the [North [![](/gallery/resources/Gates_open.gif)](:@DungeonEntrance)](:@DungeonEntrance).
+There is a metal gate to the [North [![](/gallery/resources/Gates_open.gif)](:@DungeonEntrance).
 
