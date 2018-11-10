@@ -24,3 +24,5 @@ See [Smartdown README](https://smartdown.site/lib/#README) for more info.
 - **0.0.14** - Eliminate leftover HTML entity debugging example from Math.md. Adjust index.html to deal with new smartdown.site file structure.
 - **0.0.15** - Add examples of image size control.
 - **0.0.16** - Add Disclosable example.
+- **0.0.17** - REALLY add Disclosable example.
+
