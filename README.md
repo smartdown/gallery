@@ -23,4 +23,4 @@ See [Smartdown README](https://smartdown.site/lib/#README) for more info.
 - **0.0.13** - Add examples of email addresses and autolinking to ensure they are not improperly autolinked. Add MD table example with left/right/center justification.
 - **0.0.14** - Eliminate leftover HTML entity debugging example from Math.md. Adjust index.html to deal with new smartdown.site file structure.
 - **0.0.15** - Add examples of image size control.
- 
+- **0.0.16** - Add Disclosable example.
