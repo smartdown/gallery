@@ -25,4 +25,4 @@ See [Smartdown README](https://smartdown.site/lib/#README) for more info.
 - **0.0.15** - Add examples of image size control.
 - **0.0.16** - Add Disclosable example.
 - **0.0.17** - REALLY add Disclosable example.
-
+- **0.0.18** - Add improved Disclosable example, with documentation on the feature.

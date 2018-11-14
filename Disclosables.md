@@ -1,42 +1,160 @@
-## Disclosables
+## Smartdown Disclosables
 
-Here's some text with an inline button.  [Click here to see more!](::d3). Here's some text after the button.
+Smartdown now provides an experimental feature that we are calling *Disclosables*, which enables an author to *stage* the content that a reader sees, and enables the reader to control how much detail they wish to see. This feature is one mechanism Smartdown uses to provide [**progressive disclosure**](::progdisc/tooltip), which can help make [Explorable Explanations](http://worrydream.com/ExplorableExplanations/) *rich* but *manageable*.
 
-Here is a [tooltip style button](::d1/tooltip) more text after
-
-# :::: d1
-Here is some tooltip text to display. Destroy couch as revenge hiss and stare at nothing then run suddenly away, and sit in box have a lot of grump in yourself because you can't forget to be grumpy and not be like king grumpy cat yet hunt by meowing loudly at 5am next to human slave food dispenser. Caticus cuteicus. Put butt in owner's face.
+# :::: progdisc
+[Progressive Disclosure](https://en.wikipedia.org/wiki/Progressive_disclosure) is a design technique that maintains the user's focus and attention by reducing the amount of data presented to the user and thereby reduces their cognitive load.
 # ::::
 
-# :::: d3
+The key elements of this feature are the *disclosable*, which is Smartdown content that is hidden by default; and the *trigger*, which is the means by which a reader can control the visibility of the disclosable.
 
-## Real Nested Disclosable
 
-There's all kinds of stuff hidden here.
+### Creating a Disclosable
 
-##### [Open Sesame](::d4)
+A section of your Smartdown content can be marked as a disclosable by sandwiching the content between special markdown headers containing the characters `::::`. For example, here is how a disclosable named `MyDisclosable` might be declared:
 
-# :::: d4
+```markdown
+# :::: MyDisclosable
 
-This is nested inside the previous.
+This is the hidden content for the disclosable called `MyDisclosable`
 
-and it has a tooltip [here](::d2/tooltip) and that'll be the end of it for now.
+- The content is hidden by default
+- Any type of *Smartdown* may be contained in a disclosable
 
+# ::::
+```
+
+Notice that the first section header contains `::::` and the disclosable name, `MyDisclosable`. The disclosable declaration is completed with an empty `::::` header with no name.
+
+
+### Creating a Trigger
+
+We currently support the following ways to *reveal* a disclosable:
+
+- A *Button* trigger, which will toggle the visibility of the disclosable content when clicked. This content will remain visible until the user toggles the button.
+- A *Tooltip* trigger, which will reveal the disclosable content when hovered over or tapped. This content will remain visible until the user moves their mouse away from the trigger or taps it again. In other words, Tooltips are *spring-loaded* and will deactivate when the user ceases to interact with the trigger.
+
+Both triggers are specified using a variant of Markdown's link syntax that contains a user-visible label and the disclosable's name. For example, a Button-style trigger for the above example `MyDisclosable` would be declared as:
+
+```markdown
+If you click [here](::MyDisclosable) you will reveal the hidden content. Clicking again will hide the content.
+```
+
+Similarly, we can declare a Tooltip-style trigger by adding the `/tooltip` suffix to the trigger URL, as below:
+
+
+```markdown
+If you hover your mouse over [here](::MyDisclosable/tooltip) you will reveal the hidden content until you move your mouse away.
+```
+
+
+### Shared Disclosables
+
+A given disclosable can have more than one trigger associated with it. For example, below is a working example of the above:
+
+> If you hover your mouse over [here](::MyDisclosable/tooltip) you will reveal the hidden content until you move your mouse away.
+>
+> If you click [here](::MyDisclosable) you will reveal the hidden content. Clicking again will hide the content.
+
+# :::: MyDisclosable
+
+This is the hidden content for the disclosable called `MyDisclosable`
+
+- The content is hidden by default
+- Any type of *Smartdown* may be contained in a disclosable
 
 # ::::
 
+
+### Controlling the Size and Placement of Button Triggers
+
+If you place the trigger on a header line, you can control the size of the button. For example, the syntax
+```
+## [My Disclosable Section](::MyDisclosableSection)
+```
+
+will result in a level 2 section header labeled `My Disclosable Section` that will reveal the disclosable content for `MyDisclosableSection`. Typically, you would declare the disclosable immediately after such a section button. For example:
+
+```markdown
+## [My Disclosable Section](::MyDisclosableSection)
+#### :::: MyDisclosableSection
+
+This is the disclosable content.
+
+# ::::
+
+```
+
+which renders as:
+
+## [My Disclosable Section](::MyDisclosableSection)
+#### :::: MyDisclosableSection
+
+This is the disclosable content.
+
+# ::::
+
+## Triggers with Media
+
+We can build triggers that utilize Smartdown's media syntax. For example, we can have an image trigger that reveals more detail via a disclosable. This disclosable itself may utilize Smartdown's ability to encode an `<iframe>`. For example, we can consider one of Mars's satellites, [Phobos](::MoreAboutPhobos/tooltip).
+
+#### [Phobos ![thumbnail](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Phobos_colour_2008.jpg/440px-Phobos_colour_2008.jpg)](::MoreAboutPhobos)
+
+# :::: MoreAboutPhobos
+
+![iframe](https://en.wikipedia.org/wiki/Phobos_(moon))
+
 # ::::
 
 
+## Rich Content Disclosables
 
+Typical usage of the disclosable feature is to provide a tooltip or some detail to an explanation. This content can be *any* Smartdown content, and can be interacted with as ordinary Smartdown content. The following example shows a disclosable that can be triggered via a [**tooltip**](::AboutMarkdown/tooltip) or via a [**button**](::AboutMarkdown), and has its own rich Smartdown structure.
 
-# :::: d2
-Here is some tooltip text to display. Put toy mouse in food bowl run out of litter box at full speed chew on cable and roll over and sun my belly intrigued by the shower dead stare with ears cocked mesmerizing birds. I'm going to lap some water out of my master's cup meow human clearly uses close to one life a night no one naps that long so i revive by standing on chestawaken! for eat grass, throw it back up. Pooping rainbow while flying in a toasted bread costume in space eats owners hair then claws head purrrrrr for destroy house in 5 seconds. 
+# :::: AboutMarkdown
+
+## About Markdown
+
+Although there are several variants and extensions of Markdown, the ubiquity of the core Markdown syntax makes it a worthwhile and minimal investment to learn. Smartdown is based primarily upon GitHub-flavored Markdown, which is supported widely on GitHub, and also by many other Markdown tools and sites.
+
+Some resources that may help:
+
+- [John Gruber's Markdown from 2004](https://daringfireball.net/projects/markdown/)
+- [GitHub's *Mastering Markdown*](https://guides.github.com/features/mastering-markdown/)
+
+# Level 1 header [Link Test](https://en.wikipedia.org/wiki/Markdown)
+## Level 2 header  $E=mc^2$
+### Level 3 header `var a = 50; // Code`
+#### Level 4 header `var a = 50; // Smaller Code`
+##### Level 5 header $E=mc^2$
+###### Level 6 header [Link Test](https://en.wikipedia.org/wiki/Markdown)
+
 # ::::
 
+The above disclosable is defined as:
 
+```markdown
+# :::: AboutMarkdown
 
+## About Markdown
 
+Although there are several variants and extensions of Markdown, the ubiquity of the core Markdown syntax makes it a worthwhile and minimal investment to learn. Smartdown is based primarily upon GitHub-flavored Markdown, which is supported widely on GitHub, and also by many other Markdown tools and sites.
 
+Some resources that may help:
 
-### More Headers
+- [John Gruber's Markdown from 2004](https://daringfireball.net/projects/markdown/)
+- [GitHub's *Mastering Markdown*](https://guides.github.com/features/mastering-markdown/)
+
+# Level 1 header [Link Test](https://en.wikipedia.org/wiki/Markdown)
+## Level 2 header  $E=mc^2$
+### Level 3 header `var a = 50; // Code`
+#### Level 4 header `var a = 50; // Smaller Code`
+##### Level 5 header $E=mc^2$
+###### Level 6 header [Link Test](https://en.wikipedia.org/wiki/Markdown)
+
+# ::::
+```
+
+---
+
+[Back to Home](:@Home)
