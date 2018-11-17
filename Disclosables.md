@@ -70,13 +70,13 @@ This is the hidden content for the disclosable called `MyDisclosable`
 
 If you place the trigger on a header line, you can control the size of the button. For example, the syntax
 ```
-## [My Disclosable Section](::MyDisclosableSection)
+## [My Disclosable](::MyDisclosableSection)
 ```
 
-will result in a level 2 section header labeled `My Disclosable Section` that will reveal the disclosable content for `MyDisclosableSection`. Typically, you would declare the disclosable immediately after such a section button. For example:
+will result in a level 2 section header labeled `My Disclosable` that will reveal the disclosable content for `MyDisclosableSection`. Typically, you would declare the disclosable immediately after such a section button. For example:
 
 ```markdown
-## [My Disclosable Section](::MyDisclosableSection)
+## [My Disclosable](::MyDisclosableSection)
 #### :::: MyDisclosableSection
 
 This is the disclosable content.
@@ -87,25 +87,12 @@ This is the disclosable content.
 
 which renders as:
 
-## [My Disclosable Section](::MyDisclosableSection)
+## [My Disclosable](::MyDisclosableSection)
 #### :::: MyDisclosableSection
 
 This is the disclosable content.
 
 # ::::
-
-## Triggers with Media
-
-We can build triggers that utilize Smartdown's media syntax. For example, we can have an image trigger that reveals more detail via a disclosable. This disclosable itself may utilize Smartdown's ability to encode an `<iframe>`. For example, we can consider one of Mars's satellites, [Phobos](::MoreAboutPhobos/tooltip).
-
-#### [Phobos ![thumbnail](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Phobos_colour_2008.jpg/440px-Phobos_colour_2008.jpg)](::MoreAboutPhobos)
-
-# :::: MoreAboutPhobos
-
-![iframe](https://en.wikipedia.org/wiki/Phobos_(moon))
-
-# ::::
-
 
 ## Rich Content Disclosables
 
@@ -154,6 +141,19 @@ Some resources that may help:
 
 # ::::
 ```
+
+## Triggers with Media
+
+We can build triggers that utilize Smartdown's media syntax. For example, we can have an image trigger that reveals more detail via a disclosable. This disclosable itself may utilize Smartdown's ability to encode an `<iframe>`. For example, we can consider one of Mars's satellites, [Phobos](::MoreAboutPhobos/tooltip).
+
+[Phobos ![thumbnail](https://solarsystem.nasa.gov/system/content_pages/main_images/428_phobosincolor_pia10369.jpg)](::MoreAboutPhobos)
+
+# :::: MoreAboutPhobos
+
+![iframe](https://solarsystem.nasa.gov/moons/mars-moons/phobos/in-depth/)
+
+# ::::
+
 
 ---
 
