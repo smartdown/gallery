@@ -27,4 +27,4 @@ See [Smartdown README](https://smartdown.site/lib/#README) for more info.
 - **0.0.17** - REALLY add Disclosable example.
 - **0.0.18** - Add improved Disclosable example, with documentation on the feature.
 - **0.0.19** - Use different iframe demo for Disclosables, to avoid referrer error from WikiPedia.
-
+- **0.0.20** - Fix P5JS Tickle example to work with smartdown.baseURL.

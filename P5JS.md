@@ -126,7 +126,7 @@ var message = "tickle",
   x, y; // x and y coordinates of the text
 
 p5.preload = function preload() {
-  font = p5.loadFont('/gallery/resources/SourceSansPro-Regular.otf');
+  font = p5.loadFont(smartdown.baseURL + 'gallery/resources/SourceSansPro-Regular.otf');
 };
 
 p5.setup = function setup() {
@@ -169,7 +169,7 @@ var message = "tickle",
   x, y; // x and y coordinates of the text
 
 function preload() {
-  font = loadFont('/gallery/resources/SourceSansPro-Regular.otf');
+  font = loadFont(smartdown.baseURL + 'gallery/resources/SourceSansPro-Regular.otf');
 }
 
 function setup() {

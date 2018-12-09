@@ -1,6 +1,6 @@
 {
   "name": "smartdown-gallery",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "description": "Example Smartdown documents and associated resources that demonstrate various Smartdown features and serve as raw material for other Smartdown demos.",
   "main": "index.js",
   "scripts": {
