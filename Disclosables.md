@@ -144,13 +144,15 @@ Some resources that may help:
 
 ## Triggers with Media
 
-We can build triggers that utilize Smartdown's media syntax. For example, we can have an image trigger that reveals more detail via a disclosable. This disclosable itself may utilize Smartdown's ability to encode an `<iframe>`. For example, we can consider one of Mars's satellites, [Phobos](::MoreAboutPhobos/tooltip).
+We can build triggers that utilize Smartdown's media syntax. For example, we can have an image trigger that reveals more detail via a disclosable. For example, we can consider one of Mars's satellites, [Phobos](::MoreAboutPhobos/tooltip).
 
 [Phobos ![thumbnail](https://solarsystem.nasa.gov/system/content_pages/main_images/428_phobosincolor_pia10369.jpg)](::MoreAboutPhobos)
 
 # :::: MoreAboutPhobos
 
-![iframe](https://solarsystem.nasa.gov/moons/mars-moons/phobos/in-depth/)
+[Phobos in Orbit around Mars](https://mars.nasa.gov/resources/8823/phobos-in-orbit-around-mars/)
+
+![](https://mars.nasa.gov/system/downloadable_items/40137_animated-nasa-hubble-martian-moon-orbiting-mars.gif)
 
 # ::::
 
