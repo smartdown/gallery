@@ -37,7 +37,7 @@ We currently support the following ways to *reveal* a disclosable:
 Both triggers are specified using a variant of Markdown's link syntax that contains a user-visible label and the disclosable's name. For example, a Button-style trigger for the above example `MyDisclosable` would be declared as:
 
 ```markdown
-If you click [here](::MyDisclosable) you will reveal the hidden content. Clicking again will hide the content.
+If you click [here :rainbow:](::MyDisclosable) you will reveal the hidden content. Clicking again will hide the content.
 ```
 
 Similarly, we can declare a Tooltip-style trigger by adding the `/tooltip` suffix to the trigger URL, as below:
@@ -54,7 +54,7 @@ A given disclosable can have more than one trigger associated with it. For examp
 
 > If you hover your mouse over [here](::MyDisclosable/tooltip) you will reveal the hidden content until you move your mouse away.
 >
-> If you click [here](::MyDisclosable) you will reveal the hidden content. Clicking again will hide the content.
+> If you click [here :rainbow:](::MyDisclosable) you will reveal the hidden content. Clicking again will hide the content.
 
 # :::: MyDisclosable
 
@@ -62,7 +62,7 @@ This is the hidden content for the disclosable called `MyDisclosable`
 
 - The content is hidden by default
 - Any type of *Smartdown* may be contained in a disclosable
-
+- I wonder if Emoji work here? :four_leaf_clover: :globe_with_meridians:
 # ::::
 
 

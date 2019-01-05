@@ -264,6 +264,23 @@ Examples to start with:
 - `[What is your name](:?NAME) [Pleased to meet you, ](:!NAME)`
 
 
+### Emoji Support
+
+Smartdown now incorporates support for Emoji, as is conventional in many Markdown implementations, including GitHub-flavored Markdown's [Emoji](https://help.github.com/articles/basic-writing-and-formatting-syntax/#using-emoji) conventions.
+
+For example, we can do a Smiley emoji with the syntax:
+
+```markdown
+plain: :smiley:  *italic* *:smiley:*   **bold** **:smiley:**
+```
+
+which should render as:
+
+plain: :smiley:  *italic* *:smiley:*   **bold** **:smiley:**
+
+#### :rainbow: Emoji in Headings :honeybee:
+
+Other examples of Emoji (e.g., `:cherry_blossom:` turns into :cherry_blossom:) can be found at: [Emoji Cheat Sheet :rocket:](https://www.webfx.com/tools/emoji-cheat-sheet/)
 
 ---
 
