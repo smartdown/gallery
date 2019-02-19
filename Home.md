@@ -12,14 +12,14 @@ Use the navigation buttons below to explore different aspects of Smartdown. You 
 |:---:|:---:|:---:|:---:|
 |[Readme](:@README)|[Graphviz](:@Graphviz)|[MadLibs](:@MadLibs)|[Processes](:@Processes)|
 |[Markdown](:@Markdown)|[D3](:@D3)|[Cuneiform](:@Cuneiform)|[Javascript](:@Javascript)|
-|[Math](:@Math)|[SVG](:@SVG)|[Mobius](:@Mobius)|[Conic](:@Conic)|
-|[Images](:@Images)|[Plotly](:@Plotly)|[Temperature](:@Temperature)|[Mandelbrot](:@Mandelbrot)|
-|[Tweets](:@Tweets)|[Maps](:@Maps)|[Vector Field](:@VectorField)|[LDF](:@LDF)|
+|[Math](:@Math)|[SVG](:@SVG)|[Mobius](:@Mobius)|[Gists](:@Gists)|
+|[Images](:@Images)|[Plotly](:@Plotly)|[Temperature](:@Temperature)|[Extensions](:@Extensions)|
+|[Tweets](:@Tweets)|[Maps](:@Maps)|[Vector Field](:@VectorField)|[Brython](:@Brython)|
 |[Audio and Video](:@Video)|[Stdlib](:@Stdlib)|[Tree](:@Tree)|[YouTube](:@YouTube)|
-|[Gists](:@Gists)|[ThreeJS](:@Three)|[VectorTree](:@VectorTree)|[Extensions](:@Extensions)|
-|[Cells](:@Cells)|[P5JS](:@P5JS)|[Dungeon](:@Dungeon)|[Brython](:@Brython)|
-|[Multicards](:@Multicards)|[Mermaid](:@Mermaid)|[Dungeon3D](:@Games)|[P5Play](:@P5Play)|
-||||[Disclosables](:@Disclosables)|
+|[Decorations](:@Decorations)|[ThreeJS](:@Three)|[VectorTree](:@VectorTree)|[Mandelbrot](:@Mandelbrot)|
+|[Cells](:@Cells)|[P5JS](:@P5JS)|[Dungeon](:@Dungeon)|[LDF](:@LDF)|
+|[Disclosables](:@Disclosables)|[Mermaid](:@Mermaid)|[Dungeon3D](:@Games)|[P5Play](:@P5Play)|
+|[Multicards](:@Multicards)||[Conic](:@Conic)||
 
 ---
 

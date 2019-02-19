@@ -30,3 +30,5 @@ See [Smartdown README](https://smartdown.site/lib/#README) for more info.
 - **0.0.20** - Fix P5JS Tickle example to work with smartdown.baseURL.
 - **0.0.21** - Fix Disclosables example to not use iframe, so that content blockers are not triggered.
 - **0.0.22** - Add Emoji examples to Markdown doc and Disclosables doc.
+- **0.0.23** - Add Decorations card and rearrange Home card to better reflect the basic vs advanced vs experimental capabilities of smartown. Assume smartdown v0.0.111.
+
