@@ -15,7 +15,7 @@ The following decoration puts an outline box around the content
 ```markdown
 # --outlinebox cartesian_product
 
-**Definition 1.0** 
+**Definition 1.0**
 For sets $A$ and $B$ the *Cartesian product* or *cross product*, of $A$ and $B$ is denoted by $A \times B$ and equals
 $$\{(a,b) \, | \, a \in A, \, b \in B \}$$
 
@@ -32,7 +32,7 @@ This is displayed as:
 
 #### --outlinebox cartesian_product
 
-**Definition 1.0** 
+**Definition 1.0**
 For sets $A$ and $B$ the *Cartesian product* or *cross product*, of $A$ and $B$ is denoted by $A \times B$ and equals
 $$\{(a,b) \, | \, a \in A, \, b \in B \}$$
 
@@ -46,7 +46,7 @@ Another decoration places content in a dark background box using the tag `--colo
 
 #### --colorbox thm1
 
-**Theorem 1.1** 
+**Theorem 1.1**
 In any graph $G$, the sum of the degrees of the nodes of $G$ is an even number.
 #### --colorbox
 
@@ -58,7 +58,7 @@ Here we use the `--partialborder` decoration for an example.
 
 #### --partialborder example1
 
-**Example 1.2** 
+**Example 1.2**
 If $A = \{2,3,4\}$ and $B = \{3,5\}$, then the *cartesian product* $A \times B$ is the set of pairs
 
 $$\{(2,3),(2,5),(3,3),(3,5),(4,3),(4,5)\}$$
@@ -72,7 +72,7 @@ The old formatting for disclosables is now a decoration.  It uses the `--alicebl
 
 #### --aliceblue example3
 
-**Example 1.2** 
+**Example 1.2**
 If $A = \{2,3,4\}$ and $B = \{3,5\}$, then the *cartesian product* $A \times B$ is the set of pairs
 
 $$\{(2,3),(2,5),(3,3),(3,5),(4,3),(4,5)\}$$
@@ -83,18 +83,18 @@ $$\{(2,3),(2,5),(3,3),(3,5),(4,3),(4,5)\}$$
 
 ## Nesting Decorations
 
-You can nest decorations of different types.  
+You can nest decorations of different types.
 
 #### --colorbox cartesian_product_nest
 
-**Definition 1.0** 
+**Definition 1.0**
 For sets $A$ and $B$ the *Cartesian product* or *cross product*, of $A$ and $B$ is denoted by $A \times B$ and equals
 $$\{(a,b) \, | \, a \in A, \, b \in B \}$$
 
 An element $(a,b)$ of $A \times B$ is called an *ordered pair*.
 #### --outlinebox example1_nest
 
-**Example 1.2** 
+**Example 1.2**
 If $A = \{2,3,4\}$ and $B = \{3,5\}$, then the *cartesian product* $A \times B$ is the set of pairs
 
 $$\{(2,3),(2,5),(3,3),(3,5),(4,3),(4,5)\}$$
@@ -106,7 +106,7 @@ $$\{(2,3),(2,5),(3,3),(3,5),(4,3),(4,5)\}$$
 
 # Decorations Inside Disclosables
 
-Decorations can be used inside any [disclosable](:@Disclosables).  
+Decorations can be used inside any [disclosable](:@Disclosables).
 
 
 #### Cool Nested Decorations
@@ -116,19 +116,19 @@ Here is an example of a math problem that uses decorations and [disclosables](:@
 
 #### --partialborder problem1
 
-**Problem 1.3** 
+**Problem 1.3**
 
 For what real values of $c$ is $x^2 + 16x + c$ the square of a binomial? If you find more than one, then list your values separated by commas.
 
-[Your Answer](:?answer) 
+[Your Answer](:?answer)
 
 ```javascript/autoplay
 smartdown.setVariable('answer', '');
 this.dependOn = ['answer'];
 this.depend = function() {
 	if (env.answer === '64') {
-		smartdown.showDisclosure('sol1','','');	
-	}	
+		smartdown.showDisclosure('sol1', '', '');
+	}
 };
 ```
 
