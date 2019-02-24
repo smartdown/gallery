@@ -8,8 +8,6 @@ Sometimes you want to make a chunk of text stand out from the main text.  For ex
 - `--colorbox` - a dark bluegray background with white text and rounded corners
 - `--partialborder` - a light purple background with black text and double top and bottom outline
 - `--aliceblue` - a light blue background with black text and a light gray rounded outline
-- `--lightbox` - a dimming of the entire page outside the decorated text.
-
 
 
 The following decoration puts an outline box around the content
@@ -106,52 +104,10 @@ $$\{(2,3),(2,5),(3,3),(3,5),(4,3),(4,5)\}$$
 
 
 
-# Decorations inside Disclosables
+# Decorations Inside Disclosables
 
 Decorations can be used inside any [disclosable](:@Disclosables).  
 
-#### The Lightbox Decoration
-The `--lightbox` decoration is intended to be used inside a disclosable.  If you use it outside of a disclosable it will make the rest of your page difficult to read.  In the `smartdown` text below we start with a button trigger for our disclosable.  Then we create the `examplelit` disclosable.  We enclose our example text with a `--lightbox` decoration.
-
-
-```markdown
-[Light up example](::examplelit)
-
-#### :::: examplelit
-
-#### --lightbox example1_nest
-
-Light boxes help get the users attention for an important message! Use them for a
-
-	- Warning
-	- Direction
-	- Message of Positive Feedback
-	- Funny Joke
-
-#### --lightbox
-
-#### ::::
-```
-
-This `smartdown` text is displayed like this:
-
-
-[Light up example](::examplelit)
-
-#### :::: examplelit
-
-#### --lightbox example1_nest
-
-Light boxes help get the users attention for an important message! Use them for a
-
-	- Warning
-	- Direction
-	- Message of Positive Feedback
-	- Funny Joke
-
-#### --lightbox
-
-#### ::::
 
 #### Cool Nested Decorations
 
