@@ -127,7 +127,7 @@ smartdown.setVariable('answer', '');
 this.dependOn = ['answer'];
 this.depend = function() {
 	if (env.answer === '64') {
-		smartdown.toggleDisclosureButton('sol1');	
+		smartdown.showDisclosure('sol1','','');	
 	}	
 };
 ```
@@ -147,3 +147,7 @@ Comparing the constant terms of $x^2 + 2bx + b^2$ and $x^2 + 16x + c$, we find $
 #### --partialborder
 
 More cool stuff with decorations and disclosables is coming soon!
+
+---
+
+[Back to Home](:@Home)
