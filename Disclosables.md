@@ -29,10 +29,10 @@ Notice that the first section header contains `::::` and the disclosable name, `
 
 ### Creating a Trigger
 
-We currently support the following ways to *reveal* a disclosable:
+The trigger for a disclosable specifies the way a disclosable will be revealed or hidden. When we define a trigger we also get to specify many aspects of how the disclosable will be displayed and what it will look like.  We'll begin with two very simple ways to define triggers.
 
-- A *Button* trigger, which will toggle the visibility of the disclosable content when clicked. This content will remain visible until the user toggles the button.
-- A *Tooltip* trigger, which will reveal the disclosable content when hovered over or tapped. This content will remain visible until the user moves their mouse away from the trigger or taps it again. In other words, Tooltips are *spring-loaded* and will deactivate when the user ceases to interact with the trigger.
+- A *Button* trigger, will toggle the visibility of the disclosable content when clicked. This content will remain visible until the user toggles the button.  The content of the disclosable will be displayed inline with the rest of your text at the position where the disclosable is defined.
+- A *Tooltip* trigger, will reveal the disclosable content when hovered over or tapped. This content will appear beneath the trigger and it will remain visible until the user moves their mouse away from the trigger or taps it again. In other words, Tooltips are *spring-loaded* and will deactivate when the user ceases to interact with the trigger.
 
 Both triggers are specified using a variant of Markdown's link syntax that contains a user-visible label and the disclosable's name. For example, a Button-style trigger for the above example `MyDisclosable` would be declared as:
 
@@ -41,7 +41,6 @@ If you click [here :rainbow:](::MyDisclosable) you will reveal the hidden conten
 ```
 
 Similarly, we can declare a Tooltip-style trigger by adding the `/tooltip` suffix to the trigger URL, as below:
-
 
 ```markdown
 If you hover your mouse over [here](::MyDisclosable/tooltip) you will reveal the hidden content until you move your mouse away.
