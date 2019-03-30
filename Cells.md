@@ -77,40 +77,6 @@ By default, a cell is a string. An input cell may be annotated to indicate that 
 ... What is your name? [](:?NAME) ... Your name is [](:!NAME) ... What is your age? [](:?AGE|number) ... Your Age is [](:!AGE) ...
 
 
-### External Data Query
-
-*The Smartdown code below is a work in progress and the syntax used is experimental and in flux.*
-
-One of the goals of Smartdown is to enable simple text files to express rich interactive experiences that involve live data. Ideally, web-based services would already exist to serve the data-hunger of Smartdown. In this example, we are exploring the use of [Wikidata](https://www.wikidata.org) as a data source.
-
-Limitations of the current tech include:
-
-- The [Falcor](https://netflix.github.io/falcor/) syntax is a hack and is not using the Falcor library.
-- The current example emphasizes the extraction of thumbnail images from Wikidata and does not display or utilize the full set of metadata returned.
-
-[WHAT do you want to look up?](:?WHAT)
-
-Examples:
-- Earth
-- Penguin
-- Uranium
-- Oregon
-- Abraham Lincoln
-- [`WHAT`](:=LOOKUP=/wikidata["`WHAT`"])
-- [`WHAT` thumbnails](:=LOOKUP=/wikidataThumbs["`WHAT`"])
-- [`WHAT` images](:=LOOKUP=/wikidataImages["`WHAT`"])
-
-
-- [Albert Einstein|Marie Curie|Max Plank (Slash, Thumbnails)](:=LOOKUP=/wikidataThumbs/Albert%20Einstein|Marie%20Curie|Max%20Plank)
-- [Albert Einstein (Falcor, Thumbnails)](:=LOOKUP=/wikidataThumbs["Albert%20Einstein"])
-- [Albert Einstein|Marie Curie|Max Plank (Slash, Original)](:=LOOKUP=/wikidataImages/Albert%20Einstein|Marie%20Curie|Max%20Plank)
-- [Albert Einstein (Falcor, Original)](:=LOOKUP=/wikidataImages["Albert%20Einstein"])
-- [Lookup result](:!LOOKUP)
-
----
-
-[](:!LOOKUP)
-
 ---
 
 [Back to Home](:@Home)
