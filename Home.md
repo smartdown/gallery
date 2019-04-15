@@ -20,6 +20,7 @@ Use the navigation buttons below to explore different aspects of Smartdown. You 
 |[Cells](:@Cells)|[P5JS](:@P5JS)|[Dungeon](:@Dungeon)|[LDF](:@LDF)|
 |[Disclosables](:@Disclosables)|[Mermaid](:@Mermaid)|[Dungeon3D](:@Games)|[P5Play](:@P5Play)|
 |[Disclosables++](:@DisclosablesPlus)|[Data](:@Data)|[Conic](:@Conic)|[Multicards](:@Multicards)|
+||||[OpenJSCAD](:@OpenJSCAD)|
 
 ---
 

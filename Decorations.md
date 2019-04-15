@@ -126,9 +126,9 @@ For what real values of $c$ is $x^2 + 16x + c$ the square of a binomial? If you 
 smartdown.setVariable('answer', '');
 this.dependOn = ['answer'];
 this.depend = function() {
-	if (env.answer === '64') {
-		smartdown.showDisclosure('sol1', '', '');
-	}
+  if (env.answer === '64') {
+    smartdown.showDisclosure('sol1', '', '');
+  }
 };
 ```
 

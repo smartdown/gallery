@@ -35,3 +35,4 @@ See [Smartdown README](https://smartdown.site/lib/#README) for more info.
 - **0.0.25** - Fixes Decorations.md to use smartdown.showDisclosure.
 - **0.0.26** - Clearer examples/tests of Cells and Reactivity. Create a separate Data.md page to demonstrate calc_handlers and data tubes and explain CORS a little. (rough draft). Assumes SD 0.0.116+.
 - **0.0.27** - Add calc_handlers to index.html.
+- **0.0.28** - OpenJSCAD Examples. Enhance Decoration/Disclosable examples. Assumes SD 0.0.117+.

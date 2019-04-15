@@ -1,6 +1,4 @@
 
-
-
 # Advanced Disclosables
 
 There are two really easy ways to do disclosable described [here](:@Disclosables). On this page we'll show how you can have more control over how your disclosables are configured and displayed.  Disclosables have many options that can be combined in different ways.  Rather than enumerate them all possible permutations, we'll show a few useful examples.  To view a full list of disclosable options click the button below.
@@ -16,10 +14,10 @@ Here's a list of all the options that are currently available for disclosables.
 
 1. **Trigger** -- There are currently two ways to trigger a disclosable, `button` or `link`.  If you don't specify one of these you will get the default `button`.
 
-2. **Location** -- This controls where on the screen your disclosable will be displayed.  The options are: 
-	- `inline` -- Display disclosable where it is defined inline.
-	- `attach` - Attach the disclosable below the trigger element and layer on top of main page.
-	- `center`,`upperright`, `upperleft`, `bottomright`, `bottomleft` -- If you choose one of these locations you will get popup box located at specified position on the screen.  It will remained fixed as you scroll the main page content.  If you choose this option for locating your disclosable you can add the `draggable` option.  This allows the user to reposition the disclosable where ever they want on the screen.
+2. **Location** -- This controls where on the screen your disclosable will be displayed.  The options are:
+  - `inline` -- Display disclosable where it is defined inline.
+  - `attach` - Attach the disclosable below the trigger element and layer on top of main page.
+  - `center`,`topright`, `topleft`, `bottomright`, `bottomleft` -- If you choose one of these locations you will get popup box located at specified position on the screen.  It will remained fixed as you scroll the main page content.  If you choose this option for locating your disclosable you can add the `draggable` option.  This allows the user to reposition the disclosable where ever they want on the screen.
 
 3. **UnTrigger** -- These are additional ways to untrigger a disclosable.  The option  `onmouseleave` will hide the disclosable when the mouse is no longer over the disclosable, as seen in the [tooltip](:@Disclosables) disclosable.
 5. **Decorations** -- You can add a decoration to your disclosable by adding  `shadow`, `lightbox`, or `outline` to your options list.
@@ -40,9 +38,9 @@ All the configurations for your disclosables are specified in the trigger elemen
 **B** [](:?b|number) [](:-b/0/100/0.01)
 [Close](::controlPanel)
 # --aliceblue
-# :::: 
+# ::::
 
-[Show Control Panel](::controlPanel/button,bottomright,outline,shadow,draggable)
+[Show Control Panel](::controlPanel/button,bottomright,outline,shadow,draggable,closeable)
 
 ```
 
@@ -53,11 +51,18 @@ The markdown in the control panel example from above creates a draggable control
 ##### Control Panel
 **A** [](:?a|number) [](:-a/0/100/0.01)
 **B** [](:?b|number) [](:-b/0/100/0.01)
-[Close](::controlPanel)
 # --aliceblue
-# :::: 
+# ::::
 
-[Show Control Panel](::controlPanel/button,bottomright,outline,shadow,draggable)
+[Show Control Panel bottomright](::controlPanel/button,bottomright,outline,shadow,draggable,closeable)
+
+[Show Control Panel bottomleft](::controlPanel/button,bottomleft,outline,shadow,draggable,closeable)
+
+[Show Control Panel topright ](::controlPanel/button,topright,outline,shadow,draggable,closeable)
+
+[Show Control Panel topleft](::controlPanel/button,topleft,outline,shadow,draggable,closeable)
+
+[Show Control Panel center](::controlPanel/button,center,outline,shadow,draggable,closeable)
 
 So the configurations `button,bottomright,outline,shadow,draggable` creates a `button` trigger for a disclosable.  The disclosable appears in the `bottomright` corner of the screen with an `outline`, a drop `shadow` and it is `draggable` by the user. Notice that "close" button on the panel is just an additional disclosable trigger for same disclosable.  A disclosable can have multiple triggers.
 
@@ -68,7 +73,7 @@ The following example creates a lightbox disclosable.  These are great when you 
 ```markdown
 # :::: message
 # --outlinebox ob_message
-Do I have your attention for this important message?  
+Do I have your attention for this important message?
 [Click here if you got the message](::message)
 # --outlinebox
 # ::::
@@ -82,7 +87,7 @@ This markdown is rendered as:
 
 # :::: message
 # --outlinebox ob_message
-Do I have your attention for this important message?  
+Do I have your attention for this important message?
 [Click here if you got the message](::message)
 # --outlinebox
 # ::::
@@ -136,28 +141,27 @@ And here is how the trigger is written.
 
 ## High Five Example
 
-Here is a cool example where two disclosables are combined to create an interactive math problem for the user.  The first disclosable allows the user to get a hint about how to answer the question.  In this case the hint is a bit overly generous in case its been a while since you've taken algebra.  The second disclosable will appear after the correct answer has been entered to give the user a celebratory high five.  
+Here is a cool example where two disclosables are combined to create an interactive math problem for the user.  The first disclosable allows the user to get a hint about how to answer the question.  In this case the hint is a bit overly generous in case its been a while since you've taken algebra.  The second disclosable will appear after the correct answer has been entered to give the user a celebratory high five.
 
 #### --partialborder problem1
 
-**Problem 1.3** 
+**Problem 1.3**
 
 For what real values of $c$ is $x^2 + 16x + c$ the square of a binomial? If you find more than one, then list your values separated by commas.
 
-[Your Answer](:?answer) 
+[Your Answer](:?answer)
 
 ```javascript/autoplay
 smartdown.setVariable('answer', '');
 this.dependOn = ['answer'];
 
-
 this.depend = function() {
-	if (env.answer === '64') {
-		smartdown.showDisclosure('highfive','','bottomright');	
-		setTimeout(function () {
-           smartdown.hideDisclosure('highfive','','bottomright'); 
-    	}, 3000);
-	}	
+  if (env.answer === '64') {
+    smartdown.showDisclosure('highfive', '', 'bottomright');
+    setTimeout(function () {
+      smartdown.hideDisclosure('highfive','','bottomright');
+    }, 3000);
+  }
 };
 ```
 [Hint](::get_hint)
@@ -185,13 +189,13 @@ The answer is 64.
 # ::::
 ```
 
-The problem uses [cells](:@Cells) to get the user's answer to the question and it stores that answer in a smartdown variable called `answer`.  
+The problem uses [cells](:@Cells) to get the user's answer to the question and it stores that answer in a smartdown variable called `answer`.
 ```markdown
-**Problem 1.3** 
+**Problem 1.3**
 
 For what real values of $c$ is $x^2 + 16x + c$ the square of a binomial? If you find more than one, then list your values separated by commas.
 
-[Your Answer](:?answer) 
+[Your Answer](:?answer)
 ```
 
 Here is the markdown for the high five disclosable.  Notice that `:raised_hand:` renders as the high five :raised_hand: emoji.
@@ -213,14 +217,57 @@ this.dependOn = ['answer'];
 
 
 this.depend = function() {                                          // called when value of answer is changed
-	if (env.answer === '64') {
-		smartdown.showDisclosure('highfive','','bottomright');	    // show high five
-		setTimeout(function () {                                    // wait 3 seconds and then hide high five
-           smartdown.hideDisclosure('highfive','','bottomright'); 
-    	}, 3000);
-	}	
+  if (env.answer === '64') {
+    smartdown.showDisclosure('highfive','','bottomright');      // show high five
+    setTimeout(function () {                                    // wait 3 seconds and then hide high five
+           smartdown.hideDisclosure('highfive','','bottomright');
+      }, 3000);
+  }
 };
 ```
+
+### Scrolling in Disclosables
+
+The following is just a test to ensure that draggable disclosables have proper scrolling ability via the `scrollable` qualifier to the Disclosable trigger. Adding this qualifier results in the creation of a resizable, and if necessary, scrollable disclosable.
+
+[Show Long Disclosable](::longDisclosable/button,topright,outline,shadow,draggable,closeable,scrollable)
+
+
+# :::: longDisclosable
+# --aliceblue cp
+
+- one
+- two
+- three
+
+- one
+- two
+- three
+
+- one
+- two
+- three
+
+- one
+- two
+- three
+
+- one
+- two
+- three
+
+- one
+- two
+- three
+
+- one
+- two
+- three
+
+
+# --aliceblue
+# ::::
+
 
 ---
 
