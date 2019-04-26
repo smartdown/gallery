@@ -1,4 +1,4 @@
-## Math Notation
+### Math Notation
 
 By using MathJax, we can display all sorts of notation.
 

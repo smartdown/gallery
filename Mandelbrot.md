@@ -1,12 +1,8 @@
-## Mandelbrot, ThreeJS, WebGL
+### Mandelbrot, ThreeJS, WebGL
 
 **Requires WebGL be enabled in your browser.**
 
 This is a one-pint demo of how ThreeJS and Smartdown can be used to understand the [Mandelbrot Set](https://en.wikipedia.org/wiki/Mandelbrot_set). Although Smartdown is not intended to be a programming language to build *apps* with, it is perfect for *Explorable Explanations* such as this Mandelbrot Explorer.
-
-*This is a draft. I want to add more prose and more parametrization.*
-
----
 
 [Zoom Out](:=zoom=zoom/2.0) [Zoom In](:=zoom=zoom*2.0) [Up](:=posY=posY+0.1/zoom) [Down](:=posY=posY-0.1/zoom) [Left](:=posX=posX-0.1/zoom) [Right](:=posX=posX+0.1/zoom) **AutoZoom** [](:Xbounciness)
 
@@ -160,6 +156,10 @@ function render(delta) {
 
 render();
 ```
+
+
+*This is a draft. I want to add more prose and more parametrization.*
+
 
 ---
 

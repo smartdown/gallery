@@ -1,4 +1,4 @@
-## Images
+### Images
 
 [Venus tablet of Ammisaduqa](https://en.wikipedia.org/wiki/Venus_tablet_of_Ammisaduqa)
 
@@ -11,11 +11,11 @@
 ![](https://images-assets.nasa.gov/image/PIA00478/PIA00478~medium.jpg)
 
 
-### Sizing
+#### Sizing
 
 Just as with [Videos](:@Videos), we can use Smartdown to select from a set of common and convenient image sizes. This is done via a size specifier in the title section of the markdown URL syntax.
 
-#### Default
+##### Default
 
 ```markdown
 ![](/gallery/resources/Basement-of-chillon-castle.jpg)
@@ -24,7 +24,7 @@ Just as with [Videos](:@Videos), we can use Smartdown to select from a set of co
 ![](/gallery/resources/Basement-of-chillon-castle.jpg)
 
 
-#### Thumbnail
+##### Thumbnail
 
 ```markdown
 ![thumbnail](/gallery/resources/Basement-of-chillon-castle.jpg)
@@ -33,7 +33,7 @@ Just as with [Videos](:@Videos), we can use Smartdown to select from a set of co
 ![thumbnail](/gallery/resources/Basement-of-chillon-castle.jpg)
 
 
-#### Half-width
+##### Half-width
 
 ```markdown
 ![halfwidth](/gallery/resources/Basement-of-chillon-castle.jpg)
@@ -42,7 +42,7 @@ Just as with [Videos](:@Videos), we can use Smartdown to select from a set of co
 ![halfwidth](/gallery/resources/Basement-of-chillon-castle.jpg)
 
 
-#### Full-width
+##### Full-width
 
 ```markdown
 ![fullwidth](/gallery/resources/Basement-of-chillon-castle.jpg)

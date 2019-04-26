@@ -1,6 +1,9 @@
-#### three.js Experiments
+### three.js Experiments
 
 [threejs](https://threejs.org) is a JS library that is much more fine-grained than [p5.js](https://p5js.org). I thought I'd try it out. I suspect that older machines without WebGL capability will have trouble with some of the [examples](https://threejs.org/examples/).
+
+
+#### Interactive Cubes
 
 This example is adapted from [WebGL Interactive Cubes](https://threejs.org/examples/#webgl_interactive_cubes), although I'm still having difficulty with getting the mouseover to work properly due to coordinate system issues when the window is scrolled or resized. I eventually need to detect the coordinate system change and recalibrate the mouseover.
 
@@ -119,7 +122,7 @@ function render() {
 ```
 
 
-### TopoJSON and ThreeJS
+#### TopoJSON and ThreeJS
 
 From https://bl.ocks.org/mbostock/2b85250396c17a79155302f91ec21224
 

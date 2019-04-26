@@ -1,4 +1,4 @@
-## SVG Icons and Images
+### SVG Icons and Images
 
 Smartdown enables SVG images to be registered and preprocessed so that they can be dynamically styled via CSS. For this example, we incorporate an SVG from [Wikimedia Hypercube](https://commons.wikimedia.org/wiki/File:Hypercube.svg).
 
@@ -84,7 +84,7 @@ this.depend = function() {
 
 [[](:!dynamicSVG|svg)](https://github.com/claudiajs/example-projects/blob/master/github-repo-labels/svg/large.svg)
 
-### Using a builtin SVG
+#### Using a builtin SVG
 
 Better than inlining the SVG as above, we can reference an SVG file that has been registered with Smartdown. For this example, I've created a `badge.svg` that can be used as a template:
 

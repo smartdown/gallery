@@ -1,4 +1,4 @@
-## Smartdown Disclosables
+### Smartdown Disclosables
 
 Smartdown now provides an experimental feature that we are calling *Disclosables*, which enables an author to *stage* the content that a reader sees, and enables the reader to control how much detail they wish to see. This feature is one mechanism Smartdown uses to provide [**progressive disclosure**](::progdisc/tooltip), which can help make [Explorable Explanations](http://worrydream.com/ExplorableExplanations/) *rich* but *manageable*.
 
@@ -9,7 +9,7 @@ Smartdown now provides an experimental feature that we are calling *Disclosables
 The key elements of this feature are the *disclosable*, which is Smartdown content that is hidden by default; and the *trigger*, which is the means by which a reader can control the visibility of the disclosable.
 
 
-### Creating a Disclosable
+#### Creating a Disclosable
 
 A section of your Smartdown content can be marked as a disclosable by sandwiching the content between special markdown headers containing the characters `::::`. For example, here is how a disclosable named `MyDisclosable` might be declared:
 
@@ -27,7 +27,7 @@ This is the hidden content for the disclosable called `MyDisclosable`
 Notice that the first section header contains `::::` and the disclosable name, `MyDisclosable`. The disclosable declaration is completed with an empty `::::` header with no name.
 
 
-### Creating a Trigger
+#### Creating a Trigger
 
 The trigger for a disclosable specifies the way a disclosable will be revealed or hidden. When we define a trigger we also get to specify many aspects of how the disclosable will be displayed and what it will look like.  We'll begin with two very simple ways to define triggers.
 
@@ -47,7 +47,7 @@ If you hover your mouse over [here](::MyDisclosable/tooltip) you will reveal the
 ```
 
 
-### Shared Disclosables
+#### Shared Disclosables
 
 A given disclosable can have more than one trigger associated with it. For example, below is a working example of the above:
 
@@ -65,7 +65,7 @@ This is the hidden content for the disclosable called `MyDisclosable`
 # ::::
 
 
-### Controlling the Size and Placement of Button Triggers
+#### Controlling the Size and Placement of Button Triggers
 
 If you place the trigger on a header line, you can control the size of the button. For example, the syntax
 ```
@@ -93,7 +93,7 @@ This is the disclosable content.
 
 # ::::
 
-## Rich Content Disclosables
+#### Rich Content Disclosables
 
 Typical usage of the disclosable feature is to provide a tooltip or some detail to an explanation. This content can be *any* Smartdown content, and can be interacted with as ordinary Smartdown content. The following example shows a disclosable that can be triggered via a [**tooltip**](::AboutMarkdown/tooltip) or via a [**button**](::AboutMarkdown), and has its own rich Smartdown structure.
 
@@ -141,7 +141,7 @@ Some resources that may help:
 # ::::
 ```
 
-## Triggers with Media
+#### Triggers with Media
 
 We can build triggers that utilize Smartdown's media syntax. For example, we can have an image trigger that reveals more detail via a disclosable. For example, we can consider one of Mars's satellites, [Phobos](::MoreAboutPhobos/tooltip).
 

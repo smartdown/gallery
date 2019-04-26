@@ -1,4 +1,4 @@
-## Javascript
+### Javascript
 
 Smartdown is intended to serve a broad audience, enabling the teaching and explanation of many different subjects. Some of these subjects such as **Computer Science** and **Programming** and **Linguistics** demand the ability to express, share, explain and execute code. Smartdown embraces this idea by making it easy to *play* code fragments of various forms into the document.
 

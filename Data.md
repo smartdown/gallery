@@ -1,4 +1,4 @@
-## Data Access
+### Data Access
 
 One of the goals of Smartdown is to enable authors to easily express rich interactive experiences that enable a reader to explore and experience real-world data. This data may be *static* or *dynamic*.
 
@@ -8,25 +8,25 @@ One of the constraints that Smartdown typically operates under is the assumption
 
 *In other words, this is a Draft document.*
 
-### Static Data
+#### Static Data
 
 An example of static data is a [CSV](https://en.wikipedia.org/wiki/Comma-separated_values) file that contains reference data that is (mostly) unchanging, like the [List of Chemical Elements](https://en.wikipedia.org/wiki/List_of_chemical_elements).
 
 Smartdown makes it easy to assign the contents of this CSV file to a Smartdown variable, without having to deal with Javascript programming, or at least reducing the amount of Javascript programming. To support the following examples, we've provided a CSV file at [/gallery/DataElements.tsv](/gallery/DataElements.tsv).
 
 
-#### Loading the Element Data
+##### Loading the Element Data
 
 [Load Elements](:=ElementList=/csv/gallery/DataElements.csv)
 
-#### Displaying the Element Data as JSON
+##### Displaying the Element Data as JSON
 
 By default, Smartdown formats values from variables in an *appropriate* type. Since the Elements data is a JSON value derived from the imported CSV file, Smartdown will display it with a JSON-based display.
 
 [Elements](:!ElementList)
 
 
-#### Visualizing the data, a stupid example
+##### Visualizing the data, a stupid example
 
 For no other reason than to generate pretty graphics, let's use a [plotly.js]() playable to draw a pie chart based upon the *length* of the element name. This is, from a chemistry/physics point of view, meaningless. But it will give us a colorful diagram.
 
@@ -79,7 +79,7 @@ this.depend = function() {
 ```
 
 
-### Dynamic Data
+#### Dynamic Data
 
 Smartdown is designed to provide a way for readers of a published document to interact and explore data which might be located in internet-accessible databases or services. So rather than loading an entire dataset as in the above Static example, we want to *query* an external service. Usually, we want to pass some sort of *parameters* or *arguments* along with our query. The same calc_handler tech we used to extend Smartdown to support CSV and TSV extraction from a remote file can be used to query external services.
 
@@ -87,7 +87,7 @@ In the examples below, we are exploring the use of [Wikidata](https://www.wikida
 
 The Wikidata calc_handler is currently limited to producing image URLs or WikiPedia URls in response to a query.
 
-#### Hardcoded Examples
+##### Hardcoded Examples
 
 - [Albert Einstein|Marie Curie|Max Plank (Slash, Thumbnails)](:=HCLOOKUP=/wikidataThumbs/Albert%20Einstein|Marie%20Curie|Max%20Plank)
 - [Albert Einstein (Falcor, Thumbnails)](:=HCLOOKUP=/wikidataThumbs["Albert%20Einstein"])
@@ -96,7 +96,7 @@ The Wikidata calc_handler is currently limited to producing image URLs or WikiPe
 
 - [Lookup result](:!HCLOOKUP)
 
-#### Dynamic Examples
+##### Dynamic Examples
 
 
 [WHAT do you want to look up?](:?WHAT)
@@ -120,11 +120,11 @@ Examples:
 ---
 
 
-### Summary of best practice, before we talk about CORS
+#### Summary of best practice, before we talk about CORS
 
 - Store data files *near* where your Smartdown document is. That will allow you to use relative paths and ensure you don't run into CORS issues.
 
-### CORS Issues (Advanced)
+#### CORS Issues (Advanced)
 
 One of the current downsides of the web at this point in time (2019) is that there are many web-accessible data files and services, but often these lack support for [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Briefly, web browsers are designed to be very careful about what a webpage can access in order to ensure privacy and security, so they make it easy to access data from the same *origin* as the user's current web page, but make it *challenging* to access resources from other origins (an *origin* is the beginning of a URL, for example: `https://smartdown.site/` is an origin.
 
@@ -141,7 +141,7 @@ The following example will try to load the CSV file from Science Notes and will 
 *Note: Depending on your browser and your default settings, it is possible that the above request will work.*
 
 
-#### Using a CORS Proxy
+##### Using a CORS Proxy
 
 If you are writing a Smartdown document and wish to access a resource that is denied because it doesn't support CORS, then you can sometimes take advantage of a *cross-origin proxy service* like [https://cors.io](https://cors.io).
 

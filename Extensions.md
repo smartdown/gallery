@@ -1,4 +1,4 @@
-## Extension Mechanisms for Smartdown
+### Extension Mechanisms for Smartdown
 
 Smartdown tries to be extensible at several levels. One of these is the per-environment level that enables a teacher, for example, to create a topic-specific set of media and API urls (see `calc_handlers.js`, which is mostly undocumented right now).
 
@@ -12,7 +12,7 @@ At the author level, Smartdown provides a *limited* form of dynamic loading (cur
 
 So far, it seems to work. The target libraries tend to be CDN-hosted libraries intended to be included with a `<script>` tag.
 
-### Dynamic load of SVG.js
+#### Dynamic load of SVG.js
 
 We'll start with something simple, a Javascript library called [svgjs.com](http://svgjs.com) that provides a high-level language to build SVG elements and place them into the DOM. We'll use this to put an SVG into the current smartdown div. But we'll need to ensure that the `svg.js` library is loaded before we execute, or our playable will fail. The use of the `smartdown.use` clause below will let Smartdown know to load that library before trying to compile and execute the rest of the playable code.
 
@@ -28,7 +28,7 @@ var rect = draw.rect(500, 100).attr({ fill: '#f06' })
 ```
 
 
-### Dynamic load of VueJS
+#### Dynamic load of VueJS
 
 Let's get a little fancier and embed a [VueJS](https://vuejs.org) app. We'll construct a `<div>` for VueJS to draw into, and as an extra challenge, we'll make the content reactive to the current value of the `NAME` variable, which can be adjusted via the Smartdown cell below this playable.
 
@@ -71,7 +71,7 @@ this.depend = function() {
 
 [What is your name?](:?NAME)
 
-### Combining VueJS and SVG.js
+#### Combining VueJS and SVG.js
 
 Here we'll specify that we want both the VueJS and the SVG.js libraries loaded. In this particular case, the order of loading doesn't matter. But Smartdown ensures that they are loaded sequentially (it is an optimization to load them in parallel).
 
@@ -136,7 +136,7 @@ this.depend = function() {
 ```
 
 
-### Including external playable sources
+#### Including external playable sources
 
 - Add a syntax to the current playable syntax that allows the body of the playable to contain an *indirection* or *reference* to an external text (usually, a `.js` file, but perhaps a `.graphviz` file).
 - Possible syntax: //smartdown.include=./myBigScript.js
@@ -145,7 +145,7 @@ this.depend = function() {
 - Optionally (OptionA), allow a playable to specify multiple included fragments which will be interpreted and displayed sequentially as the playable's code.
 - Optionally (OptionB), display in the playable code BOTH the included code fragment (or fragments, if OptionA above is implemented) and the code that performed the inclusion. This might require fancier text control or just separate divs.
 
-#### Simple JS Include
+##### Simple JS Include
 
 ```javascript/playable
 //smartdown.include=../gallery/ExtensionsPlayableHelloWorld.js
@@ -155,7 +155,7 @@ this.depend = function() {
 //
 ```
 
-#### P5JS Ellipse Example (via include)
+##### P5JS Ellipse Example (via include)
 
 
 ```p5js/playable
@@ -163,7 +163,7 @@ this.depend = function() {
 ```
 
 
-#### Error Testing
+##### Error Testing
 
 Let's see what happens when an included file does not exist.
 
@@ -174,7 +174,7 @@ Let's see what happens when an included file does not exist.
 
 
 
-#### GraphViz Example (via include)
+##### GraphViz Example (via include)
 
 
 ```graphviz/playable
@@ -182,7 +182,7 @@ Let's see what happens when an included file does not exist.
 ```
 
 
-#### Simple UMD Inclusion
+##### Simple UMD Inclusion
 
 
 ```javascript/playable/debug

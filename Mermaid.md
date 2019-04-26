@@ -1,4 +1,4 @@
-## Mermaid Examples
+### Mermaid Examples
 
 [Mermaid](https://mermaidjs.github.io) provides a concise and practical way to describe various technical diagrams and have them rendered within a web page. See [Mermaid Demos](https://mermaidjs.github.io/demos.html) for some of its capabilities.
 
@@ -77,7 +77,7 @@ gantt
 ```
 
 
-### Experimenting with dynamic Mermaid
+#### Experimenting with dynamic Mermaid
 
 A quick experiment that shows how a Smartdown cell (called `Name`, in this example) can be used as input to derive a dynamic Mermaid diagram which uses `Name`. In this example, if `Name` is blank, then `Alice` will be used as the name.
 

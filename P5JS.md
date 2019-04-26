@@ -1,9 +1,9 @@
-## P5JS
+### P5JS
 
 Smartdown integrates the wonderful [P5.js](https://p5js.org/) Javascript library, which provides a way for authors to embed *sketches* within their Smartdown documents.
 
 
-### P5JS Ellipse Example
+#### P5JS Ellipse Example
 
 
 ```p5js/playable
@@ -16,7 +16,7 @@ p5.draw = function() {
 ```
 
 
-### P5JS Sound Oscillator Frequency Example
+#### P5JS Sound Oscillator Frequency Example
 
 Here is the [P5JS Sound Oscillator Frequency Example](https://p5js.org/examples/examples/Sound_Oscillator_Frequency.php).
 
@@ -57,7 +57,7 @@ p5.draw = function () {
 ```
 
 
-### P5JS Playback Rate Example
+#### P5JS Playback Rate Example
 
 Here is the [P5JS Playback Rate Example](https://p5js.org/examples/examples/Sound_Playback_Rate.php). Load a SoundFile and map its playback rate to mouseY, volume to mouseX.
 
@@ -109,14 +109,14 @@ p5.draw = function () {
 ```
 
 
-## Prefixed vs Global Syntax
+#### Prefixed vs Global Syntax
 
 Most of the examples at the [p5js.org](https://p5js.org) site are written using the *Global Mode* of p5.js, which means that a sketch can refer to p5.js functions and variables using their Processing-inspired names, such as `ellipse` and `width`. The examples above are written using Smartdown's default *Instance Mode* syntax, which requires that functions are prefixed by `p5.` and that handler callbacks (aka User Functions) are declared like `p5.setup = function() {...}` rather than the Global Mode syntax `function setup {...}`.
 
 The Global Mode syntax is experimental in Smartdown currently, and can be accessed by using the playable language `P5JS` instead of the well-supported default `p5js`. When using the `P5JS` language, sketch authors should be able to copy and paste most of the Global Mode examples of p5.js.
 
 
-### Tickle example with Instance mode Syntax
+##### Tickle example with Instance mode Syntax
 
 ```p5js/playable
 var message = "tickle",
@@ -159,7 +159,7 @@ p5.draw = function draw() {
 };
 ```
 
-### Tickle example with Global mode Syntax
+##### Tickle example with Global mode Syntax
 
 ```P5JS/playable
 var message = "tickle",
@@ -203,7 +203,7 @@ function draw() {
 ```
 
 
-### More P5JS Examples
+#### More P5JS Examples
 
 [P5JS Mobius](:@Mobius)
 [P5JS Conic Sections](:@Conic)

@@ -1,4 +1,4 @@
-## P5JS Conic Section
+### P5JS Conic Section
 
 The goal here is to build a demonstration of how the various Conic Sections are defined geometrically as well as parametrically by illustrating the cross-section created by a plane intersecting two mirrored cones.
 

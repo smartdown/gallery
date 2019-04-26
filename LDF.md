@@ -1,10 +1,10 @@
-## LDF - Linked Data Fragments
+### LDF - Linked Data Fragments
 
 **Super-experimental right now**
 
 Exploring the possibilities of [Linked Data Fragments](http://linkeddatafragments.org). I've integrated [Client.js](https://github.com/LinkedDataFragments/Client.js) into Smartdown, which provides access to [Triple Pattern Fragment servers](Triple Pattern Fragment servers) via [SPARQL](https://en.wikipedia.org/wiki/SPARQL).
 
-### LDF Server and SPARQL Query
+#### LDF Server and SPARQL Query
 
 [Server](:!serverURL)
 [Query](:!query|code)

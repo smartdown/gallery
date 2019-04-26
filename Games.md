@@ -1,7 +1,8 @@
+### Game Starter using P5JS
+
 - **Character Name**: [](:?CharacterName)
 - **Music**: [](:XMusicOn)
 
----
 
 ```p5js/playable/autoplay
 // A sound file object
@@ -57,11 +58,11 @@ p5.setup = function () {
     return result;
   }
 
-  upButton = makeButton('&uparrow;', 60, 55, p5.UP_ARROW);
-  downButton = makeButton('&downarrow;', 60, 115, p5.DOWN_ARROW);
-  leftButton = makeButton('&leftarrow;', 30, 85, p5.LEFT_ARROW);
-  rightButton = makeButton('&rightarrow;', 90, 85, p5.RIGHT_ARROW);
-  spaceButton = makeButton('&infin;', 60, 85, 32);
+  upButton = makeButton('&uparrow;', 40, 255, p5.UP_ARROW);
+  downButton = makeButton('&downarrow;', 40, 315, p5.DOWN_ARROW);
+  leftButton = makeButton('&leftarrow;', 10, 285, p5.LEFT_ARROW);
+  rightButton = makeButton('&rightarrow;', 70, 285, p5.RIGHT_ARROW);
+  spaceButton = makeButton('&infin;', 40, 285, 32);
 
   p5.windowResized();
 };
@@ -194,7 +195,7 @@ p5.draw = function () {
 
 ---
 
-## SmartDown Game Tech Example - Part I
+#### SmartDown Game Tech Example - Part I
 
 I initially began this project in late 2016, inspired by [Global Game Jam Weekend](http://globalgamejam.org). Although I didn't complete it during the Game Jam, I have been slowly advancing it and fixing Smartdown to make it more easy.
 

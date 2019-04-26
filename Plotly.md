@@ -1,8 +1,8 @@
-## Plotly.js
+### Plotly.js
 
 The current integration of [plotly.js](https://plot.ly/javascript/) is fairly raw, and you may encounter problems with autolayout/sizing as well as other features I haven't tested or fixed.
 
-### Hello World
+#### Hello World
 
 Here is the [Hello World](https://plot.ly/javascript/getting-started/#hello-world-example) example.
 
@@ -33,7 +33,7 @@ Plotly.newPlot( this.div, [{
 ```
 
 
-### 3D Surface Plots
+#### 3D Surface Plots
 
 From [3D Surface Plots](https://plot.ly/javascript/3d-surface-plots/)
 
@@ -72,10 +72,7 @@ Plotly.d3.csv('https://raw.githubusercontent.com/plotly/datasets/master/api_docs
 
 ```
 
-
-
-
-### Simple Contour Plot
+#### Simple Contour Plot
 
 ```plotly/playable
 var myDiv = this.div;
@@ -116,8 +113,7 @@ Plotly.newPlot(myDiv, data, layout, {displayModeBar: false});
 ```
 
 
-
-### Maps
+#### Maps
 
 From [Chloropleth Map](https://plot.ly/javascript/choropleth-maps)
 

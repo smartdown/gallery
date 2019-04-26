@@ -1,6 +1,6 @@
-## Maps via Leaflet, Plotly
+### Maps via Leaflet, Plotly
 
-### A Leaflet map of London
+#### A Leaflet map of London
 
 ```leaflet/playable/autoplay
 var mymap = L.map(this.div.id).setView([51.505, -0.09], 12);
@@ -14,7 +14,7 @@ this.leafletMap = mymap;  // Smartdown needs to know about map for cleanup purpo
 
 ---
 
-### Smelly London Smartdown Remix
+#### Smelly London Smartdown Remix
 
 **This is a work in progress; I'm using it to exercise and demonstrate Plotly/Mapbox maps**
 
@@ -86,7 +86,7 @@ Plotly.d3.json(districtsJson, function(districtsJson) {
 
 ---
 
-### A Plotly Topo Map of Somewhere
+#### A Plotly Topo Map of Somewhere
 
 [Title](:?PLOT_TITLE)
 
@@ -126,7 +126,7 @@ Plotly.d3.csv('https://raw.githubusercontent.com/plotly/datasets/master/api_docs
 
 ---
 
-### Geolocation
+#### Geolocation
 
 Using Geolocation features will require the user gives permission.
 

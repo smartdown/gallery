@@ -1,6 +1,4 @@
-
-
-# Decorations
+### Decorations
 
 Sometimes you want to make a chunk of text stand out from the main text.  For example, in a text book, you may want to have a special format for definitions, theorems or a historical note.  Decorations are declared the same way that [disclosables](:@Disclosables) are declared, by sandwiching them between two headings.  Smartdown currently offers the following decoration tags for special formatting:
 
@@ -104,12 +102,12 @@ $$\{(2,3),(2,5),(3,3),(3,5),(4,3),(4,5)\}$$
 
 
 
-# Decorations Inside Disclosables
+#### Decorations Inside Disclosables
 
 Decorations can be used inside any [disclosable](:@Disclosables).
 
 
-#### Cool Nested Decorations
+##### Cool Nested Decorations
 
 Here is an example of a math problem that uses decorations and [disclosables](:@Disclosables).  If you enter the correct answer the solution is revealed or you can open the solution yourself if you're frustrated and just want the answer.  The solution is in a disclosable that is wrapped in an `--outlinebox` decoration.
 

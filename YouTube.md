@@ -1,8 +1,8 @@
-## YouTube API Experiments
+### YouTube API Experiments
 
 I was playing with the [YouTube Data API](https://developers.google.com/youtube/v3/) and here are some preliminary examples. I'm just trying to get used to the API and generate some nice visuals and links from Music Videos.
 
-### API Key Setup
+#### API Key Setup
 
 ```javascript/autoplay/playable
 var apiKey = 'AIzaSyBgijm7caYxh--UmpCVj3_Ltq684YgHoYI';
@@ -14,11 +14,11 @@ smartdown.setVariable('videoCategoryId', '10');
 
 [API Key](:?APIKey)
 
-### Get Video Categories
+#### Get Video Categories
 
 Using the [YouTube Data API Explorer](https://developers.google.com/apis-explorer/?hl=en_US#p/youtube/v3/), we discover that the function [youtube.videos.list](https://developers.google.com/apis-explorer/?hl=en_US#p/youtube/v3/youtube.videos.list) seems to be a good way to list videos, but that you need to restrict it with a `videoCategoryId`. So let's see what the available video category Ids exist by using the [youtube.videoCategories.list](https://developers.google.com/apis-explorer/?hl=en_US#p/youtube/v3/youtube.videoCategories.list).
 
-#### Get JSON Result
+##### Get JSON Result
 
 Since this is a Smartdown document, we'll save the JSON results in a Smartdown variable called `CategoriesJSON` and display those results in a table.
 
@@ -44,7 +44,7 @@ this.depend = function() {
 
 [](:!CategoriesJSON)
 
-#### Format JSON as a List
+##### Format JSON as a List
 
 We could format the JSON as a Markdown table, but it will be more compact to just generate a list of `name/id` pairs.
 
@@ -74,7 +74,7 @@ this.depend = function() {
 [Category/Id Pairs](:!CategoriesList|markdown)
 
 
-### Get a list of Music Videos
+#### Get a list of Music Videos
 
 The table above indicates that category id `10` corresponds to `Music`, and that id `1` corresponds to `Film & Animation`. After experimenting with the API, I've found that many of the categories appear to be empty. So to provide some flexibility, we'll store the category id in a Smartdown variable called `videoCategoryId` and add an input cell and add a few convenience buttons so that you can change it if you want and the video list will be recomputed. I've included buttons for the categories I've tried that contain videos.
 
@@ -83,7 +83,7 @@ The table above indicates that category id `10` corresponds to `Music`, and that
 [Video Category Id](:?videoCategoryId)
 
 
-#### Get JSON Results
+##### Get JSON Results
 
 ```javascript/playable/autoplay
 this.dependOn = ['videoCategoryId', 'APIKey'];
@@ -107,7 +107,7 @@ this.depend = function() {
 
 [](:!VideosJSON)
 
-#### Format JSON as a List
+##### Format JSON as a List
 
 ```javascript/playable/autoplay
 this.dependOn = ['VideosJSON'];
@@ -150,11 +150,11 @@ this.depend = function() {
 [](:!VideosList|markdown)
 
 
-### Data Visualization - Word Cloud
+#### Data Visualization - Word Cloud
 
 Let's accumulate the `tags` for each video and build a word cloud!
 
-#### Get Tags
+##### Get Tags
 
 ```javascript/playable/autoplay
 this.dependOn = ['VideosJSON'];
@@ -195,7 +195,7 @@ this.depend = function() {
 [](:!TagList|json)
 
 
-#### Draw Them
+##### Draw Them
 
 ```d3/playable/autoplay
 var renderDiv = this.div;

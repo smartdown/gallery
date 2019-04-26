@@ -1,4 +1,4 @@
-## Cells - Reactive Spreadsheet Cells
+### Cells - Reactive Spreadsheet Cells
 
 Smartdown uses ordinary Markdown link syntax to specify a cell *label* and *body*, where the *label* is specified in the link label, and the *body* is specified in the link's URL. For example, the following declares an *output* cell that displays the value of the `FOO` variable:
 
@@ -8,7 +8,7 @@ Smartdown uses ordinary Markdown link syntax to specify a cell *label* and *body
 
 When a non-empty label is present, the cell will be formatted with its label on its own line. When no label is present, then the cell will be formatted inline.
 
-### Cells with labels get their own line
+#### Cells with labels get their own line
 
 - [What is your name?](:?NAME)
 - [Glad to meet you](:!NAME)
@@ -19,12 +19,12 @@ When a non-empty label is present, the cell will be formatted with its label on 
 - [What is your name? (wait for blur)](:?NAME|text)
 
 
-### Cells with no labels are inlined
+#### Cells with no labels are inlined
 
 What is your name? [](:?NAME) So glad to meet you [](:!NAME). What is your name again? [](:?NAME) Really glad to meet you [](:!NAME).
 Are you human? [](:XHUMAN) Your Humanity is [](:!HUMAN).
 
-### Cell output filters
+#### Cell output filters
 
 The syntax:
 
@@ -41,7 +41,7 @@ For example, type Smartdown into the input cell below and see the resulting rend
 [Rendered Markdown](:!MyMarkdown|markdown)
 
 
-### Numeric data
+#### Numeric data
 
 By default, a cell is a string. An input cell may be annotated to indicate that the datatype is `number` and that conversions should occur upon input. The example below illustrates this by modifying and displaying the smartdown variables `alpha` and `beta`. This example also shows how the numeric range syntax can be used to create an input slider. This example also demonstrates various ways to label an input.
 
@@ -54,20 +54,20 @@ By default, a cell is a string. An input cell may be annotated to indicate that 
 [$\alpha$](:?alpha|number) [α](:-alpha/0/100/0.01)
 [$\beta$](:?beta|number) [β](:-beta/0/100/0.01)
 
-### Navigation Links
+#### Navigation Links
 
 - [Go to SVG Card with Text Label](:@SVG)
 - [Go to P5JS Card with Image ![](https://upload.wikimedia.org/wikipedia/commons/1/12/Earth_within_celestial_sphere.gif)](:@P5JS)
 - [Go to Tweets with SVG Image ![](/media/lighthouse/pulse)](:@Tweets)
 
-### Calculations
+#### Calculations
 
 [Double Me](:=DNAME=NAME+NAME)
 
 [Double Name](:!DNAME)
 
 
-### Comparing inline vs form mode
+#### Comparing inline vs form mode
 
 - [What is your name?](:?NAME)
 - [Glad to meet you](:!NAME)

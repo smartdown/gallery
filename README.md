@@ -36,3 +36,7 @@ See [Smartdown README](https://smartdown.site/lib/#README) for more info.
 - **0.0.26** - Clearer examples/tests of Cells and Reactivity. Create a separate Data.md page to demonstrate calc_handlers and data tubes and explain CORS a little. (rough draft). Assumes SD 0.0.116+.
 - **0.0.27** - Add calc_handlers to index.html.
 - **0.0.28** - OpenJSCAD Examples. Enhance Decoration/Disclosable examples. Assumes SD 0.0.117+.
+- **0.0.29** - Assumes SD 0.0.118+. Adjust GIF Video examples to deal with new defaults for using Gifffer. Increase header level for all cards, to reduce vertical space usage. Remove P5Play example. Separate Video example from GIF/audio by creating GIFAndAudio example. Rearrange layout of Home.md to be more sensible. Adjust Badges demo to point to Smartdown. Adjust Mobius example to highlight the picture first, parameters second. Improve documentation of Video and GIF dimensioning. Adjust Madlibs example to use Decoration vs blockquote to highlight the MadLib. Adjust header levels throughout to enable more easy embedding into impress.
+
+
+

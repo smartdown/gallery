@@ -1,4 +1,4 @@
-## Graphviz via `viz.js`
+### Graphviz via `viz.js`
 
 Smartdown has integrated the powerful [viz.js](https://github.com/mdaines/viz.js) library, which is compiled into Javascript from the original Graphviz C code.
 
@@ -6,7 +6,7 @@ Note: There is a similarly named package at [http://visjs.org](http://visjs.org)
 
 There is a Graphviz example displaying the `stdlib` namespaces at [Stdlib via Graphviz](:@Stdlib)
 
-### Crazy.gv
+#### Crazy.gv
 
 ```graphviz/playable
 digraph "unix" {
@@ -116,7 +116,7 @@ digraph "unix" {
 }
 ```
 
-### Tree Example
+#### Tree Example
 
 ```graphviz/autoplay/playable
 digraph L0 {
@@ -192,7 +192,7 @@ digraph L0 {
 }
 ```
 
-### Using Images
+#### Using Images
 
 This needs better documentation. It is an early-stage feature still under development.
 

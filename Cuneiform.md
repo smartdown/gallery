@@ -1,4 +1,4 @@
-## Experimenting with Cuneiform
+### Experimenting with Cuneiform
 
 I really like the look and technical design of [Neo-Assyrian cuneiform](https://en.wikipedia.org/wiki/Cuneiform_script#Assyrian_cuneiform), and because my software and company are oriented around creating permanent technical documentation that will stand the test of time, and because I've adopted the *clay* metaphor in my software, it seemed like a good idea to use cuneiform to try to develop a logo.
 
@@ -8,11 +8,11 @@ One of my favorite glyphs is `KIR7 (NIM× NÍG.KÁR)` (TBD add good link and d
 
 ![](/gallery/resources/KIR7_NIM_NIG_KAR_.png)
 
-### Work-in-progress
+#### Work-in-progress
 
 This is a work-in-progress that may eventually become a separate blog post. Right now, I'm trying to unify all three of the diagrams to use a common definition of my `stalk` function. However, each of the diagrams originally used a custom `stalk` function with slightly different internal parameters, including the arc-depth for the arc at the bottom of the stalk. I need to improve `stalk` to make this parameter explicit so that each of the diagrams can have its appropriate curvature.
 
-### Reusable `stalk` definition
+#### Reusable `stalk` definition
 
 Example of a reusable function, `stalk`, which can be used by subsequent playables. Note the `p5` initial parameter, which must be replaced with the per-playable (sketch) instance of `p5`, by using the construct:
 
@@ -74,7 +74,7 @@ window.stalk = stalk;
 
 
 
-### Trying to replicate Neo-Assyrian Cuneiform
+#### Trying to replicate Neo-Assyrian Cuneiform
 
 ```p5js/playable/autoplay
 
@@ -146,7 +146,7 @@ p5.draw = function() {
 
 
 
-## InfoClay Logo
+#### InfoClay Logo
 
 ```p5js/playable/autoplay
 
@@ -217,7 +217,7 @@ p5.draw = function() {
 ```
 
 
-### Quantum Clay Logo
+#### Quantum Clay Logo
 
 
 ```p5js/playable/autoplay

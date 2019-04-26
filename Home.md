@@ -8,19 +8,19 @@ Smartdown extends the simple expressivity of the [Markdown](https://en.wikipedia
 
 Use the navigation buttons below to explore different aspects of Smartdown. You can always go [Back to Home](:@Home).
 
-|Basics|Data Science|Fun & Learning|Advanced & Experiments|
+|Media|Visualization|Toys|Advanced|
 |:---:|:---:|:---:|:---:|
-|[Readme](:@README)|[Graphviz](:@Graphviz)|[MadLibs](:@MadLibs)|[Processes](:@Processes)|
+|[Readme](:@README)|[Graphviz](:@Graphviz)|[MadLibs](:@MadLibs)|[Disclosables++](:@DisclosablesPlus)|
 |[Markdown](:@Markdown)|[D3](:@D3)|[Cuneiform](:@Cuneiform)|[Javascript](:@Javascript)|
-|[Math](:@Math)|[SVG](:@SVG)|[Mobius](:@Mobius)|[Gists](:@Gists)|
+|[Math](:@Math)|[Data](:@Data)|[Mobius](:@Mobius)|[Gists](:@Gists)|
 |[Images](:@Images)|[Plotly](:@Plotly)|[Temperature](:@Temperature)|[Extensions](:@Extensions)|
-|[Tweets](:@Tweets)|[Maps](:@Maps)|[Vector Field](:@VectorField)|[Brython](:@Brython)|
-|[Audio and Video](:@Video)|[Stdlib](:@Stdlib)|[Tree](:@Tree)|[YouTube](:@YouTube)|
+|[Multicards](:@Multicards)|[Maps](:@Maps)|[Vector Field](:@VectorField)|[Brython](:@Brython)|
+|[Video](:@Video)|[Stdlib](:@Stdlib)|[Tree](:@Tree)|[YouTube](:@YouTube)|
+|[GIF/Audio](:@GIFAndAudio)|[Processes](:@Processes)|[Conic](:@Conic)|[Tweets](:@Tweets)|
 |[Decorations](:@Decorations)|[ThreeJS](:@Three)|[VectorTree](:@VectorTree)|[Mandelbrot](:@Mandelbrot)|
 |[Cells](:@Cells)|[P5JS](:@P5JS)|[Dungeon](:@Dungeon)|[LDF](:@LDF)|
-|[Disclosables](:@Disclosables)|[Mermaid](:@Mermaid)|[Dungeon3D](:@Games)|[P5Play](:@P5Play)|
-|[Disclosables++](:@DisclosablesPlus)|[Data](:@Data)|[Conic](:@Conic)|[Multicards](:@Multicards)|
-||||[OpenJSCAD](:@OpenJSCAD)|
+|[Disclosables](:@Disclosables)|[Mermaid](:@Mermaid)|[Dungeon3D](:@Games)|[OpenJSCAD](:@OpenJSCAD)|
+|[SVG](:@SVG)||||
 
 ---
 

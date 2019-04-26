@@ -1,4 +1,4 @@
-## OpenJSCAD Examples
+### OpenJSCAD Examples
 
 Smartdown recently added an integration with [OpenJSCAD](https://www.openjscad.org), which is an open source library that enables an easy-to-understand OpenJSCAD *program* to be compiled into an interactive 3D model. This is very *bleeding edge* and there are likely going to be some bugs, especially if Dynamic Generation (experimental) is being used.
 
@@ -12,12 +12,12 @@ Smartdown supports OpenJSCAD diagrams as playables, by using the syntax:
 
 Smartdown also supports the use of `openjscad` as an output cell filter, enabling a cell to display a rendered Smartdown variable containing an OpenJSCAD script (see Dynamic Generation at the end of this document).
 
-##### About OpenJSCAD
+#### About OpenJSCAD
 
 In order to get the OpenJSCAD UMD library to support multiple diagrams on a web page, I needed to make a few minor fixes to the OpenJSCAD UMD Library. See my fork at [doctorbud/OpenJSCAD.org](https://github.com/DoctorBud/OpenJSCAD.org/tree/reentracy-fixes-for-umd) for the relevant changes.
 
 
-### Color and Transparency Example
+#### Color and Transparency Example
 
 This examples shows some of the color and transparency potential. Based upon [transparency.jscad](https://github.com/jscad/OpenJSCAD.org/blob/master/packages/examples/transparency.jscad)
 
@@ -45,7 +45,7 @@ function main () {
 ```
 
 
-### Gear Example
+#### Gear Example
 
 This example illustrates a parameterizable model of a gear. OpenJSCAD provides a mechanism to allow the author to specify that certain *parameters* can be controlled by the user. This is based upon the original at [gear.jscad](https://github.com/jscad/OpenJSCAD.org/blob/master/packages/examples/gear.jscad).
 
@@ -169,7 +169,7 @@ function involuteGear (numTeeth, circularPitch, pressureAngle, clearance, thickn
 ```
 
 
-### Text Example
+#### Text Example
 
 Based upon [text.jscad](https://github.com/jscad/OpenJSCAD.org/blob/master/packages/examples/text.jscad), this example illustrates OpenJSCAD's parameter mechanism, and also the ability to render 3D text.
 
@@ -235,7 +235,7 @@ function circularExtrude (s, p) {
 }
 ```
 
-### Name Plate Example
+#### Name Plate Example
 
 From the [name_plate.jscad](https://github.com/jscad/OpenJSCAD.org/blob/master/packages/examples/name_plate.jscad) example.
 
@@ -291,7 +291,7 @@ function main (param) {
 ```
 
 
-### Dynamic Generation
+#### Dynamic Generation
 
 One of Smartdown's powers (which hasn't been fully generalized yet) is the ability to generate Smartdown text that will be rendered and interpreted. This same power has been implemented for `Graphviz`, and just recently, for `openjscad`. So we can treat Smartdown, OpenJSCad, and Graphviz as *output formats* and have their contents rendered into an appropriate Smartdown cell.
 
@@ -325,7 +325,7 @@ function main () {
 [](:!ojsOutput|openjscad)
 
 
-### Smartdown Logo via OpenJSCAD
+#### Smartdown Logo via OpenJSCAD
 
 I'd like to build a 3D model of the [Smartdown Logo](https://doctorbud.com/celestial-toys/post/2018-11-23-logo-version-2/#index):
 
@@ -366,7 +366,7 @@ function main () {
           x: 0,
           y: height / 4.0
         };
-  
+
   const width = v1.x;
   const center = {
     x: (v1.x - v5.x) / 2.0,
@@ -400,7 +400,7 @@ function main () {
 
   const pyramid = polyhedron({
     points: [ [5,5,0],[5,-5,0],[-5,-5,0],[-5,5,0], // the four points at base
-              [0,0,10] ],                                  // the apex point 
+              [0,0,10] ],                                  // the apex point
     triangles: [ [0,1,4],[1,2,4],[2,3,4],[3,0,4],          // each triangle side
                  [1,0,3],[2,1,3] ]                         // two triangles for square base
   }).setColor(css2rgb('tomato'));

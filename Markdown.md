@@ -1,4 +1,4 @@
-## Markdown Basics
+### Markdown Basics
 
 [Markdown](https://en.wikipedia.org/wiki/Markdown) was originally conceived as an easier way to write prose and technical material for online presentation. Smartdown embraces and extends that philosophy, best expressed by the original mind behind Markdown, [John Gruber](https://daringfireball.net/projects/markdown/syntax#philosophy):
 
@@ -16,7 +16,7 @@
   [6]: http://ettext.taint.org/doc/
 
 
-### Markdown is worth learning
+#### Markdown is worth learning
 
 Although there are several variants and extensions of Markdown, the ubiquity of the core Markdown syntax makes it a worthwhile and minimal investment to learn. Smartdown is based primarily upon GitHub-flavored Markdown, which is supported widely on GitHub, and also by many other Markdown tools and sites.
 
@@ -28,15 +28,15 @@ Some resources that may help:
 - [GitHub-flavored Markdown Spec](https://github.github.com/gfm/)
 
 
-### How is Smartdown Different?
+#### How is Smartdown Different?
 
 Smartdown *is* Markdown, and any Markdown document can be viewed within a Smartdown-enabled viewer. A Smartdown-enabled viewer is able to interpret certain valid Markdown constructs in a way that enables the document to be more interactive than as a static Markdown document. Smartdown takes advantage of two features of Markdown, and extends their interpretation to enable Smartdown's interactivity. Specifically, Smartdown uses Markdown's *link* syntax to embed input, output and calculation*cells* into a document, and uses Markdown's *code block* syntax to embed more complex content as *playables*.
 
-## Markdown Examples
+#### Markdown Examples
 
 In each of the examples below, the Markdown source will be shown, followed by its rendered appearance.
 
-### Headers
+##### Headers
 
 ```markdown
 # Level 1 header [Link Test](https://en.wikipedia.org/wiki/Markdown)
@@ -57,7 +57,7 @@ In each of the examples below, the Markdown source will be shown, followed by it
 
 
 
-### Styles
+#### Styles
 
 ```markdown
 *This text will be italic*
@@ -83,7 +83,7 @@ __This will also be bold__
 _You **can** combine styles ~~easily~~_
 
 
-### Lists
+#### Lists
 
 ```markdown
 - Item 1
@@ -120,7 +120,7 @@ _You **can** combine styles ~~easily~~_
    1. Item 3b
 
 
-### Code/Syntax Highlighting
+#### Code/Syntax Highlighting
 
 ````markdown
 
@@ -148,7 +148,7 @@ print("LOL, just kidding.")
 
 Link name with code: [`var xyz = 10001;`](https://www.example.com)
 
-### Blockquotes
+#### Blockquotes
 
 ```markdown
 > **The Road Not Taken**
@@ -210,7 +210,7 @@ And that has made all the difference.
 > **Robert Frost**
 
 
-### Links
+#### Links
 
 ```markdown
 - https://en.wikipedia.org/wiki/Raven
@@ -225,7 +225,7 @@ And that has made all the difference.
 - ![](https://media.poetryfoundation.org/uploads/media/default/0001/08/22208df9f0df9b4e6d3e267b60d17d43f20252f3.mp3)
 
 
-### Autolinks
+#### Autolinks
 
 The Markdown specification and the `marked.js` implementation that Smartown uses provide a feature called *autolinking*, which means that things that look *linkable* are rendered as clickable links. There are some current issues with how email addresses are rendered with [marked.js](https://github.com/markedjs/marked/issues/1218), so Smartdown has disabled the autolinking of email addresses for now.
 
@@ -239,7 +239,7 @@ Here are some examples of autolinking, mostly for test purposes:
 - `https://gist.github.com/DrBud/0d86d77875826743680a0d0a1cbe75ed`
 
 
-### Tables
+#### Tables
 
 |Left|Center|Right|
 |:---|:---:|---:|
@@ -249,7 +249,7 @@ Here are some examples of autolinking, mostly for test purposes:
 
 
 
-### Try out some Markdown and Smartdown
+#### Try out some Markdown and Smartdown
 
 Type Smartdown into the input cell below and see the result rendered as Smartdown.
 
@@ -264,7 +264,7 @@ Examples to start with:
 - `[What is your name](:?NAME) [Pleased to meet you, ](:!NAME)`
 
 
-### Emoji Support
+#### Emoji Support
 
 Smartdown now incorporates support for Emoji, as is conventional in many Markdown implementations, including GitHub-flavored Markdown's [Emoji](https://help.github.com/articles/basic-writing-and-formatting-syntax/#using-emoji) conventions.
 

@@ -1,11 +1,11 @@
-## Brython in Smartdown
+### Brython in Smartdown
 
 Smartdown is designed as a way to explain and share prose, media and active programming fragments called *playables*. Javascript-based playables have been well-supported and integrated, including the `javascript` playable and its more specialized `p5js` playable. Smartdown also supports other languages that can run in the browser, either via transpilation to Javascript (as in the `GopherJS` integration) or via compilation to WebAssembly (e.g., `GraphViz`). Eventually, Smartdown will support the optional use of *Remotely Executing* playables, which is the Jupyter notebook model, and the use of *Remotely Dependent* variables, but that's a subject for a different document.
 
 I recently explored the possibility of using [Brython](http://www.brython.info) as a way to run Python code as a playable within the browser, while adhering to Smartdown's serverless principles. Brython is very cool, well-documented, and it was pretty easy (a weekend) to build the following prototype.
 
 
-### Hello World
+#### Hello World
 
 This simple example effectively uses the browser's `window.alert()` function, but does so via Brython and the [browser](http://www.brython.info/static_doc/en/browser.html) module.
 
@@ -18,7 +18,7 @@ browser.alert("Hello World")
 ```
 
 
-### Smartdown Reactivity
+#### Smartdown Reactivity
 
 Let's see if we can make a Brython playable *observe* and *react* to a Smartdown variable.
 
@@ -45,7 +45,7 @@ In the Smartdown cell below, enter your name (or whatever), which will trigger t
 
 [What is your name?](:?NAME)
 
-### Prettier Reactivity with SVG
+#### Prettier Reactivity with SVG
 
 Adapting the examples in [browser.svg](http://www.brython.info/static_doc/en/svg.html) by dynamically creating an SVG wrapper, we can get a more interesting reactivity. In this case, we'll draw the latest version of `NAME` and a star diagram below it.
 
@@ -85,7 +85,7 @@ sd.this.depend = nameChanged
 ```
 
 
-### Analog Clock
+#### Analog Clock
 
 The following example is based upon the Brython example [Analog Clock](http://brython.info/gallery/clock.html). The original example specified the `<canvas>` tag in HTML; I've adapted it to use the Smartdown per-playable `<div>` as a parent, and added Brython code to create the `<canvas>` dynamically.
 
@@ -227,11 +227,11 @@ def atExit():
 sd.this.atExit(atExit)
 ```
 
-### How it works
+#### How it works
 
 Brython's default API is the `brython()` function which obtains Python3 source code from a `<script type="text/python3">` tag. Smartdown detects `brython` playables and generates a corresponding `<script ...>` tag. When the playable is *played*, the `Brython` compiler is invoked upon the target Python3 script and the translated Python is `eval`-ed in the context of a Smartdown-generated wrapper script that ensures that Smartdown's context is passed.
 
-### Inter-language Communication
+#### Inter-language Communication
 
 Because Smartdown's variables are available to all playables, whether Javascript or Brython, we can *compose* a document using multiple languages, depending on which language is appropriate and best expresses a concept. For example, we can write a Javascript playable that reacts to the same variable `NAME` as above. In this simple example, we'll just update the playable's DOM similar to how we did this in Brython above. For convenience, we have another input field below which will *reflect* and *affect* the value of the `NAME` variable.
 
@@ -259,9 +259,6 @@ The above examples work pretty well, after a lot of trial and error. Some of the
 - The *augmented code* is unnecessarily large and contains dead code left over from prior experiments.
 - If there is a syntax error in the Python code, it is difficult for an ordinary user to debug. The Brython stack trace needs to be interpreted in an author-friendly way. This problem is shared with other Smartdown playables.
 - I'm still unclear on the variable scoping and what effects one `brython` playable might have on another. This needs to be explored and explained.
-
-
-
 
 ---
 

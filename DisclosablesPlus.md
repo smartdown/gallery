@@ -1,5 +1,4 @@
-
-# Advanced Disclosables
+### Advanced Disclosables
 
 There are two really easy ways to do disclosable described [here](:@Disclosables). On this page we'll show how you can have more control over how your disclosables are configured and displayed.  Disclosables have many options that can be combined in different ways.  Rather than enumerate them all possible permutations, we'll show a few useful examples.  To view a full list of disclosable options click the button below.
 
@@ -25,7 +24,7 @@ Here's a list of all the options that are currently available for disclosables.
 # --outlinebox
 # ::::
 
-## Control Panel Example
+#### Control Panel Example
 
 All the configurations for your disclosables are specified in the trigger element.  In the example below you'll see a disclosable called `controlPanel` followed by it's trigger.  The options for the disclosable are placed in the trigger after the name of the disclosable `::controlPanel` and a slash `/`.  They are written in a comma seperated list: `button,bottomright,outline,shadow,draggable` and the order of the options doesn't matter.
 
@@ -67,7 +66,7 @@ The markdown in the control panel example from above creates a draggable control
 So the configurations `button,bottomright,outline,shadow,draggable` creates a `button` trigger for a disclosable.  The disclosable appears in the `bottomright` corner of the screen with an `outline`, a drop `shadow` and it is `draggable` by the user. Notice that "close" button on the panel is just an additional disclosable trigger for same disclosable.  A disclosable can have multiple triggers.
 
 
-## Lightbox Example
+#### Lightbox Example
 The following example creates a lightbox disclosable.  These are great when you really need to get your readers attention. In the following example we have a disclosable called `message` followed by a trigger with the options `center,lightbox`.  This will place the disclosable in the center of the screen and the page behind it will be dimmed.
 
 ```markdown
@@ -139,7 +138,7 @@ And here is how the trigger is written.
 ```
 
 
-## High Five Example
+#### High Five Example
 
 Here is a cool example where two disclosables are combined to create an interactive math problem for the user.  The first disclosable allows the user to get a hint about how to answer the question.  In this case the hint is a bit overly generous in case its been a while since you've taken algebra.  The second disclosable will appear after the correct answer has been entered to give the user a celebratory high five.
 
@@ -226,7 +225,7 @@ this.depend = function() {                                          // called wh
 };
 ```
 
-### Scrolling in Disclosables
+#### Scrolling in Disclosables
 
 The following is just a test to ensure that draggable disclosables have proper scrolling ability via the `scrollable` qualifier to the Disclosable trigger. Adding this qualifier results in the creation of a resizable, and if necessary, scrollable disclosable.
 

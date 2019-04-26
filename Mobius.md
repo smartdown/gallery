@@ -1,8 +1,4 @@
-## P5JS Mobius Example
-
-- [Number of Segments? [30]](:?SEGMENTS|number)
-- [Strip Thickness? [8]](:?SEG_WIDTH|number)
-- [Strip Width? [50]](:?SEG_LENGTH|number)
+### P5JS Mobius Example
 
 ```p5js/playable/autoplay
 var PI = Math.PI;
@@ -19,7 +15,7 @@ var az = ay;
 var dx, dy, dz;
 
 p5.windowResized = function() {
-  p5.resizeCanvas(p5.windowWidth - 30, p5.windowWidth - 30);
+  p5.resizeCanvas(p5.windowWidth - 50, p5.windowHeight - 300);
 };
 
 p5.setup = function() {
@@ -58,6 +54,10 @@ p5.draw = function() {
   }
 };
 ```
+
+- [Number of Segments? [30]](:?SEGMENTS|number)
+- [Strip Thickness? [8]](:?SEG_WIDTH|number)
+- [Strip Width? [50]](:?SEG_LENGTH|number)
 
 ---
 
