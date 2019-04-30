@@ -199,7 +199,7 @@ p5.draw = function () {
 
 I initially began this project in late 2016, inspired by [Global Game Jam Weekend](http://globalgamejam.org). Although I didn't complete it during the Game Jam, I have been slowly advancing it and fixing Smartdown to make it more easy.
 
-This is an experiment in using [Smartdown](http://smartdown.site/?url=README.md) and [p5.js](http://p5js.org) to build a simple, but extensible and distributed, game. The game UI is primarily written using `p5.js`, and Smartdown is being used as a prose-oriented wrapper that also provides a way to render the `p5.js`. Smartdown *Variables* are used to communicate the player name and the MusicOn/Off status between the Smartdown and the embedded sketch.
+This is an experiment in using [Smartdown](http://smartdown.github.io/smartdown) and [p5.js](http://p5js.org) to build a simple, but extensible and distributed, game. The game UI is primarily written using `p5.js`, and Smartdown is being used as a prose-oriented wrapper that also provides a way to render the `p5.js`. Smartdown *Variables* are used to communicate the player name and the MusicOn/Off status between the Smartdown and the embedded sketch.
 
 My goal with this first example is to build a rough skeleton of a game that has keyboard controls, some sort of goal or transition (e.g., to a next level), and some visual navigation. Currently, the keyboard controls can be used to move a little red dot around on the screen. There are currently no transitions or goals achievable.
 

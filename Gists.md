@@ -26,7 +26,7 @@ The Smartdown Simple Site supports the use of the browser location *hash* to sel
 ##### Pure URLs good for Bookmarking
 
 - [https://smartdown.site/#gist/doctorbud/3b5cbab3424e08199b8046cf98d19c8f](https://smartdown.site/#gist/doctorbud/3b5cbab3424e08199b8046cf98d19c8f)
-- [https://smartdown.site/lib/#gist/doctorbud/3b5cbab3424e08199b8046cf98d19c8f](https://smartdown.site/lib/#gist/doctorbud/3b5cbab3424e08199b8046cf98d19c8f)
+- [https://smartdown.github.io/smartdown/#gist/doctorbud/3b5cbab3424e08199b8046cf98d19c8f](https://smartdown.github.io/smartdown/#gist/doctorbud/3b5cbab3424e08199b8046cf98d19c8f)
 - [https://smartdown.site/gist/#doctorbud/3b5cbab3424e08199b8046cf98d19c8f](https://smartdown.site/gist/#doctorbud/3b5cbab3424e08199b8046cf98d19c8f)
 
 
