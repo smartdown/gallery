@@ -20,7 +20,7 @@ Use the navigation buttons below to explore different aspects of Smartdown. You 
 |[Decorations](:@Decorations)|[ThreeJS](:@Three)|[VectorTree](:@VectorTree)|[Mandelbrot](:@Mandelbrot)|
 |[Cells](:@Cells)|[P5JS](:@P5JS)|[Dungeon](:@Dungeon)|[LDF](:@LDF)|
 |[Disclosables](:@Disclosables)|[Mermaid](:@Mermaid)|[Dungeon3D](:@Games)|[OpenJSCAD](:@OpenJSCAD)|
-|[SVG](:@SVG)||||
+|[SVG](:@SVG)|||[Music](:@Music)|
 
 ---
 
