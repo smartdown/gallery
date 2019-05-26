@@ -39,4 +39,5 @@ See [Smartdown README](https://smartdown.github.io/smartdown/#README) for more i
 - **0.0.29** - Assumes SD 0.0.118+. Adjust GIF Video examples to deal with new defaults for using Gifffer. Increase header level for all cards, to reduce vertical space usage. Remove P5Play example. Separate Video example from GIF/audio by creating GIFAndAudio example. Rearrange layout of Home.md to be more sensible. Adjust Badges demo to point to Smartdown. Adjust Mobius example to highlight the picture first, parameters second. Improve documentation of Video and GIF dimensioning. Adjust Madlibs example to use Decoration vs blockquote to highlight the MadLib. Adjust header levels throughout to enable more easy embedding into impress.
 - **0.0.30** - Assumes SD 1.0.0+. Change URLs to point to smartdown.github.io rather than smartdown.site or doctorbud.com, where that makes sense. Use smartdown@quantumclay.com for email feedback.
 - **0.0.31** - Assumes SD 1.0.3+. Adds abc examples and abcmidi examples based upon SD 1.0.3 support for abcjs.
+- **0.0.32** - Assumes SD 1.0.4+. Enhances Music.md examples.
 
