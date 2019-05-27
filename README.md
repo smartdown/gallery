@@ -40,4 +40,4 @@ See [Smartdown README](https://smartdown.github.io/smartdown/#README) for more i
 - **0.0.30** - Assumes SD 1.0.0+. Change URLs to point to smartdown.github.io rather than smartdown.site or doctorbud.com, where that makes sense. Use smartdown@quantumclay.com for email feedback.
 - **0.0.31** - Assumes SD 1.0.3+. Adds abc examples and abcmidi examples based upon SD 1.0.3 support for abcjs.
 - **0.0.32** - Assumes SD 1.0.4+. Enhances Music.md examples.
-
+- **0.0.33** - Assumes SD 1.0.5+. Streamline Music.md examples with shorter songs and better documentation.
