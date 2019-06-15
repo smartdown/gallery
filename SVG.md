@@ -44,7 +44,7 @@ this.depend = function() {
 	var forks = env.FORKS || '?FORKS?';
 	var stars = env.STARS || '?STARS?';
 	var svgText =
-	`<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="400" height="200" viewBox="0, 0, 512, 200">
+	`<svg version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0" y="0" width="400" height="200" viewBox="0, 0, 512, 200">
 	  <g id="Layer_3">
 	    <g>
 	      <path d="M12.5,0.5 L500.5,0.5 C507.127,0.5 512.5,5.873 512.5,12.5 L512.5,188.5 C512.5,195.127 507.127,200.5 500.5,200.5 L12.5,200.5 C5.873,200.5 0.5,195.127 0.5,188.5 L0.5,12.5 C0.5,5.873 5.873,0.5 12.5,0.5 z" fill="#000000"/>

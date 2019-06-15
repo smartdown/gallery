@@ -2,7 +2,7 @@
 
 Smartdown has integrated the powerful [viz.js](https://github.com/mdaines/viz.js) library, which is compiled into Javascript from the original Graphviz C code.
 
-Note: There is a similarly named package at [http://visjs.org](http://visjs.org) which Smartdown does not currently use.
+Note: There is a similarly named package at [https://visjs.org](https://visjs.org) which Smartdown does not currently use.
 
 There is a Graphviz example displaying the `stdlib` namespaces at [Stdlib via Graphviz](:@Stdlib)
 

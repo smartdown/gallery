@@ -1,6 +1,6 @@
 ### Smartdown Disclosables
 
-Smartdown now provides an experimental feature that we are calling *Disclosables*, which enables an author to *stage* the content that a reader sees, and enables the reader to control how much detail they wish to see. This feature is one mechanism Smartdown uses to provide [**progressive disclosure**](::progdisc/tooltip), which can help make [Explorable Explanations](http://worrydream.com/ExplorableExplanations/) *rich* but *manageable*.
+Smartdown now provides an experimental feature that we are calling *Disclosables*, which enables an author to *stage* the content that a reader sees, and enables the reader to control how much detail they wish to see. This feature is one mechanism Smartdown uses to provide [**progressive disclosure**](::progdisc/tooltip), which can help make [Explorable Explanations](https://worrydream.com/ExplorableExplanations/) *rich* but *manageable*.
 
 # :::: progdisc
 [Progressive Disclosure](https://en.wikipedia.org/wiki/Progressive_disclosure) is a design technique that maintains the user's focus and attention by reducing the amount of data presented to the user and thereby reduces their cognitive load.

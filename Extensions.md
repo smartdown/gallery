@@ -14,7 +14,7 @@ So far, it seems to work. The target libraries tend to be CDN-hosted libraries i
 
 #### Dynamic load of SVG.js
 
-We'll start with something simple, a Javascript library called [svgjs.com](http://svgjs.com) that provides a high-level language to build SVG elements and place them into the DOM. We'll use this to put an SVG into the current smartdown div. But we'll need to ensure that the `svg.js` library is loaded before we execute, or our playable will fail. The use of the `smartdown.use` clause below will let Smartdown know to load that library before trying to compile and execute the rest of the playable code.
+We'll start with something simple, a Javascript library called [svgjs.com](https://svgjs.com) that provides a high-level language to build SVG elements and place them into the DOM. We'll use this to put an SVG into the current smartdown div. But we'll need to ensure that the `svg.js` library is loaded before we execute, or our playable will fail. The use of the `smartdown.use` clause below will let Smartdown know to load that library before trying to compile and execute the rest of the playable code.
 
 
 ```javascript/playable/debug

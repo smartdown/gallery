@@ -81,7 +81,7 @@ this.depend = function() {
     const mymap = L.map(this.div);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+        attribution: 'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://mapbox.com">Mapbox</a>',
     }).addTo(mymap);
     this.leafletMap = mymap;
   }
@@ -175,7 +175,7 @@ this.depend = function() {
     geodata.forEach(function(d) {
       var link = idToLink(d.pageid, d.title);
 
-      // See http://leafletjs.com/reference-1.1.0.html#divicon
+      // See https://leafletjs.com/reference-1.1.0.html#divicon
       var myIcon = L.divIcon({
         iconSize: [100, 30],
         popupAnchor:  [0, 0],
@@ -205,7 +205,7 @@ this.depend = function() {
 
     this.leafletMap.setView(mapCenter, 13);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+        attribution: 'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://mapbox.com">Mapbox</a>',
     }).addTo(this.leafletMap);
   }
 

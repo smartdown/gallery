@@ -8,7 +8,7 @@ Smartdown extends the simple expressivity of the [Markdown](https://en.wikipedia
 
 Use the navigation buttons below to explore different aspects of Smartdown. You can always go [Back to Home](:@Home).
 
-|Media|Visualization|Toys|Advanced|
+|Media|Data/Science|Toys|Advanced|
 |:---:|:---:|:---:|:---:|
 |[Readme](:@README)|[Graphviz](:@Graphviz)|[MadLibs](:@MadLibs)|[Disclosables++](:@DisclosablesPlus)|
 |[Markdown](:@Markdown)|[D3](:@D3)|[Cuneiform](:@Cuneiform)|[Javascript](:@Javascript)|
@@ -20,7 +20,7 @@ Use the navigation buttons below to explore different aspects of Smartdown. You 
 |[Decorations](:@Decorations)|[ThreeJS](:@Three)|[VectorTree](:@VectorTree)|[Mandelbrot](:@Mandelbrot)|
 |[Cells](:@Cells)|[P5JS](:@P5JS)|[Dungeon](:@Dungeon)|[LDF](:@LDF)|
 |[Disclosables](:@Disclosables)|[Mermaid](:@Mermaid)|[Dungeon3D](:@Games)|[OpenJSCAD](:@OpenJSCAD)|
-|[SVG](:@SVG)|||[Music](:@Music)|
+|[SVG](:@SVG)|[jsPsych](:@JSPsych)||[Music](:@Music)|
 
 ---
 
@@ -33,7 +33,7 @@ Use the navigation buttons below to explore different aspects of Smartdown. You 
 
 #### Advanced Features
 
-Smartdown is unique in the way that it integrates text with interactive *cells*, *variables* and *playables*. This enables the development of lightweight interactive documents that have the power and expressivity of a web application, but are more easily authored and published. Although Smartdown was designed for instructional and explanatory purposes, its power and expressivity rivals or surpasses that of [Jupyter Notebooks](http://jupyter.org), making it suitable for *data science* exploration and presentation.
+Smartdown is unique in the way that it integrates text with interactive *cells*, *variables* and *playables*. This enables the development of lightweight interactive documents that have the power and expressivity of a web application, but are more easily authored and published. Although Smartdown was designed for instructional and explanatory purposes, its power and expressivity rivals or surpasses that of [Jupyter Notebooks](https://jupyter.org), making it suitable for *data science* exploration and presentation.
 
 Unique features of Smartdown include:
 
@@ -43,7 +43,7 @@ Unique features of Smartdown include:
 - A rich and extensible set of *playables*, which are similar to the *embeddables* found in many blogging systems, but can interact with each other and the document itself. The current default set of playables includes:
 	- [P5JS](https://p5js.org) supports drawing-based visualizations, games, sound and much more.
 	- [D3.js](https://d3js.org), [D3fc](https://d3fc.io), [Plotly.js](https://plot.ly/javascript/), and [threejs](https://threejs.org) support data visualizations including plots, charts, maps, and much more.
-	- [Leaflet.js](http://leafletjs.com) enables easy embedding of geo-based data and maps.
+	- [Leaflet.js](https://leafletjs.com) enables easy embedding of geo-based data and maps.
 	- [Graphviz via `viz.js`](https://github.com/mdaines/viz.js) is a long-lived standard format for technical and scientific diagrams.
 	- Custom Javascript Playables simplify integration and enhance expressivity of the document.
 	- (coming soon) [Go](https://github.com/gopherjs/gopherjs) playables provide a typed language and a rich set of concurrency and communication capabilities.

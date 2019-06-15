@@ -30,7 +30,7 @@ This examples shows some of the color and transparency potential. Based upon [tr
 
 function main () {
   var o = [];
-  for (var i = 7; i >= 0; i--) { // reverse order for seeing through all cylinders (see http://www.opengl.org/wiki/Transparency_Sorting)
+  for (var i = 7; i >= 0; i--) { // reverse order for seeing through all cylinders (see https://www.opengl.org/wiki/Transparency_Sorting)
     // hsl to rgb, creating rainbow [r,g,b]
     o.push(
       cylinder({r: 3, h: 20}).setColor(
@@ -87,9 +87,9 @@ function main (params) {
 
 /*
   For gear terminology see:
-    http://www.astronomiainumbria.org/advanced_internet_files/meccanica/easyweb.easynet.co.uk/_chrish/geardata.htm
+    https://www.astronomiainumbria.org/advanced_internet_files/meccanica/easyweb.easynet.co.uk/_chrish/geardata.htm
   Algorithm based on:
-    http://www.cartertools.com/involute.html
+    https://www.cartertools.com/involute.html
 
   circularPitch: The distance between adjacent teeth measured at the pitch circle
 */

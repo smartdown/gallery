@@ -110,7 +110,7 @@ We can use Smartdown's *image URL* syntax to refer to an `.abc` file and embed s
 The above examples show how an `abc` script can be embedded into a Smartdown project either as a *playable* of type `abc`, or via a URL using the `abc` image URL syntax above. We can also use a Smartdown *variable* of type `abc` and and then use a *cell* to display that value as sheet music, midi, or both. Let's give it a try.
 
 
-We'll use the Scottish Ballad [Auld Lang Syne](https://en.wikipedia.org/wiki/Auld_Lang_Syne) as our example. The version of the song we'll start with will be the 5-verse *original* version by [Robert Burns]() that is from the [abcnotation.com](http://abcnotation.com/tunePage?a=trillian.mit.edu/~jc/music/abc/mirror/gulfweb.net:34043/~rlwalker/abc/AuldOrig/0000) index site.
+We'll use the Scottish Ballad [Auld Lang Syne](https://en.wikipedia.org/wiki/Auld_Lang_Syne) as our example. The version of the song we'll start with will be the 5-verse *original* version by [Robert Burns]() that is from the [abcnotation.com](https://abcnotation.com/tunePage?a=trillian.mit.edu/~jc/music/abc/mirror/gulfweb.net:34043/~rlwalker/abc/AuldOrig/0000) index site.
 
 Let's place the text of this `abc` version of our song into a variable, and then have a cell render that as sheet music and MIDI. For kicks, we'll make it easy to modify the speed of the song by using Smartdown to edit the `abc` script before using it.
 

@@ -1,6 +1,6 @@
 {
   "name": "smartdown-gallery",
-  "version": "0.0.33",
+  "version": "0.0.34",
   "description": "Example Smartdown documents and associated resources that demonstrate various Smartdown features and serve as raw material for other Smartdown demos.",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,7 @@
     "smartdown",
     "gallery"
   ],
-  "author": "Daniel Keith <dan@quantumclay.com> (http://doctorbud.github.io)",
+  "author": "Daniel Keith <dan@quantumclay.com> (https://doctorbud.com)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/smartdown/gallery/issues"

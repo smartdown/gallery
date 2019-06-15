@@ -2,12 +2,12 @@
 
 Smartdown is designed as a way to explain and share prose, media and active programming fragments called *playables*. Javascript-based playables have been well-supported and integrated, including the `javascript` playable and its more specialized `p5js` playable. Smartdown also supports other languages that can run in the browser, either via transpilation to Javascript (as in the `GopherJS` integration) or via compilation to WebAssembly (e.g., `GraphViz`). Eventually, Smartdown will support the optional use of *Remotely Executing* playables, which is the Jupyter notebook model, and the use of *Remotely Dependent* variables, but that's a subject for a different document.
 
-I recently explored the possibility of using [Brython](http://www.brython.info) as a way to run Python code as a playable within the browser, while adhering to Smartdown's serverless principles. Brython is very cool, well-documented, and it was pretty easy (a weekend) to build the following prototype.
+I recently explored the possibility of using [Brython](https://www.brython.info) as a way to run Python code as a playable within the browser, while adhering to Smartdown's serverless principles. Brython is very cool, well-documented, and it was pretty easy (a weekend) to build the following prototype.
 
 
 #### Hello World
 
-This simple example effectively uses the browser's `window.alert()` function, but does so via Brython and the [browser](http://www.brython.info/static_doc/en/browser.html) module.
+This simple example effectively uses the browser's `window.alert()` function, but does so via Brython and the [browser](https://www.brython.info/static_doc/en/browser.html) module.
 
 ```brython/playable/debug
 """A very simple Python3 program"""
@@ -47,7 +47,7 @@ In the Smartdown cell below, enter your name (or whatever), which will trigger t
 
 #### Prettier Reactivity with SVG
 
-Adapting the examples in [browser.svg](http://www.brython.info/static_doc/en/svg.html) by dynamically creating an SVG wrapper, we can get a more interesting reactivity. In this case, we'll draw the latest version of `NAME` and a star diagram below it.
+Adapting the examples in [browser.svg](https://www.brython.info/static_doc/en/svg.html) by dynamically creating an SVG wrapper, we can get a more interesting reactivity. In this case, we'll draw the latest version of `NAME` and a star diagram below it.
 
 
 ```brython/playable
@@ -69,8 +69,8 @@ def nameChanged():
 
     svgWrapper = """\
 <svg
-    xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns="https://www.w3.org/2000/svg"
+    xmlns:xlink="https://www.w3.org/1999/xlink"
     width="200" height="200" style="border-style:solid;border-width:1;border-color:#000;">
         <g id="%s"></g>
 </svg>""" % gId
@@ -87,7 +87,7 @@ sd.this.depend = nameChanged
 
 #### Analog Clock
 
-The following example is based upon the Brython example [Analog Clock](http://brython.info/gallery/clock.html). The original example specified the `<canvas>` tag in HTML; I've adapted it to use the Smartdown per-playable `<div>` as a parent, and added Brython code to create the `<canvas>` dynamically.
+The following example is based upon the Brython example [Analog Clock](https://brython.info/gallery/clock.html). The original example specified the `<canvas>` tag in HTML; I've adapted it to use the Smartdown per-playable `<div>` as a parent, and added Brython code to create the `<canvas>` dynamically.
 
 
 ```brython/playable

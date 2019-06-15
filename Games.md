@@ -197,15 +197,15 @@ p5.draw = function () {
 
 #### SmartDown Game Tech Example - Part I
 
-I initially began this project in late 2016, inspired by [Global Game Jam Weekend](http://globalgamejam.org). Although I didn't complete it during the Game Jam, I have been slowly advancing it and fixing Smartdown to make it more easy.
+I initially began this project in late 2016, inspired by [Global Game Jam Weekend](https://globalgamejam.org). Although I didn't complete it during the Game Jam, I have been slowly advancing it and fixing Smartdown to make it more easy.
 
-This is an experiment in using [Smartdown](http://smartdown.github.io/smartdown) and [p5.js](http://p5js.org) to build a simple, but extensible and distributed, game. The game UI is primarily written using `p5.js`, and Smartdown is being used as a prose-oriented wrapper that also provides a way to render the `p5.js`. Smartdown *Variables* are used to communicate the player name and the MusicOn/Off status between the Smartdown and the embedded sketch.
+This is an experiment in using [Smartdown](https://smartdown.io) and [p5.js](https://p5js.org) to build a simple, but extensible and distributed, game. The game UI is primarily written using `p5.js`, and Smartdown is being used as a prose-oriented wrapper that also provides a way to render the `p5.js`. Smartdown *Variables* are used to communicate the player name and the MusicOn/Off status between the Smartdown and the embedded sketch.
 
 My goal with this first example is to build a rough skeleton of a game that has keyboard controls, some sort of goal or transition (e.g., to a next level), and some visual navigation. Currently, the keyboard controls can be used to move a little red dot around on the screen. There are currently no transitions or goals achievable.
 
 My ultimate goal, probably in Parts II or III of this sequence, is to build a Wizardry-style game with a simple vector hallway/room representation, and to be able to link different *levels* together via URL so that a dungeon can be stored and explored in a completely distributed fashion, with some authors hosting their content on GitHub, others on websites, and others via dynamically generated API servers.
 
-In theory, I could first try to implement my [Basilisk Game](http://doctorbud.com/celestial-toys/post/2015-02-03-slide-puzzle-combinators/) example, which was written as a ReactJS exercise.
+In theory, I could first try to implement my [Basilisk Game](https://doctorbud.com/celestial-toys/post/2015-02-03-reactjs-basilisk-slide-puzzle/) example, which was written as a ReactJS exercise.
 
 ---
 

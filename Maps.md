@@ -5,7 +5,7 @@
 ```leaflet/playable/autoplay
 var mymap = L.map(this.div.id).setView([51.505, -0.09], 12);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    attribution: 'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://mapbox.com">Mapbox</a>',
     maxZoom: 18,
 }).addTo(mymap);
 
@@ -24,7 +24,7 @@ Quoting text from the conference presentation:
 
 > Smelly London: visualising historical smells through text-mining, geo-referencing and mapping.
 
-> Smelly London project (www.londonsmells.co.uk) aims to bring together historical data with modern digitisation and visualisation to give us a unique revealing and visceral glimpse into a London of the past and what it tells us about London today. Text-mining and analysing the MOH reports tells the intimate narratives of the everyday experiences of 19th and 20th century Londoners through the 'smellscape'. The Smelly London project provides a great opportunity to demonstrate how new knowledge and insights have risen from the use of powerful digital applications. All outputs generated from the project will be open access and open source. Our data is available in a public repository [GitHub](https://github.com/Smelly-London) and other platforms such as [Layers of London](http://layersoflondon.blogs.sas.ac.uk/about-the-project/) and [Smelly Maps: Good City Life](http://goodcitylife.org/index.html).
+> Smelly London project (www.londonsmells.co.uk) aims to bring together historical data with modern digitisation and visualisation to give us a unique revealing and visceral glimpse into a London of the past and what it tells us about London today. Text-mining and analysing the MOH reports tells the intimate narratives of the everyday experiences of 19th and 20th century Londoners through the 'smellscape'. The Smelly London project provides a great opportunity to demonstrate how new knowledge and insights have risen from the use of powerful digital applications. All outputs generated from the project will be open access and open source. Our data is available in a public repository [GitHub](https://github.com/Smelly-London) and other platforms such as [Layers of London](https://layersoflondon.blogs.sas.ac.uk/about-the-project/) and [Smelly Maps: Good City Life](https://goodcitylife.org/index.html).
 
 
 ```plotly/playable

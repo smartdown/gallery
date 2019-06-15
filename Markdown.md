@@ -8,12 +8,12 @@
 > To this end, Markdown's syntax is comprised entirely of punctuation characters, which punctuation characters have been carefully chosen so as to look like what they mean. E.g., asterisks around a word actually look like \*emphasis\*. Markdown lists look like, well, lists. Even blockquotes look like quoted passages of text, assuming you've ever used email.
 
 
-  [1]: http://docutils.sourceforge.net/mirror/setext.html
-  [2]: http://www.aaronsw.com/2002/atx/
-  [3]: http://textism.com/tools/textile/
-  [4]: http://docutils.sourceforge.net/rst.html
-  [5]: http://www.triptico.com/software/grutatxt.html
-  [6]: http://ettext.taint.org/doc/
+  [1]: https://docutils.sourceforge.net/mirror/setext.html
+  [2]: https://www.aaronsw.com/2002/atx/
+  [3]: https://textism.com/tools/textile/
+  [4]: https://docutils.sourceforge.net/rst.html
+  [5]: https://www.triptico.com/software/grutatxt.html
+  [6]: https://ettext.taint.org/doc/
 
 
 #### Markdown is worth learning
@@ -231,11 +231,11 @@ The Markdown specification and the `marked.js` implementation that Smartown uses
 
 Here are some examples of autolinking, mostly for test purposes:
 
-- http://example.com
-- `http://example.com`
+- https://example.com
+- `https://example.com`
 - dan@example.com
 - `dan@example.com`
-- [dan@example.com](http://example.com)
+- [dan@example.com](https://example.com)
 - `https://gist.github.com/DrBud/0d86d77875826743680a0d0a1cbe75ed`
 
 

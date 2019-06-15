@@ -2,7 +2,7 @@
 
 **Super-experimental right now**
 
-Exploring the possibilities of [Linked Data Fragments](http://linkeddatafragments.org). I've integrated [Client.js](https://github.com/LinkedDataFragments/Client.js) into Smartdown, which provides access to [Triple Pattern Fragment servers](Triple Pattern Fragment servers) via [SPARQL](https://en.wikipedia.org/wiki/SPARQL).
+Exploring the possibilities of [Linked Data Fragments](https://linkeddatafragments.org). I've integrated [Client.js](https://github.com/LinkedDataFragments/Client.js) into Smartdown, which provides access to [Triple Pattern Fragment servers](Triple Pattern Fragment servers) via [SPARQL](https://en.wikipedia.org/wiki/SPARQL).
 
 #### LDF Server and SPARQL Query
 
@@ -17,10 +17,10 @@ smartdown.ldf.Logger.setLevel('NOTICE');
 let fragmentServer = 'https://query.wikidata.org/bigdata/ldf';
 let query =
 `
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX wdp: <http://www.wikidata.org/prop/direct/>
-PREFIX wde: <http://www.wikidata.org/entity/>
-PREFIX schema: <http://schema.org/>
+PREFIX rdfs: <https://www.w3.org/2000/01/rdf-schema#>
+PREFIX wdp: <https://www.wikidata.org/prop/direct/>
+PREFIX wde: <https://www.wikidata.org/entity/>
+PREFIX schema: <https://schema.org/>
 
 SELECT DISTINCT ?beatle ?description ?label ?pseudonym ?image WHERE {
   wde:Q1299 wdp:P527 ?beatle .
