@@ -42,4 +42,5 @@ See [Smartdown README](https://smartdown.github.io/smartdown/#README) for more i
 - **0.0.32** - Assumes SD 1.0.4+. Enhances Music.md examples.
 - **0.0.33** - Assumes SD 1.0.5+. Streamline Music.md examples with shorter songs and better documentation.
 - **0.0.34** - Adds jsPysch examples. Assumes SD 1.0.6. Updates various URLs and adds https where appropriate.
+- **0.0.35** - Improves jsPsych example code and adds jsPsych Flanker experiment.
 
