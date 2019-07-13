@@ -24,6 +24,16 @@ Just as with [Videos](:@Videos), we can use Smartdown to select from a set of co
 ![](/gallery/resources/Basement-of-chillon-castle.jpg)
 
 
+##### Icon
+
+```markdown
+![icon](/gallery/resources/Basement-of-chillon-castle.jpg)
+```
+
+![icon](/gallery/resources/Basement-of-chillon-castle.jpg)
+
+
+
 ##### Thumbnail
 
 ```markdown

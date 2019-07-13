@@ -29,6 +29,7 @@ Quoting text from the conference presentation:
 
 ```plotly/playable
 var renderDiv = this.div;
+renderDiv.style.height = '500px';
 
 var smellBoroughJson = 'https://rawcdn.githack.com/Smelly-London/Smelly-London/master/visualisation/leaflet/data/moh_smell_category_borough_json.json';
 var districtsJson = 'https://rawcdn.githack.com/Smelly-London/Smelly-London/master/visualisation/leaflet/data/london_districts_latlong_with_centroids.json';

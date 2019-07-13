@@ -44,4 +44,4 @@ See [Smartdown README](https://smartdown.github.io/smartdown/#README) for more i
 - **0.0.34** - Adds jsPysch examples. Assumes SD 1.0.6. Updates various URLs and adds https where appropriate.
 - **0.0.35** - Improves jsPsych example code and adds jsPsych Flanker experiment.
 - **0.0.36** - Repairs lost edits to JSPsych.md.
-
+- **0.0.37** - Assumes SD 1.0.8. Enhance mobile-awareness of jsPsych examples. Improve jsPsych examples. Updated Cuneiform QC logo slightly. Add 'icon' size image example.

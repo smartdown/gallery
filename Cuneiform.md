@@ -166,11 +166,9 @@ function drawQ() {
   p5.ellipse(centerX, centerY, circleDiameter, circleDiameter);
   p5.pop();
   p5.fill('royalblue');
-  p5.textFont('xkcd');
-  p5.textSize(144);
-  p5.text('I', centerX - 60, centerY + 45);
+  p5.textFont('asap');
   p5.textSize(120);
-  p5.text('C', centerX + 5, centerY + 30);
+  p5.text('IC', centerX - 55, centerY + 45);
   var arrowWidth = 45;
   var arrowHeight = 25;
   var stalkWidth = 10;
@@ -197,19 +195,20 @@ function drawQ() {
 
 
 p5.windowResized = function() {
-  p5.resizeCanvas(p5.windowWidth - 70, 300);
+  // p5.resizeCanvas(p5.windowWidth - 70, 300);
 };
 
 p5.setup = function() {
   stalk = window.stalk.bind(this, p5);
 
-  p5.createCanvas(100, 100);
+  p5.createCanvas(700, 700);
   p5.windowResized();
 
   p5.noStroke();
 };
 
 p5.draw = function() {
+  p5.background('aliceblue');
   drawQ();
   p5.fill(0);
   p5.frameRate(1);
@@ -223,16 +222,16 @@ p5.draw = function() {
 ```p5js/playable/autoplay
 var stalk = null;
 
-var bgColor = '#400';
+var bgColor = 'aliceblue';
 
 function drawRing(sectorSkew, numSectors, centerX, centerY, qMode, cMode) {
-  var stalkRadius = 70;
+  var stalkRadius = 100;
   var stalkDiameter = 2 * stalkRadius;
 
-  var arrowHeight = 40;
-  var arrowWidth = 60;
-  var stalkWidth = 10;
-  var stalkHeight = 5;
+  var arrowHeight = 70;
+  var arrowWidth = 115;
+  var stalkWidth = 15;
+  var stalkHeight = 15;
   var stalkStagger = 0;
   var sectorSize = p5.TWO_PI / numSectors;
 
@@ -291,7 +290,7 @@ function drawBox() {
 
   stalk(margin + arrowWidth / 2,
         p5.height - (margin + arrowWidth / 2),
-        arrowWidth,
+        2 * arrowWidth,
         arrowHeight,
         stalkWidth,
         p5.height * 0.4 - 2 * (margin + arrowWidth),
@@ -300,7 +299,7 @@ function drawBox() {
         bgColor);
   stalk(p5.width - (margin + arrowWidth / 2),
         margin + arrowWidth / 2,
-        arrowWidth,
+        2 * arrowWidth,
         arrowHeight,
         stalkWidth,
         p5.height * 0.4 - 2 * (margin + arrowWidth),
@@ -309,7 +308,7 @@ function drawBox() {
         bgColor);
   stalk(p5.width * 0.4 + margin + arrowWidth / 2,
         margin + arrowWidth / 2,
-        arrowWidth,
+        2 * arrowWidth,
         arrowHeight,
         stalkWidth,
         p5.width * 0.6 - 2 * (margin + arrowWidth),
@@ -318,7 +317,7 @@ function drawBox() {
         bgColor);
   stalk(p5.width * 0.6 - (margin + arrowWidth / 2),
         p5.height - (margin + arrowWidth / 2),
-        arrowWidth,
+        2 * arrowWidth,
         arrowHeight,
         stalkWidth,
         p5.width * 0.6 - 2 * (margin + arrowWidth),
@@ -330,7 +329,7 @@ function drawBox() {
 p5.setup = function() {
   stalk = window.stalk.bind(this, p5);
 
-  p5.createCanvas(500, 500);
+  p5.createCanvas(700, 700);
   p5.background(bgColor);
   p5.noStroke();
 };
@@ -339,6 +338,10 @@ p5.draw = function() {
   drawQ();
   drawC();
   drawBox();
+  p5.noFill();
+  //p5.stroke('magenta');
+  //p5.rect(0, 0, 700, 700);
+
   p5.frameRate(1);
 };
 ```

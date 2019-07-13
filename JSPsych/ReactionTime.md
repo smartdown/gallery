@@ -16,7 +16,7 @@ We'll start by adapting the [Reaction Time Experiment Tutorial](https://www.jsps
 # ReactionTimeExperiment
 ---
 
-```javascript/playable/autoplay
+```javascript /playable/autoplay
 //smartdown.import=https://unpkg.com/jspsych@6.0.0/jspsych.js
 //smartdown.import=https://unpkg.com/jspsych@6.0.0/plugins/jspsych-html-keyboard-response.js
 //smartdown.import=https://unpkg.com/jspsych@6.0.0/plugins/jspsych-image-keyboard-response.js
@@ -110,37 +110,44 @@ var test = {
   },
 }
 
-var test_procedure = {
+var testProcedure = {
   timeline: [fixation, test],
   timeline_variables: testStimuli,
   repetitions: 1,
   randomize_order: true
 }
-timeline.push(test_procedure);
+timeline.push(testProcedure);
 
+
+function debrief() {
+  var trials = jsPsych.data.get().filter({test_part: 'test'});
+  var correct_trials = trials.filter({correct: true});
+  var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
+  var rt = Math.round(correct_trials.select('rt').mean());
+
+  const result =
+`
+<p>
+You responded correctly on ${accuracy}% of the trials.
+</p>
+<p>
+Your average response time was ${rt}ms.
+</p>
+
+<p>
+The experiment is now complete. Thank you!
+</p>
+`;
+
+  jsPsych.endExperiment();
+
+  return result;
+}
 
 var debriefBlock = {
   type: 'html-keyboard-response',
-  stimulus: function() {
-    var trials = jsPsych.data.get().filter({test_part: 'test'});
-    var correct_trials = trials.filter({correct: true});
-    var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
-    var rt = Math.round(correct_trials.select('rt').mean());
-
-    const result =
-`
-<p>
-  You responded correctly on ${accuracy}% of the trials.
-</p>
-<p>
-  Your average response time was ${rt}ms.
-</p>
-<p>
-  Press any key to complete the experiment. Thank you!
-</p>
-`;
-    return result;
-  }
+  choices: jsPsych.NO_KEYS,
+  stimulus: debrief
 };
 timeline.push(debriefBlock);
 
@@ -150,6 +157,9 @@ timeline.push(debriefBlock);
 
 jsPsych.init({
   on_trial_start: function() {
+    const top = myDiv.offsetTop - 40;
+    document.body.scrollTop = top; // For Chrome, Safari and Opera
+    document.documentElement.scrollTop = top; // For IE and Firefox
     myDiv.focus();
   },
   // preload_images: preloadImages,
@@ -163,12 +173,12 @@ jsPsych.init({
   },
 });
 
-window.setTimeout(function() {
-  const top = myDiv.offsetTop - 40;
-  document.body.scrollTop = top; // For Chrome, Safari and Opera
-  document.documentElement.scrollTop = top; // For IE and Firefox
-  myDiv.focus();
-}, 0);
+// window.setTimeout(function() {
+//   const top = myDiv.offsetTop - 40;
+//   document.body.scrollTop = top; // For Chrome, Safari and Opera
+//   document.documentElement.scrollTop = top; // For IE and Firefox
+//   myDiv.focus();
+// }, 0);
 
 ```
 

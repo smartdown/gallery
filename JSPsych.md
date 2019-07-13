@@ -7,7 +7,7 @@ I recently discovered [jsPsych](https://www.jspsych.org), which is best describe
 
 > jsPsych is a JavaScript library for running behavioral experiments in a web browser. The library provides a flexible framework for building a wide range of laboratory-like experiments that can be run online.
 
-I wanted to see whether it *played well* with Smartdown, and created this document to explore what a Smartdown/jsPsych integration might look like. I mostly plan on adapting some of the jsPsych examples and using Smartdown to visualize the data produced by an experiment.
+I wanted to see whether it *played well* with Smartdown, and created this document to explore what a Smartdown/jsPsych integration might look like. I mostly plan on adapting some of the jsPsych examples and using Smartdown to visualize the data produced by an experiment. My goal isn't to provide an unnecessary wrapper around jsPsych, but to make it easier to *talk about* jsPsych and different experiment types.
 
 So far, I've converted two experiments:
 
@@ -33,7 +33,7 @@ Some of the modifications I've made to the original, to get it to fit better int
 - I'm currently using the `smartdown.import` syntax to dynamically load `jsPsych` into the document (see [Extension Mechanisms for Smartdown](https://smartdown.site/#gallery/Extensions.md)). If the `jsPsych` integration proves promising, I will build a *first-class* embedding in the same way that [P5JS](https://smartdown.site/#gallery/P5JS.md) and [D3](https://smartdown.site/#gallery/D3.md) are embedded.
 - Rather than relying upon jsPsych's `data.displayData()` function, I instead use `get().values()` to extract the experiment data into a Smartdown variable, so that it can be subsequently visualized.
 - I converted the double-quotation marks into single-quotes when in Javascript, because that is how I roll. Similarly, I replaced `snake_case` identifiers with `camelCase`.
-
+- I eliminated the `Press any key to complete the experiment` step, since I'm using Smartdown to display the values and the user invokes that step with the `View Reaction Time Data`.
 
 ### Issues that came up
 

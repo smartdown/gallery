@@ -8,7 +8,7 @@ I really like the [Flanker Experiment](https://github.com/jspsych/jsPsych/blob/m
 The cool thing (IMHO) about this experiment is to see how your reaction time is increased when the context is *distracting* vs *reinforcing*.
 
 
-```javascript/playable/autoplay
+```javascript /playable/autoplay
 //smartdown.import=https://unpkg.com/jspsych@6.0.0/jspsych.js
 //smartdown.import=https://unpkg.com/jspsych@6.0.0/plugins/jspsych-html-keyboard-response.js
 //smartdown.import=https://unpkg.com/jspsych@6.0.0/plugins/jspsych-image-keyboard-response.js
@@ -16,19 +16,20 @@ The cool thing (IMHO) about this experiment is to see how your reaction time is 
 env.flankerData = undefined;
 
 const myDiv = this.div;
+myDiv.style.border = '1px solid red';
+// myDiv.style.width = '500px';
+myDiv.style.height = '400px';
+myDiv.style.margin = 'auto';
 
 smartdown.importCssUrl('https://unpkg.com/jspsych@6.0.0/css/jspsych.css');
-//smartdown.importCssCode(
-//`
-//#${myDiv.id} .jspsych-content img {
-//  width: 100px;
-//}
-//`);
+smartdown.importCssCode(
+`
+#${myDiv.id} .jspsych-content img {
+ height: 200px;
+}
+`);
 
 const imgPrefix = '/gallery/resources/';
-myDiv.style.width = '500px';
-myDiv.style.height = '500px';
-myDiv.style.margin = 'auto';
 
 var reps_per_trial_type = 1;
 
