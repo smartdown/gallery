@@ -45,3 +45,5 @@ See [Smartdown README](https://smartdown.github.io/smartdown/#README) for more i
 - **0.0.35** - Improves jsPsych example code and adds jsPsych Flanker experiment.
 - **0.0.36** - Repairs lost edits to JSPsych.md.
 - **0.0.37** - Assumes SD 1.0.8. Enhance mobile-awareness of jsPsych examples. Improve jsPsych examples. Updated Cuneiform QC logo slightly. Add 'icon' size image example. Adjust LDF example to accommodate changes?/bugs? in WikiData LDF service.
+- **0.0.38** - Enhance LDF example to work with Comunica and Client.js against Wikidata.
+

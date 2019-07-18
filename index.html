@@ -18,17 +18,19 @@
     src="https://unpkg.com/smartdown/dist/lib/smartdown.js">
   </script>
 
+  <style>
+.smartdown_p .infocell-output {
+width: 100%;
+}
+  </style>
 </head>
 
 <body
-  style="margin:0;padding:0;background:white;">
+  id="smartdown-outer-container"
+  class="smartdown-outer-container">
   <div
-    class="container-fluid"
-    style="margin:0;padding:5px;">
-    <div
-      class="smartdown-container"
-      id="smartdown-output">
-    </div>
+    class="smartdown-container"
+    id="smartdown-output">
   </div>
 
   <script src="https://unpkg.com/smartdown/dist/lib/calc_handlers.js"></script>
