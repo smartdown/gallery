@@ -113,7 +113,7 @@ var test = {
 var testProcedure = {
   timeline: [fixation, test],
   timeline_variables: testStimuli,
-  repetitions: 1,
+  repetitions: 5,
   randomize_order: true
 }
 timeline.push(testProcedure);

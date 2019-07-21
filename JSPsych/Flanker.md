@@ -16,7 +16,6 @@ The cool thing (IMHO) about this experiment is to see how your reaction time is 
 env.flankerData = undefined;
 
 const myDiv = this.div;
-myDiv.style.border = '1px solid red';
 // myDiv.style.width = '500px';
 myDiv.style.height = '400px';
 myDiv.style.margin = 'auto';

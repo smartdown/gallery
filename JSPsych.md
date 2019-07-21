@@ -40,10 +40,9 @@ Some of the modifications I've made to the original, to get it to fit better int
 My jsPsych experimentation has highlighted some of Smartdown's power, but also revealed some issues that can and should be fixed. Here's what I learned so far:
 
 - The issue of *keyboard focus* needs to be handled better. The Reaction Time example relies upon the user interacting with the keyboard, and I had to write code in the Smartdown document to manage this focus. I'd like to have `jsPsych` playables automatically get focus when they are *played*.
-
 - Because most jsPsych experiments have their own introduction and conclusion phases in the timeline, it is *desirable* for Smartdown's buttons to be disabled until it makes sense to move to the next Smartdown card. This same concept has come up previously with [Disclosables](https://smartdown.site/#gallery/Disclosables.md), where we wanted to have the visibility of a Disclosable be reactively linked to a Smartdown variable. I consider this a feature that can be added to Smartdown in the future.
-
 - Because both the Reaction Time and Flanker experiments require image assets, I needed to add these assets to the Gallery so they'd be accessible. I'd really like to adjust these experiments so that they generated the images dynamically at experiment startup. The Flanker experiment could be made more general this way, rather than relying upon the simple congruent vs non-congruent examples.
+- There is a [jsPsych 6.1.0](https://github.com/jspsych/jsPsych/releases/tag/v6.1.0) that has recently been released; however, it is not yet available via NPM and `https://unpkg.com`, so we'll continue to use v6.0.0.
 
 ---
 
