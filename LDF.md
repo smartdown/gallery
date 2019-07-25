@@ -45,6 +45,18 @@ The specific *subject* and *predicate* will differ between DBpedia and Wikidata,
 In order to keep the size of the result set small, we'd like to filter for English only answers. Ordinarily, we'd use a SPARQL `FILTER` expression to filter using `LANGMATCHES` and `LANG`, but because of limitations (hopefully temporary) in Wikidata's TPF interface, we'll instead filter to eliminate non-English letters: `FILTER(REGEX(?name, "^[a-zA-Z ]+$"))`. It's a *total hack* around the Wikidata bug.
 
 
+### Performance Comparisons
+
+The playables on this page have probably completed by the time you read this, and their elapsed time has been recorded in the table below. Note that this is *very crude* timing, because some of the SPARQL queries are competing for network and CPU against the loading of images in the background. A more legitimate test would eliminate the image loading, or at least defer it. This is still a work in progress.
+
+|Test|Time (ms)|
+|:---|---:|
+|Client.js and Wikidata/TPF| [](:!lwtTime) |
+|Client.js and Wikidata/SPARQL| (not implemented) |
+|Comunica and Wikidata/TPF| [](:!cwtTime) |
+|Comunica and Wikidata/SPARQL| [](:!cwsTime) |
+
+
 #### Client.js and Wikidata/TPF
 
 We'll start with an experiment using `Client.js` to query the *somewhat broken* Wikidata TPF interface at https://query.wikidata.org/bigdata/ldf. The *somewhat broken* refers to the fact that language tags are not being returned by Wikidata TPF, and that datatype annotations are being left suffixed to the returned values. We work around this by:
@@ -54,11 +66,11 @@ We'll start with an experiment using `Client.js` to query the *somewhat broken* 
 
 As a result, our query will return names like 'John Lennon', as well as 'Ioannes Lennon', 'John Lennon perez', and so on.
 
-**This `Client.js` experiment currently produces 17 results, which is different from the `Communica` experiment which produces 25 results. Not sure why this is yet.**
+**This `Client.js` experiment currently produces 17 results, which is different from the `Comunica` experiment which produces 25 results. Not sure why this is yet.**
 
 
 ```javascript /playable/autoplay
-//smartdown.import=resources/ldf-client-browser.js
+//smartdown.import=lib/ldf-client-browser.js
 var ldf = window.ldf;
 ldf.Logger.setLevel('NOTICE');
 
@@ -144,7 +156,7 @@ results.on('error', function(result) {
 The Comunica query currently (as of July 17, 2019) takes about 3 to 4 times longer than the legacy `Client.js` query, so wait a little for this query to complete.
 
 ```javascript /playable/autoplay
-//smartdown.import=resources/comunica-browser.js
+//smartdown.import=lib/comunica-browser.js
 
 
 function fixupName(s) {
@@ -171,49 +183,52 @@ SELECT ?name ?image WHERE {
 }
 `;
 
-var t0 = performance.now();
+this.dependOn = ['lwtTime'];
+this.depend = function() {
+  var t0 = performance.now();
 
-Comunica.newEngine().query(
-  query,
-  {
-    sources: [
-      {
-        type: '',
-        value: 'https://query.wikidata.org/bigdata/ldf'
-      }
-    ]
-  })
-  .then(function (result) {
-    const triples = [];
-    result.bindingsStream.on('data', function (data) {
-      triples.push({
-        name: data.get('?name').value,
-        image: data.get('?image').value,
+  Comunica.newEngine().query(
+    query,
+    {
+      sources: [
+        {
+          type: '',
+          value: 'https://query.wikidata.org/bigdata/ldf'
+        }
+      ]
+    })
+    .then(function (result) {
+      const triples = [];
+      result.bindingsStream.on('data', function (data) {
+        triples.push({
+          name: data.get('?name').value,
+          image: data.get('?image').value,
+        });
       });
-    });
-    result.bindingsStream.on('end', function () {
-      var t1 = performance.now();
-      let table = '\n\n';
+      result.bindingsStream.on('end', function () {
+        var t1 = performance.now();
+        let table = '\n\n';
 
-      table += '|Name|Image|\n';
-      table += '|:---|:---|\n';
+        table += '|Name|Image|\n';
+        table += '|:---|:---|\n';
 
-      triples.forEach(triple => {
-        const name = fixupName(triple.name);
-        const image = fixupURL(triple.image);
+        triples.forEach(triple => {
+          const name = fixupName(triple.name);
+          const image = fixupURL(triple.image);
 
-        table += `|${name}|![icon](${image})|\n`;
+          table += `|${name}|![icon](${image})|\n`;
+        });
+        table += '\n\n\n';
+
+        smartdown.setVariable('cwtTime', t1 - t0);
+        smartdown.setVariable('cwtTableLength', triples.length);
+        smartdown.setVariable('cwtTable', table, 'markdown');
       });
-      table += '\n\n\n';
-
-      smartdown.setVariable('cwtTableLength', triples.length);
-      smartdown.setVariable('cwtTime', t1 - t0);
-      smartdown.setVariable('cwtTable', table, 'markdown');
+    })
+    .catch(function (err) {
+      console.log('err', err);
     });
-  })
-  .catch(function (err) {
-    console.log('err', err);
-  });
+};
 
 ```
 
@@ -229,7 +244,7 @@ Let's use Comunica to communicate with Wikidata's SPARQL endpoint, rather than u
 Note that the Wikidata SPARQL endpoint doesn't have the same problem with language tags as the TPF interface, so we can use `FILTER LANGMATCHES(LANG(?name), "EN")` to restrict results to English language. So this experiment will produce 12 results.
 
 ```javascript /playable/autoplay
-//smartdown.import=resources/comunica-browser.js
+//smartdown.import=lib/comunica-browser.js
 
 function fixupName(s) {
   let ss = s.replace(/^"(.*)"(\^\^(.*))?$/, '$1');
@@ -255,41 +270,44 @@ SELECT DISTINCT ?name ?image WHERE {
 }
 `;
 
-var t0 = performance.now();
+this.dependOn = ['cwtTime'];
+this.depend = function() {
+  var t0 = performance.now();
 
-Comunica.newEngine().query(query,
-  { sources: [ { type: 'sparql', value: 'https://query.wikidata.org/sparql' } ] })
-  .then(function (result) {
-    const triples = [];
-    result.bindingsStream.on('data', function (data) {
-      triples.push({
-        name: data.get('?name').value,
-        image: data.get('?image').value,
+  Comunica.newEngine().query(query,
+    { sources: [ { type: 'sparql', value: 'https://query.wikidata.org/sparql' } ] })
+    .then(function (result) {
+      const triples = [];
+      result.bindingsStream.on('data', function (data) {
+        triples.push({
+          name: data.get('?name').value,
+          image: data.get('?image').value,
+        });
       });
-    });
-    result.bindingsStream.on('end', function () {
-      var t1 = performance.now();
-      let table = '\n\n';
+      result.bindingsStream.on('end', function () {
+        var t1 = performance.now();
+        let table = '\n\n';
 
-      table += '|Name|Image|\n';
-      table += '|:---|:---|\n';
+        table += '|Name|Image|\n';
+        table += '|:---|:---|\n';
 
-      triples.forEach(triple => {
-        const name = fixupName(triple.name);
-        const image = fixupURL(triple.image);
+        triples.forEach(triple => {
+          const name = fixupName(triple.name);
+          const image = fixupURL(triple.image);
 
-        table += `|${name}|![icon](${image})|\n`;
+          table += `|${name}|![icon](${image})|\n`;
+        });
+        table += '\n\n\n';
+
+        smartdown.setVariable('cwsTableLength', triples.length);
+        smartdown.setVariable('cwsTime', t1 - t0);
+        smartdown.setVariable('cwsTable', table, 'markdown');
       });
-      table += '\n\n\n';
-
-      smartdown.setVariable('cwsTableLength', triples.length);
-      smartdown.setVariable('cwsTime', t1 - t0);
-      smartdown.setVariable('cwsTable', table, 'markdown');
+    })
+    .catch(function (err) {
+      console.log('err', err);
     });
-  })
-  .catch(function (err) {
-    console.log('err', err);
-  });
+};
 
 ```
 

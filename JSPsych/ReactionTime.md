@@ -17,14 +17,14 @@ We'll start by adapting the [Reaction Time Experiment Tutorial](https://www.jsps
 ---
 
 ```javascript /playable/autoplay
-//smartdown.import=https://unpkg.com/jspsych@6.0.0/jspsych.js
-//smartdown.import=https://unpkg.com/jspsych@6.0.0/plugins/jspsych-html-keyboard-response.js
-//smartdown.import=https://unpkg.com/jspsych@6.0.0/plugins/jspsych-image-keyboard-response.js
+//smartdown.import=https://cdn.jsdelivr.net/gh/jspsych/jsPsych@6.1.0/jspsych.js
+//smartdown.import=https://cdn.jsdelivr.net/gh/jspsych/jsPsych@6.1.0/plugins/jspsych-html-keyboard-response.js
+//smartdown.import=https://cdn.jsdelivr.net/gh/jspsych/jsPsych@6.1.0/plugins/jspsych-image-keyboard-response.js
 
 env.reactionTimeData = undefined;
 const myDiv = this.div;
 
-smartdown.importCssUrl('https://unpkg.com/jspsych@6.0.0/css/jspsych.css');
+smartdown.importCssUrl('https://cdn.jsdelivr.net/gh/jspsych/jsPsych@6.1.0/css/jspsych.css');
 smartdown.importCssCode(
 `
 #${myDiv.id} .jspsych-content img {
@@ -39,9 +39,10 @@ myDiv.style.margin = 'auto';
 
 const timeline = [];
 
-const welcomeStimulus = 'Welcome to the experiment. Press any key to begin.';
+const welcomeStimulus = 'Welcome to the experiment. Press <b>spacebar</b> to begin.';
 const welcomeBlock = {
   type: 'html-keyboard-response',
+  choices: [32],
   stimulus: welcomeStimulus
 };
 timeline.push(welcomeBlock);
@@ -54,10 +55,10 @@ A circle will appear in the center of the screen.
 </p>
 <p>
 If the circle is <strong>blue</strong> press the letter F on the
-keyboard as fast as you can.
+keyboard.
 </p>
-<p>If the circle is <strong>orange</strong>, press the letter J
-as fast as you can.</p>
+<p>If the circle is <strong>orange</strong>, press the letter J on the
+keyboard.</p>
 <div
   style="float: left; width: 200px;">
   <img src="${imgPrefix}blue.png"></img>
@@ -72,10 +73,15 @@ as fast as you can.</p>
     <strong>Press the J key</strong>
   </p>
 </div>
+<hr style="clear:both;">
+<p class="small">
+  Press the <b>spacebar</b> to begin
+</p>
 `;
 
 var instructionsBlock = {
   type: "html-keyboard-response",
+  choices: [32],
   stimulus: instructionsStimulus,
   post_trial_gap: 2000
 };

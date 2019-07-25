@@ -7,11 +7,21 @@ I really like the [Flanker Experiment](https://github.com/jspsych/jsPsych/blob/m
 
 The cool thing (IMHO) about this experiment is to see how your reaction time is increased when the context is *distracting* vs *reinforcing*.
 
+[Begin Flanker Experiment](:@FlankerExperiment)
+
+
+---
+
+[jsPsych Home](:@JSPsych)
+
+
+# FlankerExperiment
+---
 
 ```javascript /playable/autoplay
-//smartdown.import=https://unpkg.com/jspsych@6.0.0/jspsych.js
-//smartdown.import=https://unpkg.com/jspsych@6.0.0/plugins/jspsych-html-keyboard-response.js
-//smartdown.import=https://unpkg.com/jspsych@6.0.0/plugins/jspsych-image-keyboard-response.js
+//smartdown.import=https://cdn.jsdelivr.net/gh/jspsych/jsPsych@6.1.0/jspsych.js
+//smartdown.import=https://cdn.jsdelivr.net/gh/jspsych/jsPsych@6.1.0/plugins/jspsych-html-keyboard-response.js
+//smartdown.import=https://cdn.jsdelivr.net/gh/jspsych/jsPsych@6.1.0/plugins/jspsych-image-keyboard-response.js
 
 env.flankerData = undefined;
 
@@ -20,7 +30,7 @@ const myDiv = this.div;
 myDiv.style.height = '400px';
 myDiv.style.margin = 'auto';
 
-smartdown.importCssUrl('https://unpkg.com/jspsych@6.0.0/css/jspsych.css');
+smartdown.importCssUrl('https://cdn.jsdelivr.net/gh/jspsych/jsPsych@6.1.0/css/jspsych.css');
 smartdown.importCssCode(
 `
 #${myDiv.id} .jspsych-content img {
@@ -32,10 +42,15 @@ const imgPrefix = '/gallery/resources/';
 
 var reps_per_trial_type = 1;
 
+/*set up experiment structure*/
+var timeline = [];
+
 var welcomeBlock = {
   type: 'html-keyboard-response',
-  stimulus: 'Welcome to the experiment. Press any key to begin.'
+  choices: [32],
+  stimulus: 'Welcome to the experiment. Press <b>spacebar</b> to begin.'
 };
+timeline.push(welcomeBlock);
 
 
 const instructionsStimulus =
@@ -51,7 +66,7 @@ Press the left arrow key if the middle arrow is pointing left. (<)
 Press the right arrow key if the middle arrow is pointing right. (>)
 </p>
 <p>
-Press any key to begin.
+Press <b>spacebar</b> to begin.
 </p>
 `;
 
@@ -59,8 +74,10 @@ Press any key to begin.
 var instructionsBlock = {
   type: 'html-keyboard-response',
   stimulus: instructionsStimulus,
+  choices: [32],
   post_trial_gap: 1000
 };
+timeline.push(instructionsBlock);
 
 
 var testStimuli = [
@@ -109,10 +126,12 @@ var testBlock = {
   timeline_variables: testStimuli,
   sample: {type: 'fixed-repetitions', size: reps_per_trial_type}
 };
+timeline.push(testBlock);
 
 
 var debriefBlock = {
   type: 'html-keyboard-response',
+  choices: jsPsych.NO_KEYS,
   stimulus: function() {
     var total_trials = jsPsych.data.get().filter({trial_type: 'image-keyboard-response'}).count();
     var accuracy = Math.round(jsPsych.data.get().filter({correct: true}).count() / total_trials * 100);
@@ -130,20 +149,17 @@ var debriefBlock = {
   Your average response time for incongruent trials was <strong>${incongruent_rt}ms</strong>.
 </p>
 <p>
-Press any key to complete the experiment. Thank you!
+The experiment is now complete. Thank you!
 </p>
 `;
+
+    jsPsych.endExperiment();
+
     return result;
   }
 };
-
-
-/*set up experiment structure*/
-var timeline = [];
-timeline.push(welcomeBlock);
-timeline.push(instructionsBlock);
-timeline.push(testBlock);
 timeline.push(debriefBlock);
+
 
 jsPsych.init({
   on_trial_start: function() {
