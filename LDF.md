@@ -145,8 +145,9 @@ results.on('error', function(result) {
 });
 ```
 
-- Request Time: [](:!lwtTime) ms.
+- Request Time: [](:!lwtTime)ms.
 - Number of Results: [](:!lwtTableLength)rows.
+
 [](:!lwtTable|markdown)
 
 
@@ -232,8 +233,9 @@ this.depend = function() {
 
 ```
 
-- Request Time: [](:!cwtTime) ms.
+- Request Time: [](:!cwtTime)ms.
 - Number of Results: [](:!cwtTableLength)rows.
+
 [](:!cwtTable|markdown)
 
 
@@ -311,7 +313,7 @@ this.depend = function() {
 
 ```
 
-- Request Time: [](:!cwsTime) ms.
+- Request Time: [](:!cwsTime)ms.
 - Number of Results: [](:!cwsTableLength)rows.
 [](:!cwsTable|markdown)
 
