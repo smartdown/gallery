@@ -49,3 +49,4 @@ See [Smartdown README](https://smartdown.github.io/smartdown/#README) for more i
 - **0.0.39** - Document LDF examples better. Improve jsPsych documentation.
 - **0.0.40** - Improve jsPsych examples. Use 6.1.0 via jsDelivr. Fix LDF example so that timings are sequential and a table of comparisons is generated.
 - **0.0.41** - SD 1.0.10. Fix issue where OTF font used in P5JS demo was unavailable. Adjust spacing in LDF demo now that DOMPurify issue in Smartdown has been fixed.
+- **0.0.42** - SD 1.0.13. Add Inlines.md. Fix Data.md to use working CORS proxy.
