@@ -18,7 +18,7 @@ An early experiment with inlining playables relies up using special syntax to in
 Here is a P5JS circle:
 
 
-```p5js/playable/autoplay/inline/debug
+```p5js/playable/autoplay/inline
 p5.setup = function() {
 };
 

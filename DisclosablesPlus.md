@@ -1,12 +1,74 @@
+### Testing various disclosable options
+
+We'll use `center` positioning for these tests.
+
+#### `colorbox` content
+
+[button](::colorboxDisclosable/button)
+
+[button,transparent](::colorboxDisclosable/button,transparent)
+
+# :::: colorboxDisclosable
+# --colorbox
+[](:Xa1) area
+[](:Xa2) diameter
+[](:Xa3) size
+# --colorbox
+# ::::
+
+[button,transparent,center](::colorboxDisclosable/button,transparent,center)
+
+[button,transparent,center,shadow](::colorboxDisclosable/button,transparent,center,shadow)
+
+[button,transparent,center,outline](::colorboxDisclosable/button,transparent,center,outline)
+
+[button,transparent,center,shadow,outline](::colorboxDisclosable/button,transparent,center,shadow,outline)
+
+[button,transparent,center,draggable,closeable](::colorboxDisclosable/button,transparent,center,draggable,closeable)
+
+[button,transparent,draggable,closeable,center,shadow](::colorboxDisclosable/button,transparent,draggable,closeable,center,shadow)
+
+[button,transparent,center,draggable,closeable,outline](::colorboxDisclosable/button,transparent,center,draggable,closeable,outline)
+
+[button,transparent,center,draggable,closeable,shadow,outline](::colorboxDisclosable/button,transparent,center,draggable,closeable,shadow,outline)
+
+
+
+#### Plain text content
+
+[button](::plaintextDisclosable/button)
+
+[button,transparent](::plaintextDisclosable/button,transparent)
+
+# :::: plaintextDisclosable
+Hello World
+# ::::
+
+[center](::plaintextDisclosable/button,center)
+
+[center,shadow](::plaintextDisclosable/button,center,shadow)
+
+[center,outline](::plaintextDisclosable/button,center,outline)
+
+[center,shadow,outline](::plaintextDisclosable/button,center,shadow,outline)
+
+[center,draggable,closeable](::plaintextDisclosable/button,center,draggable,closeable)
+
+[center,draggable,closeable,shadow](::plaintextDisclosable/button,draggable,closeable,center,shadow)
+
+[center,draggable,closeable,outline](::plaintextDisclosable/button,center,draggable,closeable,outline)
+
+[center,draggable,closeable,shadow,outline](::plaintextDisclosable/button,center,draggable,closeable,shadow,outline)
+
+
 ### Advanced Disclosables
 
-There are two really easy ways to do disclosable described [here](:@Disclosables). On this page we'll show how you can have more control over how your disclosables are configured and displayed.  Disclosables have many options that can be combined in different ways.  Rather than enumerate them all possible permutations, we'll show a few useful examples.  To view a full list of disclosable options click the button below.
+There are two really easy ways to use disclosables described [here](:@Disclosables). On this page we'll show how you can have more control over how your disclosables are configured and displayed.  Disclosables have many options that can be combined in different ways.  Rather than enumerate them all possible permutations, we'll show a few useful examples.  To view a full list of disclosable options click the button below.
 
 [See All Disclosable Options](::discOptions)
 
 # :::: discOptions
 
-# --outlinebox options
 ## Disclosable Options
 
 Here's a list of all the options that are currently available for disclosables.
@@ -18,15 +80,14 @@ Here's a list of all the options that are currently available for disclosables.
   - `attach` - Attach the disclosable below the trigger element and layer on top of main page.
   - `center`,`topright`, `topleft`, `bottomright`, `bottomleft` -- If you choose one of these locations you will get popup box located at specified position on the screen.  It will remained fixed as you scroll the main page content.  If you choose this option for locating your disclosable you can add the `draggable` option.  This allows the user to reposition the disclosable where ever they want on the screen.
 
-3. **UnTrigger** -- These are additional ways to untrigger a disclosable.  The option  `onmouseleave` will hide the disclosable when the mouse is no longer over the disclosable, as seen in the [tooltip](:@Disclosables) disclosable.
+3. **UnTrigger** -- These are additional ways to untrigger a disclosable.  The option `onmouseleave` will hide the disclosable when the mouse is no longer over the disclosable, as seen in the [tooltip](:@Disclosables) disclosable.
 5. **Decorations** -- You can add a decoration to your disclosable by adding  `shadow`, `lightbox`, or `outline` to your options list.
 
-# --outlinebox
 # ::::
 
 #### Control Panel Example
 
-All the configurations for your disclosables are specified in the trigger element.  In the example below you'll see a disclosable called `controlPanel` followed by it's trigger.  The options for the disclosable are placed in the trigger after the name of the disclosable `::controlPanel` and a slash `/`.  They are written in a comma seperated list: `button,bottomright,outline,shadow,draggable` and the order of the options doesn't matter.
+All the configurations for your disclosables are specified in the trigger element.  In the example below you'll see a disclosable called `controlPanel` followed by it's trigger.  The options for the disclosable are placed in the trigger after the name of the disclosable `::controlPanel` and a slash `/`.  They are written in a comma separated list: `button,bottomright,outline,shadow,draggable` and the order of the options doesn't matter.
 
 ```markdown
 
@@ -53,15 +114,15 @@ The markdown in the control panel example from above creates a draggable control
 # --aliceblue
 # ::::
 
-[Show Control Panel bottomright](::controlPanel/button,bottomright,outline,shadow,draggable,closeable)
+[Show Control Panel bottomright](::controlPanel/button,bottomright,transparent,outline,shadow,draggable,closeable)
 
-[Show Control Panel bottomleft](::controlPanel/button,bottomleft,outline,shadow,draggable,closeable)
+[Show Control Panel bottomleft](::controlPanel/button,bottomleft,transparent,outline,shadow,draggable,closeable)
 
-[Show Control Panel topright ](::controlPanel/button,topright,outline,shadow,draggable,closeable)
+[Show Control Panel topright ](::controlPanel/button,topright,transparent,outline,shadow,draggable,closeable)
 
-[Show Control Panel topleft](::controlPanel/button,topleft,outline,shadow,draggable,closeable)
+[Show Control Panel topleft](::controlPanel/button,topleft,transparent,outline,shadow,draggable,closeable)
 
-[Show Control Panel center](::controlPanel/button,center,outline,shadow,draggable,closeable)
+[Show Control Panel center](::controlPanel/button,center,transparent,utline,shadow,draggable,closeable)
 
 So the configurations `button,bottomright,outline,shadow,draggable` creates a `button` trigger for a disclosable.  The disclosable appears in the `bottomright` corner of the screen with an `outline`, a drop `shadow` and it is `draggable` by the user. Notice that "close" button on the panel is just an additional disclosable trigger for same disclosable.  A disclosable can have multiple triggers.
 
@@ -70,25 +131,39 @@ So the configurations `button,bottomright,outline,shadow,draggable` creates a `b
 The following example creates a lightbox disclosable.  These are great when you really need to get your readers attention. In the following example we have a disclosable called `message` followed by a trigger with the options `center,lightbox`.  This will place the disclosable in the center of the screen and the page behind it will be dimmed.
 
 ```markdown
+[center,lightbox](::message/center,lightbox)
+
 # :::: message
-# --outlinebox ob_message
 Do I have your attention for this important message?
 [Click here if you got the message](::message)
-# --outlinebox
 # ::::
 
-### [Secret Message](::message/center,lightbox)
 ```
 
 This markdown is rendered as:
 
-### [Important Message](::message/center,lightbox)
+- [center,lightbox](::message/center,lightbox)
+- [center,lightbox,outline,transparent](::message/center,lightbox,outline,transparent)
+- [center,lightbox,shadow,transparent](::message/center,lightbox,shadow,transparent)
+- [center,lightbox,transparent](::message/center,lightbox,transparent)
 
 # :::: message
-# --outlinebox ob_message
 Do I have your attention for this important message?
 [Click here if you got the message](::message)
-# --outlinebox
+# ::::
+
+Testing the `colorbox` as content:
+
+- [center,lightbox](::colorboxmessage/center,lightbox)
+- [center,lightbox,outline,transparent](::colorboxmessage/center,lightbox,outline,transparent)
+- [center,lightbox,shadow,transparent](::colorboxmessage/center,lightbox,shadow,transparent)
+- [center,lightbox,transparent](::colorboxmessage/center,lightbox,transparent)
+
+# :::: colorboxmessage
+# --colorbox
+Do I have your attention for this important message?
+[Click here if you got the message](::colorboxmessage)
+# --colorbox
 # ::::
 
 ## Revisiting Tooltips
@@ -116,7 +191,7 @@ A tooltip is a popup message that appears below a highlighted section of text wh
 You can adjust these options to create a tooltip with a different look and feel.  You could do a [different tooltip](::tooltip2/link,attach,onmouseleave) without the drop shadow but add a decoration inside the tooltip.
 
 # :::: tooltip2
-# --colorbox cb1
+# --colorbox
 This tooltip is different and has a cool decoration wrapped around it.  To see how to add decorations checkout the [Decorations Page](:@Decorations).
 # --colorbox
 # ::::
@@ -125,7 +200,7 @@ Here's the markdown for this disclosable.
 
 ```markdown
 # :::: tooltip2
-# --colorbox cb1
+# --colorbox
 This tooltip is different and has a cool decoration wrapped around it.  To see how to add decorations checkout the [Decorations Page](:@Decorations).
 # --colorbox
 # ::::
@@ -156,9 +231,9 @@ this.dependOn = ['answer'];
 
 this.depend = function() {
   if (env.answer === '64') {
-    smartdown.showDisclosure('highfive', '', 'bottomright');
+    smartdown.showDisclosure('highfive', '', 'bottomright,transparent');
     setTimeout(function () {
-      smartdown.hideDisclosure('highfive','','bottomright');
+      smartdown.hideDisclosure('highfive','','bottomright,transparent');
     }, 3000);
   }
 };

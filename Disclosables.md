@@ -31,8 +31,8 @@ Notice that the first section header contains `::::` and the disclosable name, `
 
 The trigger for a disclosable specifies the way a disclosable will be revealed or hidden. When we define a trigger we also get to specify many aspects of how the disclosable will be displayed and what it will look like.  We'll begin with two very simple ways to define triggers.
 
-- A *Button* trigger, will toggle the visibility of the disclosable content when clicked. This content will remain visible until the user toggles the button.  The content of the disclosable will be displayed inline with the rest of your text at the position where the disclosable is defined.
-- A *Tooltip* trigger, will reveal the disclosable content when hovered over or tapped. This content will appear beneath the trigger and it will remain visible until the user moves their mouse away from the trigger or taps it again. In other words, Tooltips are *spring-loaded* and will deactivate when the user ceases to interact with the trigger.
+- A *Button* trigger will toggle the visibility of the disclosable content when clicked. This content will remain visible until the user toggles the button.  The content of the disclosable will be displayed inline with the rest of your text at the position where the disclosable is defined.
+- A *Tooltip* trigger will reveal the disclosable content when hovered over or tapped. This content will appear beneath the trigger and it will remain visible until the user moves their mouse away from the trigger or taps it again. In other words, Tooltips are *spring-loaded* and will deactivate when the user ceases to interact with the trigger.
 
 Both triggers are specified using a variant of Markdown's link syntax that contains a user-visible label and the disclosable's name. For example, a Button-style trigger for the above example `MyDisclosable` would be declared as:
 
@@ -46,10 +46,7 @@ Similarly, we can declare a Tooltip-style trigger by adding the `/tooltip` suffi
 If you hover your mouse over [here](::MyDisclosable/tooltip) you will reveal the hidden content until you move your mouse away.
 ```
 
-
-#### Shared Disclosables
-
-A given disclosable can have more than one trigger associated with it. For example, below is a working example of the above:
+Here is a working example of the above:
 
 > If you hover your mouse over [here](::MyDisclosable/tooltip) you will reveal the hidden content until you move your mouse away.
 >
@@ -95,7 +92,7 @@ This is the disclosable content.
 
 #### Rich Content Disclosables
 
-Typical usage of the disclosable feature is to provide a tooltip or some detail to an explanation. This content can be *any* Smartdown content, and can be interacted with as ordinary Smartdown content. The following example shows a disclosable that can be triggered via a [**tooltip**](::AboutMarkdown/tooltip) or via a [**button**](::AboutMarkdown), and has its own rich Smartdown structure.
+Typical usage of the disclosable feature is to provide a tooltip or some detail to an explanation. This content can be *any* Smartdown content, and can be interacted with as ordinary Smartdown content. The following example shows a disclosable that can be triggered via a [**tooltip**](::AboutMarkdown/tooltip/outline) or via a [**button**](::AboutMarkdown), and has its own rich Smartdown structure.
 
 # :::: AboutMarkdown
 
@@ -143,7 +140,7 @@ Some resources that may help:
 
 #### Triggers with Media
 
-We can build triggers that utilize Smartdown's media syntax. For example, we can have an image trigger that reveals more detail via a disclosable. For example, we can consider one of Mars's satellites, [Phobos](::MoreAboutPhobos/tooltip).
+We can build triggers that utilize Smartdown's media syntax. For example, we can have an image trigger that reveals more detail via a disclosable. For example, we can consider one of Mars's satellites, [Phobos](::MoreAboutPhobos/tooltip/outline).
 
 [Phobos ![thumbnail](https://solarsystem.nasa.gov/system/content_pages/main_images/428_phobosincolor_pia10369.jpg)](::MoreAboutPhobos)
 
@@ -151,8 +148,66 @@ We can build triggers that utilize Smartdown's media syntax. For example, we can
 
 [Phobos in Orbit around Mars](https://mars.nasa.gov/resources/8823/phobos-in-orbit-around-mars/)
 
-![](https://mars.nasa.gov/system/downloadable_items/40137_animated-nasa-hubble-martian-moon-orbiting-mars.gif)
+![thumbnail](https://mars.nasa.gov/system/downloadable_items/40137_animated-nasa-hubble-martian-moon-orbiting-mars.gif)
 
+# ::::
+
+
+#### Tiny Disclosables
+
+This is used to test whether smaller disclosables are positioned correctly as when triggered via a tooltip. We'll also exercise different types of disclosable content and decorations.
+
+- `tooltip/transparent` with `colorbox` content: [default](::colorboxDisclosable/tooltip/transparent) [outline](::colorboxDisclosable/tooltip/outline/transparent) [shadow](::colorboxDisclosable/tooltip/shadow/transparent) [outline/shadow](::colorboxDisclosable/tooltip/outline/shadow/transparent)
+
+# :::: colorboxDisclosable
+# --colorbox
+[](:Xa1) area
+[](:Xa2) diameter
+[](:Xa3) size
+# --colorbox
+
+# ::::
+
+- `tooltip/transparent` with `outlinebox` content: [default](::outlineboxDisclosable/tooltip/transparent) [outline](::outlineboxDisclosable/tooltip/outline/transparent) [shadow](::outlineboxDisclosable/tooltip/shadow/transparent) [outline/shadow](::outlineboxDisclosable/tooltip/outline/shadow/transparent)
+
+
+# :::: outlineboxDisclosable
+# --outlinebox
+[](:Xa1) area
+[](:Xa2) diameter
+[](:Xa3) size
+# --outlinebox
+
+# ::::
+
+
+- `tooltip/transparent` with `partialborder` content: [default](::partialborderDisclosable/tooltip/transparent) [outline](::partialborderDisclosable/tooltip/outline/transparent) [shadow](::partialborderDisclosable/tooltip/shadow/transparent) [outline/shadow](::partialborderDisclosable/tooltip/outline/shadow/transparent)
+
+
+# :::: partialborderDisclosable
+# --partialborder
+[](:Xa1) area
+[](:Xa2) diameter
+[](:Xa3) size
+# --partialborder
+
+# ::::
+
+
+- `tooltip` with MathJax content: [default](::mathjaxDisclosable/tooltip) [outline](::mathjaxDisclosable/tooltip/outline) [shadow](::mathjaxDisclosable/tooltip/shadow) [outline/shadow](::mathjaxDisclosable/tooltip/outline/shadow)
+
+
+# :::: mathjaxDisclosable
+$$E=mc^2 E=mc^2 E=mc^2 E=mc^2 E=mc^2$$
+# ::::
+
+
+
+- `tooltip` with plain text content: [default](::plaintextDisclosable/tooltip) [outline](::plaintextDisclosable/tooltip/outline) [shadow](::plaintextDisclosable/tooltip/shadow) [outline/shadow](::plaintextDisclosable/tooltip/outline/shadow)
+
+
+# :::: plaintextDisclosable
+Hello World
 # ::::
 
 

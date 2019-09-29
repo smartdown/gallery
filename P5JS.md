@@ -5,7 +5,6 @@ Smartdown integrates the wonderful [P5.js](https://p5js.org/) Javascript library
 
 #### P5JS Ellipse Example
 
-
 ```p5js/playable
 p5.setup = function() {
 };
