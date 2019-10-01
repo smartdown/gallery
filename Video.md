@@ -40,11 +40,11 @@ Fullwidth of https://youtu.be/m3dZl3yfGpc with syntax:
 
 #### Vimeo
 
-Thumbnail of https://vimeo.com/69563998 using the syntax:
+Thumbnail of https://vimeo.com/253898691 using the syntax:
 
-`![thumbnail](https://vimeo.com/69563998)`
+`![thumbnail](https://vimeo.com/253898691)`
 
-![thumbnail](https://vimeo.com/69563998)
+![thumbnail](https://vimeo.com/253898691)
 
 
 Fullwidth of https://vimeo.com/253898691 using the syntax:

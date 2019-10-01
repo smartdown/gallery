@@ -29,7 +29,7 @@ this.depend = function() {
 	console.log('videoData', videoData);
 
 	var id = videoData.video_id;
-	url = `https://cors-proxy.htmldriven.com/?url=https://www.youtube.com/get_video_info?video_id=${id}`;
+	url = `https://cors-anywhere.herokuapp.com/https://www.youtube.com/get_video_info?video_id=${id}`;
 
 	// console.log(url);
 	smartdown.importTextUrl(url,
