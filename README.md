@@ -52,3 +52,5 @@ See [Smartdown README](https://smartdown.github.io/smartdown/#README) for more i
 - **0.0.42** - SD 1.0.13. Add Inlines.md. Fix Data.md to use working CORS proxy.
 - **0.0.43** - SD 1.0.14. Fix LDF example to fail gracefully amidst WQDS failure. Enhance Disclosables examples to include a more exhaustive coverage of the available trigger options, and to exercise different content types within a Disclosable. Use thumbnail size for Phobos tooltip.
 - **0.0.44** - SD 1.0.15. Fixes Vimeo thumbnail example to match fullwidth example. Fixes use of broken proxy in VideoAPI.md.
+- **0.0.45** - SD 1.0.17. Exercises autoplay hiding of source. Adds Kiosk.md.
+
