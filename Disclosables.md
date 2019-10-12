@@ -155,9 +155,9 @@ We can build triggers that utilize Smartdown's media syntax. For example, we can
 
 #### Tiny Disclosables
 
-This is used to test whether smaller disclosables are positioned correctly as when triggered via a tooltip. We'll also exercise different types of disclosable content and decorations.
+This is used to test whether smaller disclosables are positioned correctly as when triggered via a tooltip. We'll also exercise different types of disclosable content and decorations. The non-`default` examples also apply the `/transparent` qualifier, to remove the default shadow/outline/background.
 
-- `tooltip/transparent` with `colorbox` content: [default](::colorboxDisclosable/tooltip/transparent) [outline](::colorboxDisclosable/tooltip/outline/transparent) [shadow](::colorboxDisclosable/tooltip/shadow/transparent) [outline/shadow](::colorboxDisclosable/tooltip/outline/shadow/transparent)
+- `tooltip` with `colorbox` content: [default](::colorboxDisclosable/tooltip/transparent) [outline](::colorboxDisclosable/tooltip/outline/transparent) [shadow](::colorboxDisclosable/tooltip/shadow/transparent) [outline/shadow](::colorboxDisclosable/tooltip/outline/shadow/transparent)
 
 # :::: colorboxDisclosable
 # --colorbox
@@ -194,7 +194,7 @@ This is used to test whether smaller disclosables are positioned correctly as wh
 # ::::
 
 
-- `tooltip` with MathJax content: [default](::mathjaxDisclosable/tooltip) [outline](::mathjaxDisclosable/tooltip/outline) [shadow](::mathjaxDisclosable/tooltip/shadow) [outline/shadow](::mathjaxDisclosable/tooltip/outline/shadow)
+- `tooltip` with MathJax content: [default](::mathjaxDisclosable/tooltip) [outline](::mathjaxDisclosable/tooltip/transparent/outline) [shadow](::mathjaxDisclosable/transparent/tooltip/shadow) [outline/shadow](::mathjaxDisclosable/tooltip/transparent/outline/shadow)
 
 
 # :::: mathjaxDisclosable
@@ -203,7 +203,7 @@ $$E=mc^2 E=mc^2 E=mc^2 E=mc^2 E=mc^2$$
 
 
 
-- `tooltip` with plain text content: [default](::plaintextDisclosable/tooltip) [outline](::plaintextDisclosable/tooltip/outline) [shadow](::plaintextDisclosable/tooltip/shadow) [outline/shadow](::plaintextDisclosable/tooltip/outline/shadow)
+- `tooltip` with plain text content: [default](::plaintextDisclosable/tooltip) [outline](::plaintextDisclosable/tooltip/transparent/outline) [shadow](::plaintextDisclosable/tooltip/transparent/shadow) [outline/shadow](::plaintextDisclosable/tooltip/transparent/outline/shadow)
 
 
 # :::: plaintextDisclosable
