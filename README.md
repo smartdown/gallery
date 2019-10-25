@@ -54,4 +54,6 @@ See [Smartdown README](https://smartdown.github.io/smartdown/#README) for more i
 - **0.0.44** - SD 1.0.15. Fixes Vimeo thumbnail example to match fullwidth example. Fixes use of broken proxy in VideoAPI.md.
 - **0.0.45** - SD 1.0.17. Exercises autoplay hiding of source. Adds Kiosk.md.
 - **0.0.46** - SD 1.0.18. Improves documentation of Disclosables.
+- **0.0.47** - SD 1.0.19. Fixes Crystal2.ogg reference to point to a gallery-hosted resource. Adds use of p5.userStartAudio(). Improves Kiosk example.
+
 

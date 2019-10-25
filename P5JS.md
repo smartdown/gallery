@@ -25,6 +25,9 @@ var osc, fft;
 p5.setup = function () {
   p5.createCanvas(420, 256);
 
+  // Start the audio context on a click/touch event
+  p5.userStartAudio();
+
   osc = new p5.TriOsc(); // set frequency and type
   osc.amp(.5);
   osc.owner = p5;
@@ -66,6 +69,9 @@ Here is the [P5JS Playback Rate Example](https://p5js.org/examples/examples/Soun
 var song;
 
 p5.preload = function () {
+  // Start the audio context on a click/touch event
+  p5.userStartAudio();
+
   // Load a sound file
   song = p5.loadSound('https://unpkg.com/smartdown-gallery/resources/Damscray_DancingTiger.mp3');
   song.owner = p5;

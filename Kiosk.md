@@ -62,19 +62,21 @@ var div = this.div;
 div.style.background = 'none';
 div.style.width = '90%';
 div.style.height = '90%';
+div.style['min-height'] = '300px';
 div.style.padding = 0;
 div.style.margin = 'auto';
 
 var x
 var y
-var xv = 10
-var yv = 10
+var xv = 15;
+var yv = 15;
 var buffer = 12;
 var radius = 50;
 
 p5.setup = function() {
-  // p5.frameRate(12);
+  p5.frameRate(10);
 
+  p5.noStroke();
   p5.windowResized();
 };
 
@@ -85,7 +87,6 @@ p5.windowResized = function() {
 };
 
 p5.draw = function() {
-  // p5.background('pink');
   if ((xv > 0 && x + radius + buffer >= p5.width) ||
   	  (xv < 0 && x <= radius + buffer)) {
     xv = -xv;
@@ -98,6 +99,8 @@ p5.draw = function() {
 
   x += xv;
   y += yv;
+
+  p5.fill(x % 255, y % 255, 200, 64);
   p5.ellipse(x, y, 2 * radius, 2 * radius);
 };
 
@@ -108,3 +111,86 @@ p5.mousePressed = function() {
   }
 }
 ```
+
+### A GraphViz Playable in Kiosk Mode
+
+
+```graphviz/playable/kiosk
+digraph L0 {
+  size = "5,5";
+  ordering=out;
+  node [shape = box];
+
+  n0 [label="E"];
+  n1 [label="T"];
+  n2 [label="F"];
+  n3 [label="IDENT : a "];
+  n4 [label="+"];
+  n5 [label="T"];
+  n6 [label="F"];
+  n7 [label="("];
+  n8 [label="E"];
+  n9 [label="T"];
+  n10 [label="F"];
+  n11 [label="IDENT : b "];
+  n12 [label="*"];
+  n13 [label="F"];
+  n14 [label="IDENT : c "];
+  n15 [label=")"];
+  n16 [label="*"];
+  n17 [label="F"];
+  n18 [label="("];
+  n19 [label="E"];
+  n20 [label="T"];
+  n21 [label="F"];
+  n22 [label="IDENT : d "];
+  n23 [label="*"];
+  n24 [label="F"];
+  n25 [label="IDENT : e "];
+  n26 [label="+"];
+  n27 [label="T"];
+  n28 [label="F"];
+  n29 [label="("];
+  n30 [label="E"];
+  n31 [label="T"];
+  n32 [label="F"];
+  n33 [label="IDENT : a "];
+  n34 [label="*"];
+  n35 [label="F"];
+  n36 [label="IDENT : b "];
+  n37 [label=")"];
+  n38 [label=")"];
+  n39 [label="+"];
+  n40 [label="T"];
+  n41 [label="F"];
+  n42 [label="IDENT : q "];
+  n0 -> { n1 n4 n5 n39 n40 };
+  n1 -> n2 ;
+  n2 -> n3 ;
+  n5 -> { n6 n16 n17 };
+  n6 -> { n7 n8 n15 };
+  n8 -> n9 ;
+  n9 -> { n10 n12 n13 };
+  n10 ->  n11 ;
+  n13 ->  n14 ;
+  n17 ->  { n18 n19 n38 };
+  n19 ->  { n20 n26 n27 };
+  n20 ->  { n21 n23 n24 };
+  n21 ->  n22 ;
+  n24 ->  n25 ;
+  n27 ->  n28 ;
+  n28 ->  { n29 n30 n37 };
+  n30 ->  n31 ;
+  n31 ->  { n32 n34 n35 };
+  n32 ->  n33 ;
+  n35 ->  n36 ;
+  n40 ->  n41 ;
+  n41 ->  n42 ;
+}
+```
+
+
+---
+
+[Back to Home](:@Home)
+

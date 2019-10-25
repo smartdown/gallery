@@ -1,10 +1,11 @@
 ### Game Starter using P5JS
 
 - **Character Name**: [](:?CharacterName)
-- **Music**: [](:XMusicOn)
+- **Music**: [](:XMusicOn) [Tozan's Besai Crystal Gardens 2 Forbidden Pathway](https://opengameart.org/content/besai-crystal-gardens-2-forbidden-pathway)
 
 
 ```p5js/playable/autoplay
+
 // A sound file object
 var song;
 var spriteX;
@@ -32,9 +33,13 @@ function centerCanvas() {
 }
 
 p5.preload = function () {
+  // Start the audio context on a click/touch event
+  p5.userStartAudio();
+
   // Load a sound file
-  var sound = 'https://gist.githubusercontent.com/DoctorBud/fce56b81a1902c551c3dfe86afbaf6bb/raw/5c9ca439a6dfc234b48a677c22e3286850a7747b/Crystal2.ogg.mp3';
+  var sound = '/gallery/resources/crystal2.mp3';
   song = p5.loadSound(sound);
+  song.owner = p5;
 };
 
 p5.setup = function () {
