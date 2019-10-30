@@ -10,7 +10,7 @@ Use the navigation buttons below to explore different aspects of Smartdown. You 
 
 |Media|Data/Science|Toys|Advanced|
 |:---:|:---:|:---:|:---:|
-|[Readme](:@README)|[Graphviz](:@Graphviz)|[MadLibs](:@MadLibs)|[Disclosables++](:@DisclosablesPlus)|
+|[Readme](:@README)|[Graphviz](:@Graphviz)|[MadLibs](:@MadLibs)|[Typescript](:@Typescript)|
 |[Markdown](:@Markdown)|[D3](:@D3)|[Cuneiform](:@Cuneiform)|[Javascript](:@Javascript)|
 |[Math](:@Math)|[Data](:@Data)|[Mobius](:@Mobius)|[Gists](:@Gists)|
 |[Images](:@Images)|[Plotly](:@Plotly)|[Temperature](:@Temperature)|[Extensions](:@Extensions)|
@@ -21,7 +21,7 @@ Use the navigation buttons below to explore different aspects of Smartdown. You 
 |[Cells](:@Cells)|[P5JS](:@P5JS)|[Dungeon](:@Dungeon)|[LDF](:@LDF)|
 |[Disclosables](:@Disclosables)|[Mermaid](:@Mermaid)|[Dungeon3D](:@Games)|[OpenJSCAD](:@OpenJSCAD)|
 |[SVG](:@SVG)|[jsPsych](:@JSPsych)|[Music](:@Music)|[Inlines](:@Inlines)|
-||||[Kiosk](:@Kiosk)|
+|[Disclosables++](:@DisclosablesPlus)|||[Kiosk](:@Kiosk)|
 
 ---
 

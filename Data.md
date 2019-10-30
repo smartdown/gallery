@@ -143,13 +143,15 @@ The following example will try to load the CSV file from Science Notes and will 
 
 ##### Using a CORS Proxy
 
-If you are writing a Smartdown document and wish to access a resource that is denied because it doesn't support CORS, then you can sometimes take advantage of a *cross-origin proxy service* like [https://cors.io](https://cors.io).
+If you are writing a Smartdown document and wish to access a resource that is denied because it doesn't support CORS, then you can sometimes take advantage of a *cross-origin proxy service* like [https://yacdn.org/proxy/](https://yacdn.org/proxy/).
 
 **Do Not Use such a service for any form of secure data. This is because a proxy service passes data through a server and can therefore read any data.**
 
-[This 'Load Elements' Uses a Proxy](:=ElementList3=/csv/https://cors-anywhere.herokuapp.com/https://sciencenotes.org/PDFs/elementlist.csv)
+[This 'Load Elements' Uses a Proxy](:=ElementList3=/csv/https://yacdn.org/proxy/https://sciencenotes.org/PDFs/elementlist.csv)
 
 [Elements via Proxy](:!ElementList3)
+
+---
 
 [Back to Home](:@Home)
 

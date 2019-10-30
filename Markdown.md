@@ -125,7 +125,7 @@ _You **can** combine styles ~~easily~~_
 ````markdown
 
 Inline: `const a = b + "foo" + 300; // comment`
-Inline Longer: `const myVariable = yourVarible + "existential" + space + 'threat'; // A multiple word comment`
+Inline Longer: `const myVariable = yourVariable + "existential" + space + 'threat'; // A multiple word comment`
 
 Block:
 ```python
@@ -139,7 +139,7 @@ Link name with code: [`var a = 5;`](https://www.example.com)
 ````
 
 Inline: `const a = b + "foo" + 300; // comment`
-Inline Longer: `const myVariable = yourVarible + "existential" + space + 'threat'; // A multiple word comment`
+Inline Longer: `const myVariable = yourVariable + "existential" + space + 'threat'; // A multiple word comment`
 
 Block:
 ```python
