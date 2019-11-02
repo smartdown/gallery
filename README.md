@@ -57,3 +57,4 @@ See [Smartdown README](https://smartdown.github.io/smartdown/#README) for more i
 - **0.0.47** - SD 1.0.19. Fixes Crystal2.ogg reference to point to a gallery-hosted resource. Adds use of p5.userStartAudio(). Improves Kiosk example.
 - **0.0.48** - Adjusts API key for YouTube.md example.
 - **0.0.49** - Adds Typescript.md examples. SD 1.0.21. Adjust proxy for Data.md (again).
+- **0.0.50** - SD 1.0.23. Extends Typescript.md examples. Adds Sankey.md and WordCloud.md examples.

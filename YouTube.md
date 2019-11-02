@@ -154,6 +154,7 @@ this.depend = function() {
 
 Let's accumulate the `tags` for each video and build a word cloud!
 
+
 ##### Get Tags
 
 ```javascript/playable/autoplay

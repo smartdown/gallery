@@ -21,7 +21,7 @@ Use the navigation buttons below to explore different aspects of Smartdown. You 
 |[Cells](:@Cells)|[P5JS](:@P5JS)|[Dungeon](:@Dungeon)|[LDF](:@LDF)|
 |[Disclosables](:@Disclosables)|[Mermaid](:@Mermaid)|[Dungeon3D](:@Games)|[OpenJSCAD](:@OpenJSCAD)|
 |[SVG](:@SVG)|[jsPsych](:@JSPsych)|[Music](:@Music)|[Inlines](:@Inlines)|
-|[Disclosables++](:@DisclosablesPlus)|||[Kiosk](:@Kiosk)|
+|[Disclosables++](:@DisclosablesPlus)|[Sankey](:@Sankey)|[WordCloud](:@WordCloud)|[Kiosk](:@Kiosk)|
 
 ---
 
