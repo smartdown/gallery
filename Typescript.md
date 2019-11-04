@@ -53,6 +53,23 @@ this.depend = function(): void {
 
 ```
 
+#### Detecting source errors with `/console` (experimental feature)
+
+I'm looking for better ways to report per-playable errors and per-playable logging output. I've added an experimental `/console` qualifier to the playable declaration, which will create a `Console` toggle button. If there are errors in the transpilation of TypeScript into Javascript, then these will be reported in the console pane below the `Console` button.
+
+This facility is intended to be useful outside of TypeScript. The console may be written to with the following syntax:
+
+```javascript
+smartdown.consoleWrite(playable.consoleId, 'Hello World from this Playable!');
+```
+
+Let's give this feature a try by creating a TypeScript playable that is *syntactically* incorrect because it lacks a closing single quote on a string declaration. This playable is NOT autoplay, so you will need to click the `Play` button to see stuff happen:
+
+```typescript /playable/console
+const msg: string = 'I better not forget the closing quote...;
+this.div.innerHTML = `<h1>${msg}</h1`;
+
+```
 
 #### Invoking the TypeScript Transpiler Explicitly
 
@@ -70,7 +87,7 @@ this.dependOn = ['String'];
 this.depend = function() {
   const upper: string = env.String.toUpperCase();
   smartdown.setVariable('StringUpper', upper);
-
+}
 `;
 
 // https://github.com/Microsoft/TypeScript/wiki/Using-the-Compiler-API#transpiling-a-single-file
@@ -85,7 +102,6 @@ let result = ts.transpileModule(source, {
   reportDiagnostics: true,
 });
 
-console.log('result.outputText', result.outputText);
 if (result.diagnostics.length > 0) {
   console.log('result.diagnostics');
   console.log(result.diagnostics);
@@ -109,12 +125,12 @@ const argNames = [
 
 var argvalues = [...arguments];
 
-const func = new Function(...argNames, result.outputText);
 try {
+  const func = new Function(...argNames, result.outputText);
   return func.apply(this, argvalues);
 }
 catch (e) {
-  console.log('#### Error playing ', language, e);
+  console.log('#### Error playing augmented Typescript', e);
 }
 ;
 ```

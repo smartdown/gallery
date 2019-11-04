@@ -300,7 +300,7 @@ this.progress = null;
 
 stdlib.loadSOTU(function() {
   var roundn = stdlib.math.base.special.roundn;
-  var stopwords = stdlib.datasets['stopwords-en'];
+  var stopwords = stdlib.datasets['stopwords_en'];
   var lda = stdlib.nlp.lda;
 
   var STOPWORDS = stopwords();
@@ -326,7 +326,7 @@ stdlib.loadSOTU(function() {
   var endYear = 2010;
 
   var speechTexts = null;
-  var speeches = stdlib.datasets['sotu-data'];
+  var speeches = stdlib.datasets['sotu-data']();
 
   speechTexts = speeches.reduce(
                       function (

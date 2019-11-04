@@ -8,28 +8,59 @@ This Javascript integration will evolve to be safer and more convenient. Current
 
 In the same way that Smartdown accommodates a diversity of *playable* languages, including GraphViz, Mermaid, and other DSLs (Domain-specific Languages), it can and eventually will include a diversity of executable languages via a *playable plugin mechanism*. Right now, though, Javascript is the primary *scripting* language for Smartdown.
 
----
+#### Interaction between Javascript and a Smartdown Cell
 
-This example is totally useless. Every time you *play* the script, it increments a Smartdown variable named `COUNTER`.
+This example is totally useless. Every time you *play* the script, it increments a Smartdown variable named `COUNTER` which is displayed here:
 
-[Counter](:!COUNTER)
+- [Counter](:!COUNTER)
 
+*Hint: Click `Stop` and `Play` repeatedly to see what's going on*
 
-```javascript/playable
+```javascript /playable/autoplay
 var counter = env.COUNTER || 0;
 ++counter;
 smartdown.setVariable('COUNTER', counter, 'integer');
 ```
 
----
+#### Using `this.div` to render a playable
 
-The following code will adjust the size, border and background of the playable's `<div>` via the use of `this.div`, which points to the DOM element and permit normal DOM manipulation.
+Every playable is assigned a `<div>` sandbox within which it can display its content. This is used (for example) in a D3 playable which will render an SVG in the playable's `<div>`. The following example will adjust the size, border and background of the playable's `<div>` via the use of `this.div`, which points to the DOM element and permit normal DOM manipulation.
 
-```javascript/playable
+```javascript /playable/autoplay
 var playableDiv = this.div;
 playableDiv.style.border = '5px solid purple';
 playableDiv.style.background='lightgreen';
 playableDiv.innerHTML = '<h1>Hello World</h1>';
+
+```
+
+
+#### Detecting size changes
+
+As of Smartdown v1.024, there is an optional `this.sizeChanged()` handler available to Javascript playable authors. Here, we'll create a `this.sizeChanged()` handler to detect playable size changes to our playable, and to reflect these by changing the content of the playable.
+
+
+```javascript /playable/autoplay
+var that = this;
+var playableDiv = this.div;
+playableDiv.style.border = '5px solid magenta';
+playableDiv.style.background='lightblue';
+
+this.sizeChanged = function() {
+  playableDiv.innerHTML =
+`
+<div style="padding:20px;">
+  <h6>width:  ${playableDiv.offsetWidth}</h6>
+  <h6>height: ${playableDiv.offsetHeight}</h6>
+</div>
+`;
+};
+
+that.sizeChanged();
+
+setTimeout(function() {
+  that.sizeChanged();
+}, 0);
 
 ```
 
