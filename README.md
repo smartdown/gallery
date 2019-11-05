@@ -59,6 +59,5 @@ See [Smartdown README](https://smartdown.github.io/smartdown/#README) for more i
 - **0.0.49** - Adds Typescript.md examples. SD 1.0.21. Adjust proxy for Data.md (again).
 - **0.0.50** - SD 1.0.23. Extends Typescript.md examples. Adds Sankey.md and WordCloud.md examples.
 - **0.0.51** - SD 1.0.24. Enhance Typescript examples. Add 'this.sizeChanged' example to Javascript.md. Adjust Stdlib.md to deal with the new Smartdown mechanism for loading stdlib.io.
-
-
+- **0.0.52** - SD 1.0.25. Improves Javascript.md and Typescript.md examples to use and document the per-playable console feature.
 

@@ -35,6 +35,23 @@ playableDiv.innerHTML = '<h1>Hello World</h1>';
 ```
 
 
+
+#### Debugging and output via the playable's console
+
+I'm looking for better ways to report per-playable errors and per-playable logging output. I've added an experimental per-playable *console* UI, which is hidden by default. If output is written to the playable's console, a `Console` toggle button will be displayed above the content of the console.
+
+The `this.log()` function, when invoked within a playable, will output to the playable's console.
+
+```javascript
+this.log('Hello World from this Playable!');
+```
+
+as in the following playable:
+
+```javascript /playable/autoplay
+this.log('Hello World from this Playable!');
+```
+
 #### Detecting size changes
 
 As of Smartdown v1.024, there is an optional `this.sizeChanged()` handler available to Javascript playable authors. Here, we'll create a `this.sizeChanged()` handler to detect playable size changes to our playable, and to reflect these by changing the content of the playable.

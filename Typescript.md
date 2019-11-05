@@ -53,19 +53,13 @@ this.depend = function(): void {
 
 ```
 
-#### Detecting source errors with `/console` (experimental feature)
+#### Detecting source errors with the playable's console
 
-I'm looking for better ways to report per-playable errors and per-playable logging output. I've added an experimental `/console` qualifier to the playable declaration, which will create a `Console` toggle button. If there are errors in the transpilation of TypeScript into Javascript, then these will be reported in the console pane below the `Console` button.
-
-This facility is intended to be useful outside of TypeScript. The console may be written to with the following syntax:
-
-```javascript
-smartdown.consoleWrite(playable.consoleId, 'Hello World from this Playable!');
-```
+The augmented code that Smartdown generates around Typescript to transpile it to Javascript has been recently (v1.0.24) improved so that syntax errors detected during transpilation are reported via the Smartdown per-playable console, which is a new feature (see [Javascript](:@Javascript)).
 
 Let's give this feature a try by creating a TypeScript playable that is *syntactically* incorrect because it lacks a closing single quote on a string declaration. This playable is NOT autoplay, so you will need to click the `Play` button to see stuff happen:
 
-```typescript /playable/console
+```typescript /playable
 const msg: string = 'I better not forget the closing quote...;
 this.div.innerHTML = `<h1>${msg}</h1`;
 
