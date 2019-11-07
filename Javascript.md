@@ -81,6 +81,43 @@ setTimeout(function() {
 
 ```
 
+#### Using Fetch and `await/async` in playables
+
+Smartdown by default wraps its playables in an `async` function, so that authors can *assume* that `await` will work properly in their playable. (This is all NYI as of SD 1.0.24).
+
+For this example, we'll use the [Fetch API]() to retrieve an example JSON file (the Smartdown `package.json` in this case), and to parse and display this file in a cell.
+
+Because the Fetch API uses Promises, we can use the [async/await]() syntactic sugar to easily manage asynchronous tasks without the requirement of nesting continuations.
+
+
+##### Using an anonymous `async` wrapper (pre v1.0.25)
+
+Prior to Smartdown 1.0.25, it was possible to use `await` by wrapping your playable code explcitly with an anonymous `async` function.
+
+```javascript /playable/xautoplay
+(async () => {
+	const response = await fetch('https://unpkg.com/smartdown/package.json');
+	const myJson = await response.json();
+	smartdown.setVariable('PackageExplicit', myJson);
+})();
+```
+
+[package.json via anonymous async](:!PackageExplicit|json)
+
+##### Using `await` without a wrapper.
+
+Smartdown 1.0.25 now wraps the playable's code in an implicit `async` function, which removes the need for an explicit wrapper.
+
+```javascript /playable/xautoplay
+const response = await fetch('https://unpkg.com/smartdown/package.json');
+const myJson = await response.json();
+smartdown.setVariable('Package', myJson);
+```
+
+[package.json via implicit async](:!Package|json)
+
+
+
 ---
 
 [Back to Home](:@Home)
