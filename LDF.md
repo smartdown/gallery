@@ -13,18 +13,19 @@ As of this writing, there are several [datasets](https://linkeddatafragments.org
 This document will focus on Wikidata, although I plan to enhance it or write an equivalent version for DBPedia.
 
 
-##### Bugs in WQDS
+##### Bugs in WDQS
 
 This document is sort of broken, because the [Wikidata Query Service (WDQS)](https://www.mediawiki.org/wiki/Wikidata_Query_Service/User_Manual) is sort of broken right now with respect to TPF service. The Comunica/Sparql example should work, and I've hacked the TPF examples so that they return partial results even when the server fails.
 
-The bug at WQDS is related to the TPF paging mechanism, where 100 results are returned, along with a link to `next` and `previous` pages. The `&page=2` parameter *sometimes* breaks things. For example, the following URL will return the first page of 100 results containing the `rdfs:label` triples for Beatles member George Harrison:
+The bug at WDQS is related to the TPF paging mechanism, where 100 results are returned, along with a link to `next` and `previous` pages. The `&page=2` parameter *sometimes* breaks things. For example, the following URL will return the first page of 100 results containing the `rdfs:label` triples for Beatles member George Harrison:
 - https://query.wikidata.org/bigdata/ldf?subject=http://www.wikidata.org/entity/Q2643&predicate=http://www.w3.org/2000/01/rdf-schema%23label
 
 But clicking on the `next` button will fail with a `java.lang.IllegalStateException`:
 - https://query.wikidata.org/bigdata/ldf?subject=http://www.wikidata.org/entity/Q2643&predicate=http://www.w3.org/2000/01/rdf-schema%23label&page=2
 
-Another problem with WQDS and their LDF server is that there appears to be a recent change in the WDQS that has broken the ability to apply `LANG` and `LANGMATCHES` functions, so I've simplified some of the WDQS examples accordingly.
+Another problem with WDQS and their LDF server is that there appears to be a recent change in the WDQS that has broken the ability to apply `LANG` and `LANGMATCHES` functions, so I've simplified some of the WDQS examples accordingly.
 
+*As of November 9, 2019, the TPF endpoint for WQDS is quite broken. [https://query.wikidata.org/bigdata/ldf](https://query.wikidata.org/bigdata/ldf) no longer returns a usable webpage, due to broken links. The DBPedia example is working fine, however.*
 
 #### LDF Clients
 
