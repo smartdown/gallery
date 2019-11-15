@@ -109,6 +109,10 @@ this.depend = function() {
 
 [](:!builtinSVG|svg)
 
+#### SVG Buttons
+
+[Tunnel ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/Cool.svg)](:@SVG) [Calculation ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/Cool.svg)](:=foo=1)
+
 ---
 
 [Back to Home](:@Home)

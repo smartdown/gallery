@@ -18,11 +18,9 @@ We'll start with something simple, a Javascript library called [svgjs.com](https
 
 
 ```javascript/playable/debug
-//smartdown.import=https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.5/svg.min.js
+//smartdown.import=https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@latest/dist/svg.min.js
 
-// foo
-
-var draw = SVG(this.div).size(500, 100)
+var draw = SVG().addTo(this.div).size(500, 100)
 var rect = draw.rect(500, 100).attr({ fill: '#f06' })
 
 ```
@@ -34,7 +32,7 @@ Let's get a little fancier and embed a [VueJS](https://vuejs.org) app. We'll con
 
 
 ```javascript/playable
-//smartdown.import=https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js
+//smartdown.import=https://cdn.jsdelivr.net/npm/vue/dist/vue.js
 
 const innerDivId = this.div.id + '_inner';
 
@@ -76,13 +74,14 @@ this.depend = function() {
 Here we'll specify that we want both the VueJS and the SVG.js libraries loaded. In this particular case, the order of loading doesn't matter. But Smartdown ensures that they are loaded sequentially (it is an optimization to load them in parallel).
 
 ```javascript/playable
-//smartdown.import=https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.5/svg.min.js
-//smartdown.import=https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js
+//smartdown.import=https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@latest/dist/svg.min.js
+//smartdown.import=https://cdn.jsdelivr.net/npm/vue/dist/vue.js
 
-const innerVueId = this.div.id + '_vue';
-const innerSVGId = this.div.id + '_svg';
+const myDiv = this.div;
+const innerVueId = myDiv.id + '_vue';
+const innerSVGId = myDiv.id + '_svg';
 
-this.div.innerHTML =
+myDiv.innerHTML =
 `
 <div id="${innerVueId}">
   <h4>Hello {{ name }}</h4>
@@ -111,7 +110,7 @@ const vm = new Vue({
       if (this.draw) {
         this.draw.remove();
       }
-      this.draw = SVG(innerSVGId);
+      this.draw = SVG().addTo('#' + innerSVGId);
       this.draw.size(500, 100);
       this.draw.rect(500, 100).attr({ fill: '#fef' });
       var text = this.draw.plain('Hello ' + name);
@@ -121,7 +120,6 @@ const vm = new Vue({
       , size:     44
       , leading:  '1.5em'
       });
-
       text.fill({color: '#00F'});
     }
   }

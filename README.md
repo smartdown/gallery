@@ -62,3 +62,5 @@ See [Smartdown README](https://smartdown.github.io/smartdown/#README) for more i
 - **0.0.52** - SD 1.0.25. Improves Javascript.md and Typescript.md examples to use and document the per-playable console feature.
 - **0.0.53** - SD 1.0.26. Expand Javascript.md to include issues about async/await. Add async/await example to Typescript.md.
 - **0.0.54** - Update LDF.md to indicate WDQS problems. Also correct erroneous references to WQDS.
+- **0.0.55** - Adds Crossword.md and exolve support files. SD 1.0.28. Update Extensions.md to use 'latest' CDN versions where possible. Updates SVG() examples to use svg.js 3.x. Adds SVG URL Button examples to SVG.md.
+
