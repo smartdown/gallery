@@ -37,6 +37,7 @@ const exolvePrefix = 'exolve-';
 
 class Puzzle {
   constructor() {
+    const puzzleThis = this;
     puzzleInstanceId = puzzleInstanceId + 1;
     this.id = puzzleInstanceId;
     const puzzlePrefix = `${exolvePrefix}${puzzleInstanceId}-`;
@@ -1604,6 +1605,10 @@ function updateAndSaveState() {
     savingURL.href = `${location.origin}${location.pathname}#${newSaveHash}`;
     // console.log('savingURL.href', location.hash, savingURL.href, newSaveHash);
   }
+
+  if (puzzleThis.stateChangeListener) {
+    puzzleThis.stateChangeListener(state);
+  }
 }
 
 // Restore state from cookie (or location.hash).
@@ -1642,15 +1647,72 @@ function restoreState() {
       }
     }
   }
-  state = state.trim()
-  let error = false
+
+  setState(state);
+}
+
+function checkState(state) {
+  let error = false;
+  let errors = [];
+
   if (state == '') {
-    console.log('No saved state available')
+    errors.push('No saved state available')
     error = true
   } else if (state.length < (gridWidth * gridHeight)) {
-    console.log('Not enough characters in state')
+    errors.push('Not enough characters in state')
     error = true
   }
+
+  if (error) {
+    return errors;
+  }
+
+  let index = 0
+  for (let i = 0; i < gridHeight && !error; i++) {
+    for (let j = 0; j < gridWidth && !error; j++) {
+      const letter = state.charAt(index++);
+      if (grid[i][j].isLight || grid[i][j].isDiagramless) {
+        if (grid[i][j].prefill) {
+          // grid[i][j].currentLetter = grid[i][j].solution
+          continue
+        }
+        if (letter == '0') {
+           // grid[i][j].currentLetter = ''
+        } else if (letter == '1') {
+           if (!grid[i][j].isDiagramless) {
+             errors.push('Unexpected ⬛ in non-diagramless location');
+             error = true
+             break
+           }
+        } else {
+           if (letter < 'A' || letter > 'Z') {
+             errors.push('Unexpected letter ' + letter + ' in state');
+             error = true
+             break
+           }
+        }
+      } else {
+        if (letter != '.') {
+          errors.push('Unexpected letter ' + letter + ' in state, expected .');
+          error = true
+          break
+        }
+      }
+    }
+  }
+
+  return errors;
+}
+
+
+function setState(state) {
+  state = state.trim()
+  let errors = checkState(state);
+  let error = errors.length > 0;
+  if (error) {
+    return errors;
+  }
+
   let index = 0
   for (let i = 0; i < gridHeight && !error; i++) {
     for (let j = 0; j < gridWidth && !error; j++) {
@@ -1724,8 +1786,11 @@ function restoreState() {
       }
     }
   }
-  updateAndSaveState()
+  updateAndSaveState();
+
+  return errors;
 }
+this.setState = setState;
 
 function deactivateCurrentCell() {
   gridInputWrapper.style.display = 'none'
@@ -3235,6 +3300,7 @@ function getHtml() {
 }
 
 this.getHtml = getHtml.bind(this);
+
 // ------ End functions.
 
 } // end constructor

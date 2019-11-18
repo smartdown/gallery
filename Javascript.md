@@ -16,7 +16,7 @@ This example is totally useless. Every time you *play* the script, it increments
 
 *Hint: Click `Stop` and `Play` repeatedly to see what's going on*
 
-```javascript /playable/autoplay
+```javascript /playable
 var counter = env.COUNTER || 0;
 ++counter;
 smartdown.setVariable('COUNTER', counter, 'integer');
@@ -28,6 +28,9 @@ Every playable is assigned a `<div>` sandbox within which it can display its con
 
 ```javascript /playable/autoplay
 var playableDiv = this.div;
+playableDiv.style.width = '80%';
+playableDiv.style.margin = 'auto';
+playableDiv.style.padding = '20px';
 playableDiv.style.border = '5px solid purple';
 playableDiv.style.background='lightgreen';
 playableDiv.innerHTML = '<h1>Hello World</h1>';
@@ -35,8 +38,7 @@ playableDiv.innerHTML = '<h1>Hello World</h1>';
 ```
 
 
-
-#### Debugging and output via the playable's console
+#### Using the playable's console
 
 I'm looking for better ways to report per-playable errors and per-playable logging output. I've added an experimental per-playable *console* UI, which is hidden by default. If output is written to the playable's console, a `Console` toggle button will be displayed above the content of the console.
 
@@ -48,9 +50,65 @@ this.log('Hello World from this Playable!');
 
 as in the following playable:
 
-```javascript /playable/autoplay
+```javascript /playable
 this.log('Hello World from this Playable!');
 ```
+
+
+#### Using `dependOn` for reactivity
+
+##### Modern usage
+
+```javascript
+const log = this.log;
+
+this.dependOn.MyVariableA = function() {
+  log('MyVariableA changed to: ', env.MyVariableA);
+};
+this.dependOn.MyVariableB = function() {
+  log('MyVariableB changed to: ', env.MyVariableB);
+};
+```
+
+[MyVariableA](:?MyVariableA)
+[MyVariableB](:?MyVariableB)
+
+```javascript /playable/autoplay
+const log = this.log;
+
+this.dependOn.MyVariableA = () => {
+  log('MyVariableA changed to: ', env.MyVariableA);
+};
+this.dependOn.MyVariableB = () => {
+  log('MyVariableB changed to: ', env.MyVariableB);
+};
+```
+
+##### Legacy usage
+
+```javascript
+const log = this.log;
+
+this.dependOn = ['MyVariableX', 'MyVariableY'];
+this.depend = () => {
+  log('MyVariableX changed to: ', env.MyVariableX);
+  log('MyVariableY changed to: ', env.MyVariableY);
+};
+```
+
+[MyVariableX](:?MyVariableX)
+[MyVariableY](:?MyVariableY)
+
+```javascript /playable/autoplay
+const log = this.log;
+
+this.dependOn = ['MyVariableX', 'MyVariableY'];
+this.depend = () => {
+  log('MyVariableX changed to: ', env.MyVariableX);
+  log('MyVariableY changed to: ', env.MyVariableY);
+};
+```
+
 
 #### Detecting size changes
 
@@ -94,11 +152,11 @@ Because the Fetch API uses Promises, we can use the [async/await]() syntactic su
 
 Prior to Smartdown 1.0.25, it was possible to use `await` by wrapping your playable code explcitly with an anonymous `async` function.
 
-```javascript /playable/xautoplay
+```javascript /playable
 (async () => {
-	const response = await fetch('https://unpkg.com/smartdown/package.json');
-	const myJson = await response.json();
-	smartdown.setVariable('PackageExplicit', myJson);
+  const response = await fetch('https://unpkg.com/smartdown/package.json');
+  const myJson = await response.json();
+  smartdown.setVariable('PackageExplicit', myJson);
 })();
 ```
 
@@ -108,7 +166,7 @@ Prior to Smartdown 1.0.25, it was possible to use `await` by wrapping your playa
 
 Smartdown 1.0.25 now wraps the playable's code in an implicit `async` function, which removes the need for an explicit wrapper.
 
-```javascript /playable/xautoplay
+```javascript /playable
 const response = await fetch('https://unpkg.com/smartdown/package.json');
 const myJson = await response.json();
 smartdown.setVariable('Package', myJson);

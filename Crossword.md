@@ -1,20 +1,18 @@
 ### Crossword Puzzles via `exolve`
 
-I've been wanting to add Crossword puzzles to Smartdown, so this weekend in November, 2019, I decided to see how far I could get.
+I've been wanting to add Crossword puzzles to Smartdown, so this weekend in November, 2019, I decided to see how far I could get. I looked around for existing crossword puzzle Javascript libraries that might be applicable to my needs, and discovered [exolve](https://github.com/viresh-ratnakar/exolve).
 
-I looked around for existing crossword puzzle Javascript libraries that might be applicable to my needs, and came up with:
-- [exolve](https://github.com/viresh-ratnakar/exolve)
-- (unused here) [react-crossword](https://github.com/zetter/react-crossword)
+I really like the simple UI and vanilla Javascript nature of exolve, so I figured out how to get it to work as a Smartdown Playable via a generic Javascript playable and `smartdown.import`.
 
-I really like the simple UI and vanilla Javascript nature of exolve, so I figured out how to get it to work as a Smartdown Playable via a generic Javascript playable and `smartdown.import`. If things work out, I plan on creating a proper Smartdown plugin for the `exolve` DSL. So the current work below is really a prototype.
-
-My biggest challenge with exolve was to take a bunch of code that assumed it occupied a whole web page, and make it reentrant and isolated so that I could place several crosswords on a page.
-
+My biggest challenge with exolve was to take a bunch of code that assumed it occupied a whole web page, and make it reentrant and isolated so that I could place several crosswords on a page. I hacked on [Exolve v0.36 October 22 2019](https://github.com/viresh-ratnakar/exolve/blob/master/CHANGELOG.md#version-exolve-v036-october-22-2019), although the author has already advanced to v0.38 at the time of this writing.
 
 #### Basic Crossword
 
 Based on [example with submit.exolve](https://github.com/viresh-ratnakar/exolve/blob/master/example-with-submit.exolve), I removed the Submit and the Questions section.
 
+
+[State1](:?State1)
+[Errors1](:!Errors1|json)
 
 ```javascript /playable/autoplay
 //smartdown.import=./gallery/exolve-multi.css
@@ -43,10 +41,25 @@ exolve-begin
 exolve-end
 `;
 
+const log = this.log;
 const puzzle = new Puzzle();
 const html = puzzle.getHtml();
-// const css = puzzle.getCSS();
-// smartdown.importCssCode(css);
+
+puzzle.stateChangeListener = (state) => {
+  smartdown.setVariable('State1', state);
+};
+
+this.dependOn.State1 = () => {
+  const errors = puzzle.setState(env.State1);
+  if (errors.length === 0) {
+    smartdown.setVariable('Errors1', undefined);
+  }
+  else {
+    log('errors', errors);
+    smartdown.setVariable('Errors1', errors);
+  }
+};
+
 this.div.innerHTML = html;
 this.div.style.background = 'aliceblue';
 puzzle.createPuzzle(puzzleText);
@@ -92,8 +105,7 @@ exolve-end
 
 const puzzle = new Puzzle();
 const html = puzzle.getHtml();
-const css = puzzle.getCSS();
-smartdown.importCssCode(css);
+
 this.div.innerHTML = html;
 puzzle.createPuzzle(puzzleText);
 ```
@@ -128,8 +140,7 @@ this.depend = function() {
     function(puzzleText) {
       const puzzle = new Puzzle();
       const html = puzzle.getHtml();
-      // const css = puzzle.getCSS();
-      // smartdown.importCssCode(css);
+
       myDiv.innerHTML = html;
       puzzle.createPuzzle(puzzleText);
     },

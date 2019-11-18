@@ -2,9 +2,9 @@
 
 This document attempts to provide a working example of how Smartdown's *reactivity* works via Smartdown *variables* and *expressions*, and how these can be affected by and reflected in *cells* and *playables*, as well as other external effects and services. Each of these elements is actually a *process*, and Smartdown implements a flexible scheduling and dependency mechanism.
 
-```javascript/autoplay/playable
+```javascript /autoplay/playable
 smartdown.setVariables([
-  {lhs: 'title', rhs: '', type: 'string'},
+  // {lhs: 'title', rhs: '', type: 'string'},
   {lhs: 'latitude', rhs: -18.1017436, type: 'number'},
   {lhs: 'longitude', rhs: 178.3908867, type: 'number'}]);
 ```
@@ -73,6 +73,7 @@ smartdown.importCssCode(
 
 this.dependOn = ['latitude', 'longitude', 'title'];
 this.depend = function() {
+  console.log('dependency fired', env.title);
   var mapCenter = [env.latitude, env.longitude];
   var title = env.title === '' ? null : env.title;
   var isValidLatLon = typeof env.latitude === 'number' &&

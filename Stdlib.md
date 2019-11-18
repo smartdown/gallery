@@ -19,7 +19,7 @@ Based upon the Stdlib examples:
 - https://stdlib.io/develop/docs/api/@stdlib/plot/ctor/
 
 
-```stdlib/playable
+```stdlib/playable/autoplay
 
 const thisDiv = this.div;
 
@@ -41,22 +41,27 @@ for (var i = 0; i < x.length; i++) {
   y4[ i ] = cdf(x[i], 0, 0.1);
 }
 
-var h = new Plot( [x, x, x, x], [y1, y2, y3, y4], {
-    yMin: -0.1,
-    yMax: 1.1,
-    'description': 'Plotting the CDF of the Normal Distribution',
-    'title': 'CDF of the Normal Distribution for various σ',
-    'labels': [
-      'σ = 1',
-      'σ = 0.5',
-      'σ = 0.2',
-      'σ = 0.1'
-    ],
-    lineWidth: 5
-});
+var h = new Plot(
+    [x, x, x, x],
+    [y1, y2, y3, y4],
+    {
+      yMin: -0.1,
+      yMax: 1.1,
+      'description': 'Plotting the CDF of the Normal Distribution',
+      'title': 'CDF of the Normal Distribution for various σ',
+      'labels': [
+        'σ = 1',
+        'σ = 0.5',
+        'σ = 0.2',
+        'σ = 0.1'
+      ],
+      lineWidth: 5,
+      width: 450,
+      paddingLeft: 30,
+      paddingRight: 50,
+    });
 
 thisDiv.innerHTML = stdlib.vdomToHtml( h.render() );
-
 ```
 
 ---
