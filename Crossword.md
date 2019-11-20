@@ -12,7 +12,7 @@ Based on [example with submit.exolve](https://github.com/viresh-ratnakar/exolve/
 
 
 [State1](:?State1)
-[Errors1](:!Errors1|json)
+[](:!Errors1|json)
 
 ```javascript /playable/autoplay
 //smartdown.import=./gallery/exolve-multi.css

@@ -64,3 +64,4 @@ See [Smartdown README](https://smartdown.github.io/smartdown/#README) for more i
 - **0.0.54** - Update LDF.md to indicate WDQS problems. Also correct erroneous references to WQDS.
 - **0.0.55** - Adds Crossword.md and exolve support files. SD 1.0.28. Update Extensions.md to use 'latest' CDN versions where possible. Updates SVG() examples to use svg.js 3.x. Adds SVG URL Button examples to SVG.md.
 - **0.0.56** - Improves Javascript.md to illustrate different dependOn capabilities and options. Enhance Crosswords.md and supporting exolve-multi.js.
+- **0.0.57** - SD 1.0.30. Cleaned up error handling for Crossword.md when a corrupt State is attempted. Added example to Javascript.md to verify that a preset variable will trigger a dependency AND remove the progress bar.

@@ -1,5 +1,4 @@
 'use strict';
-console.log('####exolve-multi.js');
 
 /*
 MIT License

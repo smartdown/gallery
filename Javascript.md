@@ -110,6 +110,21 @@ this.depend = () => {
 ```
 
 
+##### If variable is set in Play, dependency should fire on Play
+
+*There should be **NO** blue progress bar below; otherwise, we have a bug*
+
+```javascript /playable/autoplay
+const log = this.log;
+
+smartdown.setVariable('Preset', 1);
+this.dependOn = ['Preset'];
+this.depend = () => {
+  log('Preset changed to: ', env.Preset);
+};
+```
+
+
 #### Detecting size changes
 
 As of Smartdown v1.024, there is an optional `this.sizeChanged()` handler available to Javascript playable authors. Here, we'll create a `this.sizeChanged()` handler to detect playable size changes to our playable, and to reflect these by changing the content of the playable.
