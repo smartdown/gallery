@@ -22,7 +22,7 @@ Use the navigation buttons below to explore different aspects of Smartdown. You 
 |[Disclosables](:@Disclosables)|[Mermaid](:@Mermaid)|[Dungeon3D](:@Games)|[OpenJSCAD](:@OpenJSCAD)|
 |[SVG](:@SVG)|[jsPsych](:@JSPsych)|[Music](:@Music)|[Inlines](:@Inlines)|
 |[Disclosables++](:@DisclosablesPlus)|[Sankey](:@Sankey)|[WordCloud](:@WordCloud)|[Kiosk](:@Kiosk)|
-||[Crossword](:@Crossword)||
+||[Crossword](:@Crossword)||[React](:@React)|
 
 ---
 
