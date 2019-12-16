@@ -67,3 +67,4 @@ See [Smartdown README](https://smartdown.github.io/smartdown/#README) for more i
 - **0.0.57** - SD 1.0.30. Cleaned up error handling for Crossword.md when a corrupt State is attempted. Added example to Javascript.md to verify that a preset variable will trigger a dependency AND remove the progress bar.
 - **0.0.58** - SD 1.0.33. Adds React.md example.
 - **0.0.59** - SD 1.0.34. Improves React.md example.
+- **0.0.60** - Add solidLoginPopup.html.
