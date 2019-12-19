@@ -1,47 +1,8 @@
-
-[Button Title](:?RJBTITLE)
-[Click Counter](:!RJBCOUNTER)
-
-```javascript /react/playable/autoplay/debug
-//smartdown.import=https://cdn.jsdelivr.net/npm/solid-auth-client/dist-lib/solid-auth-client.bundle.js
-//smartdown.import=https://cdn.jsdelivr.net/npm/@solid/query-ldflex/dist/solid-query-ldflex.bundle.js
-//smartdown.import=https://unpkg.com/@solid/react@1.8.0/dist/solid-react.js
-
-
-const innerDivId = this.div.id + '_inner';
-this.div.innerHTML = `<div id="${innerDivId}"></div>`;
-
-
-function Demo() {
-  const popupPath = smartdown.baseURL + 'gallery/solidLoginPopup.html';
-  return (
-    <div>
-
-
-      <h1>FOOOO</h1>
-<solid.react.LoggedOut>
-  <p>You are not logged in, and this is a members-only area!</p>
-  <solid.react.LoginButton popup={popupPath}/>
-</solid.react.LoggedOut>
-<solid.react.LoggedIn>
-  <p>You are logged in and can see the special content.</p>
-  <solid.react.Value src="[https://ruben.verborgh.org/profile/#me].friends.firstName"/>
-  <solid.react.LogoutButton/>
-</solid.react.LoggedIn>
-    </div>
-  );
-}
-
-const domContainer = document.getElementById(innerDivId);
-const component = ReactDOM.render(React.createElement(Demo), domContainer);
-
-```
-
 ### Using React and JSX (alpha)
 
 **Very early-stage experiment. Need to expand to include real-world components such as [Solid React SDK](https://github.com/inrupt/solid-react-sdk).**
 
-Smartdown is by design a *reactive* system, enabling a Smartdown document to compose a set of processes (playables, cells, and variables) within a prose document. Smartdown is also about enabling the embedding of wonderful third-party technologies. It only made sense to try to integrate [ReactJS](https://reactjs.org) with Smartdown in a useful way. There are many React components that could be useful in a Smartdown document. This draft represents the first attempt at this effort.
+Smartdown is by design a *reactive* system, enabling a Smartdown document to compose a set of processes (playables, cells, and variables) within a prose document. Smartdown is also about enabling the embedding of wonderful third-party technologies. It only made sense to try to integrate [ReactJS](https://reactjs.org) with Smartdown in a useful way. There are many React components that could be useful in a Smartdown document. This draft represents the first attempt at this effort. Additional React examples are in the [Using Smartdown-on-Solid](:@Solid) doc.
 
 #### Dynamic load of ReactJS and Babel
 
