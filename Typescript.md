@@ -13,14 +13,14 @@ For our first example, we'll create a little `typescript` playable that just lis
 The source for this playable is encoded in Smartdown like this:
 
 ````markdown
-```typescript/playable/autoplay/debug
+```javascript /typescript/playable/autoplay/debug
   // SOURCE goes here
 ```
 ````
 
 with `// SOURCE goes here` being replaced by:
 
-```typescript
+```javascript /typescript
 const myDiv = this.div;
 myDiv.style.background = 'lavender !important';
 myDiv.style.color = 'magenta !important';
@@ -40,7 +40,7 @@ this.depend = function(): void {
 
 [What is your name?](:?Name)
 
-```typescript/playable/autoplay/debug
+```javascript /typescript/playable/autoplay/debug
 const myDiv = this.div;
 myDiv.style.background = 'lavender !important';
 myDiv.style.color = 'magenta !important';
@@ -61,7 +61,7 @@ The augmented code that Smartdown generates around Typescript to transpile it to
 
 Let's give this feature a try by creating a TypeScript playable that is *syntactically* incorrect because it lacks a closing single quote on a string declaration. This playable is NOT autoplay, so you will need to click the `Play` button to see stuff happen:
 
-```typescript /playable
+```javascript /typescript/playable
 const msg: string = 'I better not forget the closing quote...;
 this.div.innerHTML = `<h1>${msg}</h1`;
 
@@ -125,7 +125,7 @@ smartdown.runFunction(
 
 As of SD v1.0.25, Javascript playable sources are wrapped with an `async` function wrapper so that `await` can be used within the source of the playable. This is exercised in a [Javascript](:@Javascript) example, but let's make sure it works with TypeScript.
 
-```typescript /playable
+```javascript /typescript/playable
 console.log('Hello from the typescript playable');
 const response: any = await fetch('https://unpkg.com/smartdown/package.json');
 const myJson: any = await response.json();

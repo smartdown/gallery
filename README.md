@@ -69,3 +69,4 @@ See [Smartdown README](https://smartdown.github.io/smartdown/#README) for more i
 - **0.0.59** - SD 1.0.34. Improves React.md example.
 - **0.0.60** - Add solidLoginPopup.html.
 - **0.0.61** - SD 1.0.35. Separates Solid example into its own Solid.md. Cleans up docs for React.md. Fixes issue with ldflex@2.8.0 by fixing version to 2.7.0.
+- **0.0.62** - SD 1.0.36. Enhances React.md and Solid.md examples. Eliminate unnecessary solidLoginPopup.html in favor of https://solid.community/common/popup.html. Documents new method of syntax vs runtime in playable declarations.
