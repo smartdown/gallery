@@ -180,13 +180,12 @@ Let's see what happens when an included file does not exist.
 ```
 
 
-##### Simple UMD Inclusion
-
+##### UMD Inclusion
 
 ```javascript/playable/debug
 //smartdown.import=/gallery/ExtensionsPlayableUMDImport.js
 
-console.log('It worked');
+console.log('UMD Inclusion worked');
 console.log('example', example);
 
 // Let's call the funcs from our example
@@ -194,7 +193,6 @@ console.log('example', example);
 example.someFunc(this.div, 'Called from Extensions.md');
 
 ```
-
 
 ---
 

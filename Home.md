@@ -16,13 +16,13 @@ Use the navigation buttons below to explore different aspects of Smartdown. You 
 |[Images](:@Images)|[Plotly](:@Plotly)|[Temperature](:@Temperature)|[Extensions](:@Extensions)|
 |[Multicards](:@Multicards)|[Maps](:@Maps)|[Vector Field](:@VectorField)|[Brython](:@Brython)|
 |[Video](:@Video)|[Stdlib](:@Stdlib)|[Tree](:@Tree)|[YouTube](:@YouTube)|
-|[GIF/Audio](:@GIFAndAudio)|[Processes](:@Processes)|[Conic](:@Conic)|[Tweets](:@Tweets)|
+|[GIF/Audio](:@GIFAndAudio)|[Processes](:@Processes)|[Conic](:@Conic)|[ES6](:@ES6)|
 |[Decorations](:@Decorations)|[ThreeJS](:@Three)|[VectorTree](:@VectorTree)|[Mandelbrot](:@Mandelbrot)|
 |[Cells](:@Cells)|[P5JS](:@P5JS)|[Dungeon](:@Dungeon)|[LDF](:@LDF)|
 |[Disclosables](:@Disclosables)|[Mermaid](:@Mermaid)|[Dungeon3D](:@Games)|[OpenJSCAD](:@OpenJSCAD)|
 |[SVG](:@SVG)|[jsPsych](:@JSPsych)|[Music](:@Music)|[Inlines](:@Inlines)|
 |[Disclosables++](:@DisclosablesPlus)|[Sankey](:@Sankey)|[WordCloud](:@WordCloud)|[Kiosk](:@Kiosk)|
-||[Crossword](:@Crossword)||[React](:@React)|
+|[Tweets](:@Tweets)|[Crossword](:@Crossword)|[Mathigon](:@Mathigon)|[React](:@React)|
 
 ---
 
