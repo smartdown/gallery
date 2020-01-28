@@ -92,9 +92,9 @@ myDiv.appendChild(renderer.domElement);
 var geometry = new THREE.PlaneGeometry(2.0, 2.0, 0.0);
 var material = new THREE.ShaderMaterial({
   uniforms: {
-      zoom: { type: 'f', value: that.env.zoom },
-      posX: { type: 'f', value: that.env.posX },
-      posY: { type: 'f', value: that.env.posY }
+      zoom: { type: 'f', value: env.zoom },
+      posX: { type: 'f', value: env.posX },
+      posY: { type: 'f', value: env.posY }
   },
   vertexShader: vertexShader,
   fragmentShader: fragmentShader
@@ -110,13 +110,13 @@ var bouncinessOld = null;
 var coordinatesOld = null;
 
 function render(delta) {
-  var posX = that.env.posX;
-  var posY = that.env.posY;
-  var zoom = that.env.zoom;
-  var bounciness = that.env.bounciness;
-  var coordinates = that.env.coordinates;
+  var posX = env.posX;
+  var posY = env.posY;
+  var zoom = env.zoom;
+  var bounciness = env.bounciness;
+  var coordinates = env.coordinates;
   var coordinatesNew = `${posX}/${posY}/${zoom}`;
-  var useCoordinates = that.env.useCoordinates;
+  var useCoordinates = env.useCoordinates;
 
   if (delta) {
     if (useCoordinates) {
@@ -125,10 +125,10 @@ function render(delta) {
       posY = Number(coordinatesParts[1]);
       zoom = Number(coordinatesParts[2]);
       coordinatesNew = coordinates;
-      that.env.useCoordinates = 0;
-      that.env.posX = posX;
-      that.env.posY = posY;
-      that.env.zoom = zoom;
+      env.useCoordinates = 0;
+      env.posX = posX;
+      env.posY = posY;
+      env.zoom = zoom;
     }
 
     if (bounciness || bouncinessOld ||

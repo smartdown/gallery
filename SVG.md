@@ -111,7 +111,9 @@ this.depend = function() {
 
 #### SVG Buttons
 
-[Tunnel ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/Cool.svg)](:@SVG) [Calculation ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/Cool.svg)](:=foo=1)
+[Tunnel ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/Cool.svg)](:@SVG) [Calculation ![](https://upload.wikimedia.org/wikipedia/commons/f/f4/Cool.svg)](:=count=(count?count+1:1))
+
+[Clicked Count](:!count)
 
 ---
 

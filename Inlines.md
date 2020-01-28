@@ -131,9 +131,9 @@ window.drawSparkline = drawSparkline;
 
 ##### Sparkline playable that uses inline target div
 
-This paragraph has an *inline target div* called `div1`. It's right here: [](:&div1) and uses the following syntax to specify that a Smartdown cell is to be created: `[](:&div1)`. This div can be populated by a playable that refers to DOM id `inline-target-div1`. Alternatively, the syntax `/&div1` can be added to the playable's definition, which will inhibit the normal creation of a playable div, and will ensure that `this.div` will refer to the targeted div `inline-target-div`.
+The playable below will use the `/&div1` syntax to direct its rendering to the div in the next paragraph. We'll test Smartdown's playable progress bar feature, so you should see a blueish progress bar in place of where the inline playable will eventually appear. That is, until you click this checkbox... [](:Xdoit), whereupon the `doit` variable will be defined and the playable will continue. Toggling the checkbox will do the obvious thing.
 
-The playable below will use the `/&div1` syntax to direct its rendering to the div in the previous paragraph. We'll test Smartdown's playable progress bar feature, so you should see a blueish progress bar in place of where the inline playable will eventually appear. That is, until you click this checkbox... [](:Xdoit), whereupon the `doit` variable will be defined and the playable will continue. Toggling the checkbox will do the obvious thing.
+This paragraph has an *inline target div* called `div1`. It's right here: [](:&div1) and uses the following syntax to specify that a Smartdown cell is to be created: `[](:&div1)`. This div can be populated by a playable that refers to DOM id `inline-target-div1`. Alternatively, the syntax `/&div1` can be added to the playable's definition, which will inhibit the normal creation of a playable div, and will ensure that `this.div` will refer to the targeted div `inline-target-div`.
 
 As another test, we'll also make the playable itself `/inline`, so the play/stop button should appear inline right here ...
 
@@ -141,8 +141,7 @@ As another test, we'll also make the playable itself `/inline`, so the play/stop
 ```d3 /playable/autoplay/inline/&div1
 const targetDiv1 = this.div;
 
-this.dependOn = ['doit'];
-this.depend = function() {
+this.dependOn.doit = () => {
   if (env.doit) {
     this.div.innerHTML = '';
     drawSparkline(this.div, 300, 30, "basis", false, 1000, 1000);

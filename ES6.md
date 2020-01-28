@@ -7,16 +7,16 @@ This example uses the (currently experimental) `/module` qualifier to the playab
 ```javascript /playable/autoplay/debug/module
 console.log('in ModuleA');
 
-import * as Lib from 'https://localhost:4000/gallery/ExtensionsES6Module.js';
+import * as Lib from './gallery/ExtensionsES6Module.js';
 
-export default function start(pThis) {
+export default function start(pThis, playable, env) {
 	const log = pThis.log;
 
 	log('start', pThis);
 
 	pThis.dependOn.NameA = () => {
-		smartdown.setVariable('NameB', pThis.env.NameA.toUpperCase());
-		pThis.div.innerHTML = `<h1>Hello from an ES6 Module A. ${pThis.env.NameA}</h1>`;
+		smartdown.setVariable('NameB', env.NameA.toUpperCase());
+		pThis.div.innerHTML = `<h1>Hello from an ES6 Module A. ${env.NameA}</h1>`;
 	};
 
 	const nums = [12, 23, 34, 45];
@@ -37,7 +37,7 @@ console.log('in ModuleB');
 
 import * as Lib from 'https://localhost:4000/gallery/ExtensionsES6Module.js';
 
-export default function start(pThis) {
+export default function start(pThis, playable, env) {
 	const log = pThis.log;
 	log('start', pThis);
 	const nums = [12, 23, 34, 45];
@@ -47,7 +47,7 @@ export default function start(pThis) {
 	log('Lib.note.note', Lib.note.note);
 
 	pThis.dependOn.NameB = () => {
-		pThis.div.innerHTML = `<h1>Hello from an ES6 Module B. ${pThis.env.NameB}</h1>`;
+		pThis.div.innerHTML = `<h1>Hello from an ES6 Module B. ${env.NameB}</h1>`;
 	};
 
 }

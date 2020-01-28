@@ -13,7 +13,7 @@ https://mathigon.io/fermat#number-theory
 [Clean Numbers](:!cleanNumbers)
 [GCD](:!gcd)
 
-```javascript /playable/autoplay/debug
+```javascript /playable/xautoplay/debug
 //smartdown.import=/gallery/MathigonFermat.js
 
 const log = this.log;
@@ -51,7 +51,7 @@ https://mathigon.io/core#isPalindrome
 [String to Check](:?palindromeCheck)
 [isPalindrome](:!isPalindrome)
 
-```javascript /playable/autoplay/debug
+```javascript /playable/xautoplay/debug
 //smartdown.import=/gallery/MathigonCore.js
 
 const log = this.log;

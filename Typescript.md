@@ -1,4 +1,3 @@
-
 ### TypeScript
 
 As of Smartdown v1.0.20, the Smartdown engine is being reconstructed using [Typescript](). As of v1.0.21, Smartdown supports the dynamic compilation of Typescript in the browser via `typescript` playables.
@@ -47,8 +46,7 @@ myDiv.style.color = 'magenta !important';
 myDiv.style.padding = '10px 2px';
 myDiv.style.margin = '10px 2px';
 
-this.dependOn = ['Name'];
-this.depend = function(): void {
+this.dependOn.Name = (): void => {
   const msg: string = ['Nice', 'to', 'meet', 'you'].join(' ');
 
   myDiv.innerHTML = `<p>${msg}, <b>${env.Name}</b>!</p>`;
@@ -64,6 +62,14 @@ Let's give this feature a try by creating a TypeScript playable that is *syntact
 ```javascript /typescript/playable
 const msg: string = 'I better not forget the closing quote...;
 this.div.innerHTML = `<h1>${msg}</h1`;
+
+```
+
+Here's an example which is syntactically correct, but should fail Typescript's typechecking. Because Smartdown's usage of the Typescript transpiler **does not currently** use the typechecker, this playable will be transpiled successfully into Javascript.
+
+```javascript /typescript/playable
+const n: number = 'This is definitely NOT a number';
+this.div.innerHTML = `<h1>n: ${n}</h1`;
 
 ```
 
@@ -134,6 +140,42 @@ smartdown.setVariable('Package', myJson);
 
 [package.json](:!Package|json)
 
+
+##### ES6 Modules in Typescript
+
+- https://stackoverflow.com/questions/53733138/how-do-i-type-check-a-snippet-of-typescript-code-in-memory
+- https://github.com/microsoft/TypeScript/wiki/Using-the-Compiler-API
+
+
+Preliminary capability that allows a transpiled Typescript playable to execute as an ES6 Module by using the `/module` qualifier. As with ordinary Javascript ES6 Playables, you must implement a `start()` function which will receive the playable's `this` as its parameter `pThis`. The signature for `start()` is still in flux, and we may implement a corresponding `stop()` hook.
+
+*Possibly this should be moved to the [ES6](:@ES6) card, but it is here for now.*
+
+---
+
+[What is your name?](:?NameA)
+
+```javascript /typescript/playable/debug/module
+import * as Lib from './gallery/ExtensionsES6Module.js';
+
+export default function start(pThis, playable, env) {
+  const log = pThis.log;
+
+  log('start', pThis, playable, env);
+
+  pThis.div.innerHTML = `<h1>Waiting for dependency</h1>`;
+  pThis.dependOn.NameA = () => {
+    smartdown.setVariable('NameB', env.NameA.toUpperCase());
+    pThis.div.innerHTML = `<h1>Hello from an ES6 Module A. ${env.NameA}</h1>`;
+  };
+
+  const nums = [12, 23, 34, 45];
+  log('sum', Lib.sum(...nums));
+  log('mult', Lib.mult(...nums));
+  Lib.note.note = 'ModuleA was here';
+}
+
+```
 
 ---
 

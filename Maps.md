@@ -149,7 +149,7 @@ Also, `https` is required for most browsers to enable Geolocation.
     output.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
 
     var img = new Image();
-    img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=500x300";
+    img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=500x300&key=AIzaSyBb0wwZBT3kAbPyTXQzltpg20wMc8kmlcs";
 
     output.appendChild(img);
   }
