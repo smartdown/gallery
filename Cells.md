@@ -76,6 +76,46 @@ By default, a cell is a string. An input cell may be annotated to indicate that 
 
 ... What is your name? [](:?NAME) ... Your name is [](:!NAME) ... What is your age? [](:?AGE|number) ... Your Age is [](:!AGE) ...
 
+#### Autocomplete Experiments
+
+We can use existing Smartdown features such as cells and playables to build an *autocomplete* input field, which will enable a user to type into the field and will produce a list or menu of items which match the partial input. The user can optionally select an item from this list and it will replace the partial input.
+
+For the examples below, we'll use the [USASpending API](https://api.usaspending.gov). We'll start with the following endpoint, which returns a list (10 items, by default) of *matches* to a given partial string typed in by the user. For example, typing `duc` will produce a list of agencies that contain **duc**, including *Consumer Pro**duc**t Safety Commission* and *Department of E**duc**ation*.
+
+*This is a work in progress. A future version of Smartdown will have a builtin autocomplete capability.*
+
+##### Cell and Playable
+
+[Account Name](:?AccountName)
+[](:!AccountMatches|markdown)
+
+
+```javascript /playable/autoplay
+async function getMatches(partial) {
+	const result = await smartdown.axios.post('https://api.usaspending.gov/api/v2/autocomplete/awarding_agency/', {
+      'search_text': partial
+	  });
+
+	const formatted = result.data.results.map(d => {
+		const uri = d.subtier_agency.name.replace(/ /g, '%20');
+		const line = `- [${d.subtier_agency.name}](:=AccountSelected=decodeURIComponent("${uri}"))`;
+		return line;
+	});
+
+	return formatted.join('\n');
+}
+
+this.dependOn.AccountName = async () => {
+	const partial = env.AccountName;
+	if (partial.length > 2) {
+		const matches = await getMatches(partial);
+		smartdown.set('AccountMatches', matches);
+	}
+};
+```
+
+[Selected](:!AccountSelected)
+
 
 ---
 

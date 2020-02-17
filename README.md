@@ -73,5 +73,5 @@ See [Smartdown README](https://smartdown.github.io/smartdown/#README) for more i
 - **0.0.63** - Mathigon/Fermat example. ES6 Example.
 - **0.0.64** - Removes erroneous localhost:4000 references from examples. Adds JSXGraph examples. Rearranges text in Inlines.md so that the checkbox and sparkline are visibly closer and related. Enhance SVG.md buttons example to demonstrate calc buttons as well as tunnel buttons. Adds Typescript ES6 Module example. Adds missing Google Maps API key to example in Maps.md.
 - **0.0.65** - SD 1.0.40. Add a few examples of relative URLs to Markdown.md.
-
+- **0.0.66** - SD 1.0.41. Add an autocomplete example to Cells.
 
