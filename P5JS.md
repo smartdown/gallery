@@ -166,7 +166,7 @@ p5.draw = function draw() {
 
 ##### Tickle example with Global mode Syntax
 
-```P5JS/playable
+```P5JS/playable/debug
 var message = "tickle",
   font,
   bounds, // holds x, y, w, h of the text's bounding box
