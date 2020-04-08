@@ -212,7 +212,9 @@ And that has made all the difference.
 > **Robert Frost**
 
 
-#### Links
+#### Hyperlinks
+
+See [Intra-page Links](##intra-page-links) below.
 
 ```markdown
 - https://en.wikipedia.org/wiki/Raven
@@ -229,8 +231,40 @@ And that has made all the difference.
 - The source for this page is [`gallery/Markdown.md`](gallery/Markdown.md)
 - Here is a CSS file [`lib/fonts.css`](lib/fonts.css)
 
+##### Intra-page Links
 
-#### Autolinks
+**Notes on experimental behavior with respect to intra-page links**
+
+- Current behavior is to use `##foo` to link to an element with id `foo` in the current page.
+- Current behavior is to use `#Card#foo` to link to an element with id `foo` after loading the content from `Card`.
+
+
+See [Philosophy](##philosophy) far above - `[Philosophy](##philosophy)`
+See [Hyperlinks](##hyperlinks) above. - `[Hyperlinks](##hyperlinks)`
+
+Or, visit an internal link on a different card. Like [Home - Basic Features](#Home#basic-features).
+
+
+##### Open in new tab/window vs current tab/window
+
+HTML links can be declared to either open in the current browser window, or to open in a new browser window, by using the `target="_blank"` qualifier on the `<a>` element. Smartdown attempts to apply the following *reasonable* defaults:
+
+- A link to an absolute URL will open in a new window
+- A link to a relative URL will open in the current window.
+
+Smartdown provides an optional syntax on its Markdown link declarations to force a relative link to open in a new window. The current syntax for this is to append `##blank` to the URL.
+
+- [`README.md`](README.md) is relative, so opens in same window.
+- [`/README.md`](/README.md) is relative, so opens in same window.
+- [`./README.md`](./README.md) is relative, so opens in same window.
+- [`README.md#-blank`](README.md#-blank) is relative, but opens in new window.
+- [`/README.md#-blank`](/README.md#-blank) is relative, but opens in new window.
+- [`./README.md#-blank`](./README.md#-blank) is relative, but opens in new window.
+- [`https://example.com` in new window](https://example.com) is absolute, so opens in new window.
+- [`https://example.com` in current window](https://example.com) is absolute, so opens in new window.
+
+
+##### Autolinks
 
 The Markdown specification and the `marked.js` implementation that Smartown uses provide a feature called *autolinking*, which means that things that look *linkable* are rendered as clickable links. There are some current issues with how email addresses are rendered with [marked.js](https://github.com/markedjs/marked/issues/1218), so Smartdown has disabled the autolinking of email addresses for now.
 

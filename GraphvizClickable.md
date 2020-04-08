@@ -7,8 +7,8 @@ This document explores the use of [viz.js](https://github.com/mdaines/viz.js), w
 The following example demonstrates the use of an *inline* Graphviz playable, and the use of the `URL` attribute to attach link behaviors to nodes.
 
 - `URL=#README` will use Smartdown tunneling to load the `README.md` document
-- `URL=#Markdown#SD_philosophy` will load `Markdown.md`, and then go to the `SD_philosophy` anchor within that document
-- `URL=#GraphvizClickable#SD_gallery-digraph-with-clusters` will go to the `SD_gallery-digraph-with-clusters` anchor within this document.
+- `URL=#Markdown#philosophy` will load `Markdown.md`, and then go to the `philosophy` anchor within that document
+- `URL=#GraphvizClickable#gallery-digraph-with-clusters` will go to the `gallery-digraph-with-clusters` anchor within this document.
 - `URL=javascript:alert('You clicked Hello');` will put up a `Hello` alert
 - `URL=javascript:smartdown.setVariable('Goodbye', true);` will set the Smartdown variable `Goodbye` to `true`, and a Javascript playable will react to this change by displaying `Goodbye` in its div.
 
@@ -28,9 +28,9 @@ digraph "unix" {
   ];
 
   "Readme" [URL="#README"];
-  "Markdown" [URL="#Markdown#SD_philosophy"];
+  "Markdown" [URL="#Markdown#philosophy"];
   "Math" [URL="#Math"];
-  "Clustered Digraph" [URL="#GraphvizClickable#SD_gallery-digraph-with-clusters"];
+  "Clustered Digraph" [URL="#GraphvizClickable#gallery-digraph-with-clusters"];
 
   "Readme" -> "Markdown";
   "Markdown" -> "Math";

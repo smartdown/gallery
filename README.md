@@ -75,5 +75,4 @@ See [Smartdown README](https://smartdown.github.io/smartdown/#README) for more i
 - **0.0.65** - SD 1.0.40. Add a few examples of relative URLs to Markdown.md.
 - **0.0.66** - SD 1.0.41. Add an autocomplete example to Cells.
 - **0.0.67** - SD 1.0.42. Adds a GraphvizClickable document to experiment with clickable Graphviz elements.
-
-
+- **0.0.68** - Clarify Markdown.md to demonstrate URL opening in new tab (default) vs current tab and to demonstrate intra-page links. Fix error in GraphvizClickable.md involving an intra-page link.
