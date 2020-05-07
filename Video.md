@@ -26,11 +26,31 @@ Halfwidth of https://youtu.be/m3dZl3yfGpc with syntax:
 ![halfwidth](https://youtu.be/m3dZl3yfGpc)
 
 
-Fullwidth of https://youtu.be/m3dZl3yfGpc with syntax:
+Fullwidth of https://youtu.be/m3dZl3yfGpc at `00:08` (8 seconds), autoplay, with syntax:
 
-`https://youtu.be/m3dZl3yfGpc`
+`https://youtu.be/m3dZl3yfGpc?start=8&autoplay=1`
 
-![fullwidth](https://youtu.be/m3dZl3yfGpc)
+![fullwidth](https://youtu.be/m3dZl3yfGpc?start=8&autoplay=1)
+
+
+##### YouTube URL Syntax
+
+Thumbnails of a cool sentence diagramming TEDx video, using both types of YouTube video URL syntax. In both cases, the player begins at 160 seconds, where the speaker explains:
+
+> Only a monster eats an Oreo without taking it apart first
+> - Aerin Bender, 2019 - TEDxDakotaRidge
+
+`![thumbnail](https://youtu.be/Ec6J0X_PldU?start=160)`
+
+![thumbnail](https://youtu.be/Ec6J0X_PldU?start=160)
+
+---
+
+`![thumbnail](https://www.youtube.com/watch?v=Ec6J0X_PldU&start=160)`
+
+![thumbnail](https://www.youtube.com/watch?v=Ec6J0X_PldU&start=160)
+
+---
 
 
 ##### YouTube API Experiments
@@ -47,11 +67,11 @@ Thumbnail of https://vimeo.com/253898691 using the syntax:
 ![thumbnail](https://vimeo.com/253898691)
 
 
-Fullwidth of https://vimeo.com/253898691 using the syntax:
+Fullwidth of https://vimeo.com/253898691 at `01:30` (90 seconds) using the syntax:
 
-`![fullwidth](https://vimeo.com/253898691)`
+`![fullwidth](https://vimeo.com/253898691#t=90s)`
 
-![fullwidth](https://vimeo.com/253898691)
+![fullwidth](https://vimeo.com/253898691#t=90s)
 
 
 ---

@@ -13,7 +13,7 @@ For example, the `Card2` in this example multicard stack has its content precede
  ---
 ```
 
-Card1: Hello World
+#### CardHome: Hello World
 
 [What is your name?](:?NAME)
 Hello [](:!NAME)
@@ -27,7 +27,7 @@ Hello [](:!NAME)
 # Card1
 ---
 
-Card1: Hello World
+#### Card1: Hello World
 
 Hello [](:!NAME)
 
@@ -38,7 +38,7 @@ Hello [](:!NAME)
 # Card2
 ---
 
-Card2: Hello World
+#### Card2: Thanks for Playing
 
 [Prev](:@Card1)
 [Next](:@CardHome)

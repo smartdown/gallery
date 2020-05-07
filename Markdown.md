@@ -294,7 +294,9 @@ Type Smartdown into the input cell below and see the result rendered as Smartdow
 
 [Markdown here ...](:?MyMarkdown)
 
-[...is rendered below](:!MyMarkdown|markdown)
+... is rendered below as:
+
+[](:!MyMarkdown|markdown)
 
 Examples to start with:
 - `I am **bold**`

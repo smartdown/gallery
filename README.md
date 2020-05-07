@@ -76,3 +76,5 @@ See [Smartdown README](https://smartdown.github.io/smartdown/#README) for more i
 - **0.0.66** - SD 1.0.41. Add an autocomplete example to Cells.
 - **0.0.67** - SD 1.0.42. Adds a GraphvizClickable document to experiment with clickable Graphviz elements.
 - **0.0.68** - Clarify Markdown.md to demonstrate URL opening in new tab (default) vs current tab and to demonstrate intra-page links. Fix error in GraphvizClickable.md involving an intra-page link.
+- **0.0.69** - Adjust dynamic Markdown example to use a full-width output cell. Label the cards in Multicards.md so that their visible labels match their card ids. Improve examples in Video.md to illustrate passing arguments via URL, including autoplay and start arguments. Adds an (unlinked) VideoNarrow.md card to exercise video width sizing when there is no other content on the page.
+
