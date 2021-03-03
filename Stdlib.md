@@ -265,11 +265,9 @@ thisDiv.innerHTML = html;
 
 #### NLP (Natural Language Processing)
 
-Derived from this example https://stdlib.io/develop/docs/api/@stdlib/nlp/lda
+Derived from this example https://stdlib.io/docs/api/v0.0.90/@stdlib/nlp/lda, the following playable will utilize the [SOTU State of the Union Dataset](https://stdlib.io/docs/api/v0.0.90/@stdlib/datasets/sotu) to perform a simple clustering of the speech texts into three main *themes*.
 
-This version of Smartdown includes a subset (1930-2010) of the full 1790-2016 [SOTU State of the Union Dataset](https://stdlib.io/develop/docs/api/@stdlib/datasets/sotu), because the data is currently being bundled with the rest of Smartdown, and is quite large. In the future, the `stdlib` datasets will be optionally and dynamically loadable, which will reduce the default Smartdown bundle size and enable a much richer set of data to be used.
-
-This example also uses the [English Stop Words Dataset](https://stdlib.io/develop/docs/api/@stdlib/datasets/stopwords-en).
+This example also uses the [English Stop Words Dataset](https://stdlib.io/docs/api/v0.0.90/@stdlib/datasets/stopwords-en).
 
 
 ##### Smartdown outputs
@@ -328,7 +326,7 @@ stdlib.loadSOTU(function() {
   }
 
   var startYear = 1930;
-  var endYear = 2010;
+  var endYear = 2020;
 
   var speechTexts = null;
   var speeches = stdlib.datasets['sotu-data']();
@@ -347,7 +345,7 @@ stdlib.loadSOTU(function() {
                       []);
 
   var trimmedTexts = speeches.map(function(speech, index, array) {
-    return speech.text.slice(0, 100);
+    return speech.year + ': ' + speech.text.slice(0, 100);
   });
   smartdown.setVariable('speechTexts', trimmedTexts);
 
@@ -362,7 +360,7 @@ stdlib.loadSOTU(function() {
   //
 
   var yearsMD = '|Year|Topic 1 Average $\\theta$|Topic 2 Average $\\theta$|Topic 3 Average $\\theta$|\n|:---|---:|---:|---:|\n';
-  for (i = 0; i <= 80; i++) {
+  for (i = 0; i < speechTexts.length; i++) {
     var year = (startYear + i);
     var theta0 = roundn(model.avgTheta.get(i, 0), -3);
     var theta1 = roundn(model.avgTheta.get(i, 1), -3);
@@ -417,7 +415,7 @@ This is a *very quick hack* to demonstrate the synergy between Smartdown's playa
 
 [](:!plot|graphviz)
 
-```javascript/playable
+```javascript /playable
 //smartdown.import=stdlib
 
 var index = 1;
@@ -428,6 +426,11 @@ function generateTree(rootIndex, rootfIndex, rootName, root) {
 "node${rootIndex}" [
     shape = "record"
     label = "`;
+
+  if (!root) {
+    return '';
+  }
+
   var keys = Object.keys(root);
   var fIndex = 0;
   var subroot = [];
@@ -453,8 +456,10 @@ function generateTree(rootIndex, rootfIndex, rootName, root) {
   source += '"\n];';
 
   subroot.forEach(function(subroot) {
-    source += generateTree(subroot.index, subroot.fIndex, subroot.k, subroot.v);
-    source += `\n"node${rootIndex}":f${subroot.fIndex} -> "node${subroot.index}":f0;\n`;
+    if (subroot.v) {
+      source += generateTree(subroot.index, subroot.fIndex, subroot.k, subroot.v);
+      source += `\n"node${rootIndex}":f${subroot.fIndex} -> "node${subroot.index}":f0;\n`;
+    }
   });
 
   return source;

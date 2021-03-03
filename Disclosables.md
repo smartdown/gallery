@@ -211,6 +211,64 @@ Hello World
 # ::::
 
 
+#### Signalling Playables via Disclosables
+
+Disclosables, and their triggers, work together to ensure that a tooltip or button trigger will show and hide their corresponding disclosable. However, sometimes it is necessary to provide a trigger that affects a playable on the page, rather than showing/hiding a disclosable. This is easily implemented because every disclosable has a corresponding Smartdown variable of the same name.
+
+For example, suppose we have a disclosable named `DisclosableABC`. Whenever `DisclosableABC` is shown (either via a button or tooltip trigger), then the Smartdown variable `DisclosableABC` will become `true`; similarly, whenever this disclosable is hidden, then `DisclosableABC` will become `false`. This variable can be *observed* by playables via the `this.dependOn` feature, to allow a playable to respond to changes in the disclosable's visibility.
+
+In the example below, we will provide a button and tooltip trigger that refers to `DisclosableABC`, and a playable that observes the corresponding variable.
+
+> If you hover your mouse over [here](::DisclosableABC/tooltip) you will reveal the hidden content until you move your mouse away.
+>
+> If you click [here :rainbow:](::DisclosableABC) you will reveal the hidden content. Clicking again will hide the content.
+
+# :::: DisclosableABC
+This is the hidden content for the disclosable called `DisclosableABC`
+# ::::
+
+
+```javascript /playable/autoplay
+this.dependOn.DisclosableABC = function() {
+  this.log('DisclosableABC is ' +
+    (env.DisclosableABC ? 'SHOWN' : 'HIDDEN'));
+};
+```
+
+
+#### Signalling Playables with *Phantom* Disclosables
+
+There may be times when a Smartdown author wants to have a button or tooltip trigger in their prose that causes a *reaction* in an associated playables. Smartdown supports the idea of a trigger that refers to a disclosable that is not declared. These *phantom* disclosables still retain the idea of a Smartdown variable that changes state between shown/hidden. This enables readers to interact with the Smartdown prose via tooltip and button triggers, but the *effect* of this interaction is reflected in playables.
+
+Adapting the above example, let's create a P5JS playable that reacts to one of two tooltip triggers.
+
+> If you hover your mouse over [red](::DisclosableRed/tooltip) the P5JS sketch will turn red.
+> If you hover your mouse over [blue](::DisclosableBlue/tooltip) the P5JS sketch will turn blue.
+
+
+```javascript /p5js/autoplay/playable
+const defaultColor = 'black';
+let color = defaultColor;
+
+this.dependOn.DisclosableRed = () => {
+  color = env.DisclosableRed ? 'red' : defaultColor;
+};
+this.dependOn.DisclosableBlue = () => {
+  color = env.DisclosableBlue ? 'blue' : defaultColor;
+};
+
+p5.draw = function() {
+  p5.clear();
+  p5.fill(color);
+  p5.ellipse(50, 50, 80, 80);
+  p5.fill('white');
+  p5.textSize(24);
+  p5.text(color, 25, 50);
+};
+
+```
+
+
 ---
 
 [Back to Home](:@Home)
