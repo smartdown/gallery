@@ -11,7 +11,7 @@ smartdown.setVariables([
 
 #### GeoLocation sets LOCATION
 
-```javascript/playable
+```javascript /playable/autoplay
 var output = this.div;
 
 output.innerHTML = "<p>Locating…</p>";
@@ -33,7 +33,7 @@ else {
         var img = new Image();
         img.style.height = '200px';
         img.style.width = '300px';
-        img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x200&key=AIzaSyBb0wwZBT3kAbPyTXQzltpg20wMc8kmlcs";
+        img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x200&key=AIzaSyBIFBOMGSxUHlHO747zxGvJekxWxWF60wA";
 
         output.appendChild(img);
       },

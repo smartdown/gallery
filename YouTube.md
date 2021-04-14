@@ -5,7 +5,7 @@ I was playing with the [YouTube Data API](https://developers.google.com/youtube/
 #### API Key Setup
 
 ```javascript/autoplay/playable
-var apiKey = 'AIzaSyDVRQ1L9XnJxCJj6z5WUc33EpTSq09g_W0';
+var apiKey = 'AIzaSyAhQapyEL6ky715vot_AUqF9s6UWufgmMo';
 
 smartdown.setVariable('APIKey', apiKey);
 smartdown.setVariable('videoCategoryId', '10');

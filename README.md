@@ -79,4 +79,4 @@ See [Smartdown README](https://smartdown.github.io/smartdown/#README) for more i
 - **0.0.69** - Adjust dynamic Markdown example to use a full-width output cell. Label the cards in Multicards.md so that their visible labels match their card ids. Improve examples in Video.md to illustrate passing arguments via URL, including autoplay and start arguments. Adds an (unlinked) VideoNarrow.md card to exercise video width sizing when there is no other content on the page.
 - **0.0.70** - Remove hide/ directory from distribution via .gitignore.
 - **0.0.71** - Improves/updates stdlib examples. Adds documentation and examples regarding disclosable triggering playable reactions.
-
+- **0.0.72** - Update Google Maps and YouTube V3 API keys. Expand the Inlined.md examples to demonstrate/verify that inline playables work properly with Math and other adjacent content.

@@ -27,7 +27,7 @@ p5.draw = function() {
 };
 ```
 
-and here is a rectangle:
+and here is a rectangle prefixed with math $E=mc^2$
 
 
 ```p5js/playable/autoplay/inline
@@ -39,8 +39,7 @@ p5.draw = function() {
 };
 ```
 
-
-Pretty cool, huh?
+$E=mc^2$ and also suffixed with the same math.
 
 So you can see how the circle and rectangle above were rendered inline with the text.
 
