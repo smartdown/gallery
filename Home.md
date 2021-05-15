@@ -23,7 +23,7 @@ Use the navigation buttons below to explore different aspects of Smartdown. You 
 |[SVG](:@SVG)|[jsPsych](:@JSPsych)|[Music](:@Music)|[Inlines](:@Inlines)|
 |[Disclosables++](:@DisclosablesPlus)|[Sankey](:@Sankey)|[WordCloud](:@WordCloud)|[Kiosk](:@Kiosk)|
 |[Tweets](:@Tweets)|[Crossword](:@Crossword)|[Mathigon](:@Mathigon)|[React](:@React)|
-||[GraphvizClickable](:@GraphvizClickable)|[JSXGraph](:@JSXGraph)||
+||[GraphvizClickable](:@GraphvizClickable)|[JSXGraph](:@JSXGraph)|[Filament](:@Filament)|
 
 ---
 
