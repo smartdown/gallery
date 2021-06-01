@@ -81,3 +81,5 @@ See [Smartdown README](https://smartdown.github.io/smartdown/#README) for more i
 - **0.0.71** - Improves/updates stdlib examples. Adds documentation and examples regarding disclosable triggering playable reactions.
 - **0.0.72** - Update Google Maps and YouTube V3 API keys. Expand the Inlined.md examples to demonstrate/verify that inline playables work properly with Math and other adjacent content.
 - **0.0.73** - Add Filament examples.
+- **0.0.74** - Improve Filament.md and add reactivity example.
+
