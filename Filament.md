@@ -1,3 +1,4 @@
+
 ### Filament
 
 This [Smartdown](https://smartdown.io) document shows how [Filament](https://github.com/joshmarinacci/filament-lang) may be utilized within a Smartdown environment, and provides some examples.
@@ -17,16 +18,33 @@ One of the most basic Filament examples. Currently, the Smartdown Filament integ
 42ft
 ```
 
-#### Reactivity between Smartdown and Filament
+### Reactivity between Smartdown and Filament
 
-In this example, we'll use a Smartdown variable `Color` and define a Filament playable that draws a circle in that color. We'll add a few Smartdown buttons to change the color, and the playable will react to the color change and will redraw the circle.
+In this example, we'll use Smartdown variables `Color` and `MouseClicked`. We define a Filament playable that draws a circle in the color name in `Color`. We'll add a few Smartdown buttons to change the color, and the playable will react to the color change and will redraw the circle. To make it even more fun, we'll register (within Filament) a `mousedown` handler that will react by adjusting the Smartdown variables `X`, `Y`, and `MouseClicked`. We'll add a subsequent Smartdown playable (in Javascript) that will react to changes in `MouseClicked` by adjusting the `Color` variable, which will cause the Filament diagram to redraw in that color. Chaos!
 
 [Color](:!Color)
 [red](:=Color='red') [green](:=Color='green') [blue](:=Color='blue')
 
+[X](:!X) [Y](:!Y)
+
 ```filament /playable/autoplay
 {
   sd_set('Color', 'red')  // Define an initial color
+
+  def mousedown(x, y) {
+    print(['mousedown', x, y])
+    sd_set('X', x)
+    sd_set('Y', y)
+    sd_set('MouseClicked', true)
+    [x,y]
+  }
+
+  // Uncomment this to update the Smartdown vars as the mouse moves
+  // def mousemove(x, y) {
+  //   sd_set('X', x)
+  //   sd_set('Y', y)
+  //   [x,y]
+  // }
 
   def diagram(color:?) {
     circle(x : 4cm, y : 4cm, radius : 2cm, fill : color)
@@ -38,6 +56,22 @@ In this example, we'll use a Smartdown variable `Color` and define a Filament pl
 }
 ```
 
+#### Smartdown playable that reacts to mouse movement from Filament
+
+Let's make it so that if the canvas is clicked, we react by cycling the color between red/green/blue. 
+
+```javascript /playable/autoplay
+this.dependOn.MouseClicked = () => {
+  const colors = ['red', 'green', 'blue'];
+  const colorIndex = colors.indexOf(env.Color);
+  const newColorIndex = (colorIndex + 1) % colors.length;
+  if (env.MouseClicked) {
+    smartdown.set('Color', colors[newColorIndex]);
+    smartdown.set('MouseClicked', false);
+  }
+};
+
+```
 
 
 #### Plot a Heart
