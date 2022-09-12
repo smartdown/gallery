@@ -84,4 +84,4 @@ See [Smartdown README](https://smartdown.github.io/smartdown/#README) for more i
 - **0.0.74** - Improve Filament.md and add reactivity example.
 - **0.0.75** - Improves Filament example to use bi-directional reactivity.
 - **0.0.76** - Fix dc.js TSV file URL for D3.md dc.js example.
-
+- **0.0.77** - Adjust ES6.md example to match latest Smartdown spec for /module playables (v1.0.54 of Smartdown).
