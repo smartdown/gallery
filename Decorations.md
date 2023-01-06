@@ -130,6 +130,8 @@ this.depend = function() {
 };
 ```
 
+#### --partialborder
+
 [Show Solution](::sol1)
 
 # :::: sol1
@@ -141,8 +143,6 @@ Comparing the constant terms of $x^2 + 2bx + b^2$ and $x^2 + 16x + c$, we find $
 # --outlinebox
 
 # ::::
-
-#### --partialborder
 
 More cool stuff with decorations and disclosables is coming soon!
 

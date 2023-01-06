@@ -326,5 +326,3 @@ Other examples of Emoji (e.g., `:cherry_blossom:` turns into :cherry_blossom:) c
 ---
 
 [Back to Home](:@Home)
-
-
