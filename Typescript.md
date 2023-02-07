@@ -147,7 +147,7 @@ smartdown.setVariable('Package', myJson);
 - https://github.com/microsoft/TypeScript/wiki/Using-the-Compiler-API
 
 
-Preliminary capability that allows a transpiled Typescript playable to execute as an ES6 Module by using the `/module` qualifier. As with ordinary Javascript ES6 Playables, you must implement a `start()` function which will receive the playable's `this` as its parameter `pThis`. The signature for `start()` is still in flux, and we may implement a corresponding `stop()` hook.
+Preliminary capability that allows a transpiled Typescript playable to execute as an ES6 Module by using the `/module` qualifier. As with ordinary Javascript ES6 Playables, you must implement a `start()` function which will receive a reference to the playable via `playable` and to the Smartdown variables via `env`. The signature for `start()` is still in flux, and we may implement a corresponding `stop()` hook.
 
 *Possibly this should be moved to the [ES6](:@ES6) card, but it is here for now.*
 
@@ -158,15 +158,15 @@ Preliminary capability that allows a transpiled Typescript playable to execute a
 ```javascript /typescript/playable/debug/module
 import * as Lib from './gallery/ExtensionsES6Module.js';
 
-export default function start(pThis, playable, env) {
-  const log = pThis.log;
+export default function start(playable, env) {
+  const log = this.log;
 
-  log('start', pThis, playable, env);
+  log('start', this, playable, env);
 
-  pThis.div.innerHTML = `<h1>Waiting for dependency</h1>`;
-  pThis.dependOn.NameA = () => {
+  this.div.innerHTML = `<h1>Waiting for dependency</h1>`;
+  this.dependOn.NameA = () => {
     smartdown.setVariable('NameB', env.NameA.toUpperCase());
-    pThis.div.innerHTML = `<h1>Hello from an ES6 Module A. ${env.NameA}</h1>`;
+    this.div.innerHTML = `<h1>Hello from an ES6 Module A. ${env.NameA}</h1>`;
   };
 
   const nums = [12, 23, 34, 45];

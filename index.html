@@ -7,7 +7,6 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
   <title>Smartdown Example Gallery</title>
-
   <link
     rel=stylesheet
     href="https://unpkg.com/smartdown/dist/lib/fonts.css">
@@ -18,7 +17,19 @@
     src="https://unpkg.com/smartdown/dist/lib/smartdown.js">
   </script>
 
-  <style>
+<!--
+  <link
+    rel=stylesheet
+    href="https://localhost:4000/lib/fonts.css">
+  <link
+    rel=stylesheet
+    href="https://localhost:4000/lib/smartdown.css">
+  <script
+    src="https://localhost:4000/lib/smartdown.js">
+  </script>
+ -->
+
+<style>
 .smartdown_p .infocell-output {
 width: 100%;
 }
@@ -33,8 +44,8 @@ width: 100%;
     id="smartdown-output">
   </div>
 
-  <script src="https://unpkg.com/smartdown/dist/lib/calc_handlers.js"></script>
 
+  <script src="https://unpkg.com/smartdown/dist/lib/calc_handlers.js"></script>
   <script src="https://unpkg.com/smartdown/dist/lib/starter.js"></script>
   <script>
     window.smartdownBaseURL = 'https://unpkg.com/smartdown/dist/';
@@ -42,5 +53,17 @@ width: 100%;
     window.smartdownDefaultHome = 'Home';
     window.smartdownStarter();
   </script>
+
+<!-- 
+  <script src="https://localhost:4000/lib/calc_handlers.js"></script>
+  <script src="https://localhost:4000/lib/starter.js"></script>
+  <script>
+    window.smartdownBaseURL = 'https://localhost:4000/';
+    window.smartdownResourceURL = '/gallery/resources/';
+    window.smartdownDefaultHome = 'Home';
+    window.smartdownStarter();
+  </script>
+-->
+
 </body>
 </html>

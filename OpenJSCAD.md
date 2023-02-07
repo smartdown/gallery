@@ -16,156 +16,234 @@ Smartdown also supports the use of `openjscad` as an output cell filter, enablin
 
 In order to get the OpenJSCAD UMD library to support multiple diagrams on a web page, I needed to make a few minor fixes to the OpenJSCAD UMD Library. See my fork at [doctorbud/OpenJSCAD.org](https://github.com/DoctorBud/OpenJSCAD.org/tree/reentracy-fixes-for-umd) for the relevant changes.
 
+#### An Example
+
+This demo inspired by the example at [OpenJSCAD.org/packages/utils/regl-renderer/demo.html](https://github.com/jscad/OpenJSCAD.org/blob/master/packages/utils/regl-renderer/demo.html).
+
+```openjscad/playable/autoplay
+const { booleans, colors, primitives } = require('@jscad/modeling');
+
+const { intersect, subtract } = booleans;
+const { colorize } = colors;
+const { cube, cuboid, line, sphere, star } = primitives;
+
+const main = () => {
+  const logo = [
+    colorize([1.0, 0.4, 1.0], subtract(
+      cube({ size: 300 }),
+      sphere({ radius: 200 })
+    )),
+    colorize([1.0, 1.0, 0], intersect(
+      sphere({ radius: 130 }),
+      cube({ size: 210 })
+    ))
+  ]
+
+  const transpCube = colorize([1, 0, 0, 0.75], cuboid({ size: [100, 100, 210 + (200)] }))
+  const star2D = star({ vertices: 8, innerRadius: 300, outerRadius: 400 })
+  const line2D = colorize([1.0, 0, 0], line([[260, 260], [-260, 260], [-260, -260], [260, -260], [260, 260]]))
+  // some colors are intentionally without alpfa channel to test geom2ToGeometries will add alpha channel
+  const colorChange = [
+    [1, 0, 0, 1],
+    [1, 0.5, 0],
+    [1, 0, 1],
+    [0, 1, 0],
+    [0, 0, 0.7]
+  ]
+  star2D.sides.forEach((side, i) => {
+    if (i >= 2) side.color = colorChange[i % colorChange.length]
+  })
+
+  return [transpCube, star2D, line2D, ...logo]
+};
+
+module.exports = {main};
+```
 
 #### Color and Transparency Example
 
-This examples shows some of the color and transparency potential. Based upon [transparency.jscad](https://github.com/jscad/OpenJSCAD.org/blob/master/packages/examples/transparency.jscad)
+This examples shows some of the color and transparency potential. Based upon [transparency.js](https://github.com/jscad/OpenJSCAD.org/blob/master/packages/examples/core/colors/transparency.js)
+
 
 ```openjscad/playable/autoplay
-// title      : Transparency
-// author     : Rene K. Mueller
-// license    : MIT License
-// description: showing transparent objects
-// file       : transparency.jscad
 
-function main () {
-  var o = [];
-  for (var i = 7; i >= 0; i--) { // reverse order for seeing through all cylinders (see https://www.opengl.org/wiki/Transparency_Sorting)
-    // hsl to rgb, creating rainbow [r,g,b]
-    o.push(
-      cylinder({r: 3, h: 20}).setColor(
-        hsl2rgb(i / 8, 1, 0.5).concat(1 / 8 + i / 8) // and add to alpha to make it [r,g,b,a]
-      ).translate([(i - 3) * 7.5, 0, 0])
-    );
+/**
+ * Transparency
+ * @category Colors
+ * @skillLevel 2
+ * @description showing transparent objects
+ * @tags colors, transparency, hsltorgb
+ * @authors Rene K. Mueller, Moissette Mark, Simon Clark
+ * @licence MIT License
+ */
+
+const { colorize, hslToRgb, colorNameToRgb } = require('@jscad/modeling').colors
+const { cuboid, cylinder } = require('@jscad/modeling').primitives
+const { translate } = require('@jscad/modeling').transforms
+
+const main = () => {
+  const shapes = []
+  for (let i = 7; i >= 0; i--) {
+    // reverse order for seeing through all cylinders (see http://www.opengl.org/wiki/Transparency_Sorting)
+    const shapeColor = hslToRgb(i / 8, 1, 0.5, (i + 1) / 8) // hslToRGB can accept a transparency value as well.
+    shapes.push(
+      colorize(shapeColor, translate([(i - 3) * 7.5, 0, 0], cylinder({ radius: 3, height: 20 })))
+    )
   }
-  o.push(color('red', cube(5)).translate([-4, -10, 0]));
-  o.push(color('red', 0.5, cube(5)).translate([4, -10, 0]));
-  return o;
+  shapes.push(
+    colorize(colorNameToRgb('red'), translate([-4, -10, 0], cuboid({ size: [5, 5, 5] })))
+  )
+  shapes.push(
+    colorize([1, 0, 0, 0.5], translate([4, -10, 0], cuboid({ size: [5, 5, 5] })))
+  )
+  return shapes
 }
+
+module.exports = { main }
 ```
 
 
-#### Gear Example
+#### Parametrized Gear Example
 
-This example illustrates a parameterizable model of a gear. OpenJSCAD provides a mechanism to allow the author to specify that certain *parameters* can be controlled by the user. This is based upon the original at [gear.jscad](https://github.com/jscad/OpenJSCAD.org/blob/master/packages/examples/gear.jscad).
+This example illustrates a parameterizable model of a gear. OpenJSCAD provides a mechanism to allow the author to specify that certain *parameters* can be controlled by the user. This is based upon the original at [gear.jscad](https://github.com/jscad/OpenJSCAD.org/blob/4f811a27c0cbb7caabf28fcef932cbaf19aaa6f4/packages/examples/parameters/gear.js).
+
+##### TBD: Design Parameters UI
+
+The actual display of the design parameters UI is currently not implemented in Smartdown. Version 1 of OpenJSCAD provided a reusable `Processor` class that handled the rendering of the parameters, but in Version 2, this is no longer an exposed functionality and we will need to *roll our own* version by adapting the [OpenJSCAD Web UI](https://github.com/jscad/OpenJSCAD.org/blob/4f811a27c0cbb7caabf28fcef932cbaf19aaa6f4/packages/web/src/ui/views/designParameters.js).
+
+In the meantime, the `.name` and `.initial` values from `getParameterDefinitions()` are used to populate the parameters passed to `main()`.
+
 
 ```openjscad/playable/autoplay
+/**
+ * Parametric Involute Gear
+ * @category Parameters
+ * @skillLevel 1
+ * @description Build a proper involute gear, demonstrating parameters, and how they can be used in complex math.
+ * @tags gear, tangent, parameter, parameters
+ * @authors Joost Nieuwenhuijse, Simon Clark
+ * @licence MIT License
+ */
 
-// title      : Gear
-// author     : Joost Nieuwenhuijse
-// license    : MIT License
-// description: a simple gear
-// file       : gear.jscad
+const jscad = require('@jscad/modeling')
+const { cylinder, polygon } = jscad.primitives
+const { rotateZ, translateZ } = jscad.transforms
+const { extrudeLinear } = jscad.extrusions
+const { union, subtract } = jscad.booleans
+const { vec2 } = jscad.maths
+const { degToRad } = jscad.utils
 
 // Here we define the user editable parameters:
-function getParameterDefinitions () {
-  return [
-    { name: 'numTeeth', caption: 'Number of teeth:', type: 'int', initial: 10, min: 5, max: 20, step: 1 },
-    { name: 'circularPitch', caption: 'Circular pitch:', type: 'float', initial: 5 },
-    { name: 'pressureAngle', caption: 'Pressure angle:', type: 'float', initial: 20 },
-    { name: 'clearance', caption: 'Clearance:', type: 'float', initial: 0.0, step: 0.1 },
-    { name: 'thickness', caption: 'Thickness:', type: 'float', initial: 5 },
-    { name: 'centerholeradius', caption: 'Radius of center hole (0 for no hole):', type: 'float', initial: 2 }
-  ];
-}
+const getParameterDefinitions = () => [
+  { name: 'numTeeth', caption: 'Number of teeth:', type: 'int', initial: 10, min: 5, max: 20, step: 1 },
+  { name: 'circularPitch', caption: 'Circular pitch:', type: 'float', initial: 5 },
+  { name: 'pressureAngle', caption: 'Pressure angle:', type: 'float', initial: 20 },
+  { name: 'clearance', caption: 'Clearance:', type: 'float', initial: 0.0, step: 0.1 },
+  { name: 'thickness', caption: 'Thickness:', type: 'float', initial: 5 },
+  { name: 'centerholeradius', caption: 'Radius of center hole (0 for no hole):', type: 'float', initial: 2 }
+]
 
 // Main entry point; here we construct our solid:
-function main (params) {
-  var gear = involuteGear(
+const main = (params) => {
+  let gear = involuteGear(
     params.numTeeth,
     params.circularPitch,
-    params.pressureAngle,
+    degToRad(params.pressureAngle),
     params.clearance,
     params.thickness
-  );
+  )
   if (params.centerholeradius > 0) {
-    var centerhole = CSG.cylinder({start: [0, 0, -params.thickness], end: [0, 0, params.thickness], radius: params.centerholeradius, resolution: 16});
-    gear = gear.subtract(centerhole);
+    const centerHole = translateZ(params.thickness / 2, cylinder({ height: params.thickness, radius: params.centerholeradius, segments: 16 }))
+    gear = subtract(gear, centerHole)
   }
-  return gear;
+  return gear
+}
+
+const createSingleToothPolygon = (maxAngle, baseRadius, angularToothWidthAtBase) => {
+  // build a single 2d tooth in the 'points' array
+  // A single tooth is a polygon from the origin out.
+  // the points on the involute curve are made by adding a series of radial lines to tangents of increasing length.
+  const toothCurveResolution = 5
+  const points = [[0, 0]]
+  for (let i = 0; i <= toothCurveResolution; i++) {
+    // first side of the tooth:
+    const angle = maxAngle * Math.pow(i / toothCurveResolution, 2 / 3)
+    const tanLength = angle * baseRadius
+    let radiantVector = vec2.fromAngleRadians(vec2.create(), angle)
+    let tangentVector = vec2.scale(vec2.create(), vec2.normal(vec2.create(), radiantVector), -tanLength)
+    radiantVector = vec2.scale(vec2.create(), radiantVector, baseRadius)
+    points[i + 1] = [radiantVector[0] + tangentVector[0], radiantVector[1] + tangentVector[1]]
+
+    // opposite side of the tooth:
+    radiantVector = vec2.fromAngleRadians(vec2.create(), angularToothWidthAtBase - angle)
+    tangentVector = vec2.scale(vec2.create(), vec2.normal(vec2.create(), radiantVector), tanLength)
+    radiantVector = vec2.scale(vec2.create(), radiantVector, baseRadius)
+    points[(2 * toothCurveResolution) + 2 - i] = [radiantVector[0] + tangentVector[0], radiantVector[1] + tangentVector[1]]
+  }
+  return polygon({ points, closed: true })
+}
+
+const createBaseCirclePolygon = (numTeeth, angularToothWidthAtBase, rootRadius) => {
+  const points = []
+  const toothAngle = 2 * Math.PI / numTeeth
+  const toothCenterAngle = 0.5 * angularToothWidthAtBase
+  for (let k = 0; k < numTeeth; k++) {
+    const currentAngle = toothCenterAngle + k * toothAngle
+    const p1 = vec2.scale(vec2.create(), vec2.fromAngleRadians(vec2.create(), currentAngle), rootRadius)
+    points.push([p1[0], p1[1]])
+  }
+  return polygon({ points, closed: true })
+}
+
+const joinGearTeeth = (numTeeth, tooth3d) => {
+  const allTeeth = []
+  for (let j = 0; j < numTeeth; j++) {
+    const currentToothAngle = j * 2 * Math.PI / numTeeth
+    const rotatedTooth = rotateZ(currentToothAngle, tooth3d)
+    allTeeth.push(rotatedTooth)
+  }
+  return allTeeth
 }
 
 /*
   For gear terminology see:
-    https://www.astronomiainumbria.org/advanced_internet_files/meccanica/easyweb.easynet.co.uk/_chrish/geardata.htm
+    http://www.astronomiainumbria.org/advanced_internet_files/meccanica/easyweb.easynet.co.uk/_chrish/geardata.htm
   Algorithm based on:
-    https://www.cartertools.com/involute.html
-
-  circularPitch: The distance between adjacent teeth measured at the pitch circle
+    http://www.cartertools.com/involute.html
 */
-function involuteGear (numTeeth, circularPitch, pressureAngle, clearance, thickness) {
-  // default values:
-  if (arguments.length < 3) pressureAngle = 20;
-  if (arguments.length < 4) clearance = 0;
-  if (arguments.length < 4) thickness = 1;
+const involuteGear = (numTeeth, circularPitch, pressureAngle, clearance, thickness) => {
+  const addendum = circularPitch / Math.PI
+  const dedendum = addendum + clearance
 
-  var addendum = circularPitch / Math.PI;
-  var dedendum = addendum + clearance;
+  // radii of the 4 circles:
+  const pitchRadius = numTeeth * circularPitch / (2 * Math.PI)
+  const baseRadius = pitchRadius * Math.cos(pressureAngle)
+  const outerRadius = pitchRadius + addendum
+  const rootRadius = pitchRadius - dedendum
 
-  // radiuses of the 4 circles:
-  var pitchRadius = numTeeth * circularPitch / (2 * Math.PI);
-  var baseRadius = pitchRadius * Math.cos(Math.PI * pressureAngle / 180);
-  var outerRadius = pitchRadius + addendum;
-  var rootRadius = pitchRadius - dedendum;
+  const maxTanLength = Math.sqrt(outerRadius * outerRadius - baseRadius * baseRadius)
+  const maxAngle = maxTanLength / baseRadius
 
-  var maxtanlength = Math.sqrt(outerRadius * outerRadius - baseRadius * baseRadius);
-  var maxangle = maxtanlength / baseRadius;
+  const tlAtPitchCircle = Math.sqrt(pitchRadius * pitchRadius - baseRadius * baseRadius)
+  const angleAtPitchCircle = tlAtPitchCircle / baseRadius
+  const diffAngle = angleAtPitchCircle - Math.atan(angleAtPitchCircle)
+  const angularToothWidthAtBase = (Math.PI / numTeeth) + (2 * diffAngle)
 
-  var tlAtPitchCircle = Math.sqrt(pitchRadius * pitchRadius - baseRadius * baseRadius);
-  var angleAtPitchCircle = tlAtPitchCircle / baseRadius;
-  var diffangle = angleAtPitchCircle - Math.atan(angleAtPitchCircle);
-  var angularToothWidthAtBase = Math.PI / numTeeth + 2 * diffangle;
-
-  // build a single 2d tooth in the 'points' array:
-  var resolution = 5;
-  var points = [new CSG.Vector2D(0, 0)];
-  for (var i = 0; i <= resolution; i++) {
-    // first side of the tooth:
-    var angle = maxangle * i / resolution;
-    var tanlength = angle * baseRadius;
-    var radvector = CSG.Vector2D.fromAngle(angle);
-    var tanvector = radvector.normal();
-    var p = radvector.times(baseRadius).plus(tanvector.times(tanlength));
-    points[i + 1] = p;
-
-    // opposite side of the tooth:
-    radvector = CSG.Vector2D.fromAngle(angularToothWidthAtBase - angle);
-    tanvector = radvector.normal().negated();
-    p = radvector.times(baseRadius).plus(tanvector.times(tanlength));
-    points[2 * resolution + 2 - i] = p;
-  }
-
-  // create the polygon and extrude into 3D:
-  var tooth3d = new CSG.Polygon2D(points).extrude({offset: [0, 0, thickness]});
-
-  var allteeth = new CSG();
-  for (var j = 0; j < numTeeth; j++) {
-    var ang = j * 360 / numTeeth;
-    var rotatedtooth = tooth3d.rotateZ(ang);
-    allteeth = allteeth.unionForNonIntersecting(rotatedtooth);
-  }
+  // create the polygon for a single tooth.
+  const singleTooth2D = createSingleToothPolygon(maxAngle, baseRadius, angularToothWidthAtBase)
+  // extrude into 3D:
+  const singleTooth3D = extrudeLinear({ height: thickness }, singleTooth2D)
+  const allTeeth = joinGearTeeth(numTeeth, singleTooth3D)
 
   // build the root circle:
-  points = [];
-  var toothAngle = 2 * Math.PI / numTeeth;
-  var toothCenterAngle = 0.5 * angularToothWidthAtBase;
-  for (var k = 0; k < numTeeth; k++) {
-    var angl = toothCenterAngle + k * toothAngle;
-    var p1 = CSG.Vector2D.fromAngle(angl).times(rootRadius);
-    points.push(p1);
-  }
+  const rootCircle2D = createBaseCirclePolygon(numTeeth, angularToothWidthAtBase, rootRadius)
+  // extrude into 3D:
+  const rootcircle = extrudeLinear({ height: thickness }, rootCircle2D)
 
-  // create the polygon and extrude into 3D:
-  var rootcircle = new CSG.Polygon2D(points).extrude({offset: [0, 0, thickness]});
-
-  var result = rootcircle.union(allteeth);
-
-  // center at origin:
-  result = result.translate([0, 0, -thickness / 2]);
-
-  return result;
+  return union(rootcircle, allTeeth)
 }
 
+module.exports = { main, getParameterDefinitions }
 ```
 
 
@@ -173,123 +251,141 @@ function involuteGear (numTeeth, circularPitch, pressureAngle, clearance, thickn
 
 Based upon [text.jscad](https://github.com/jscad/OpenJSCAD.org/blob/master/packages/examples/text.jscad), this example illustrates OpenJSCAD's parameter mechanism, and also the ability to render 3D text.
 
-```openjscad/playable/autoplay
+##### TBD: Design Parameters UI Not Implemented
 
-// title      : Vector Text Rendering
-// author     : Rene K. Mueller
-// license    : MIT License
-// description: playing with vector font
-// date       : 2013/04/22
-// file       : text.jscad
+See [note](##tbd-design-parameters-ui) above.
 
-function getParameterDefinitions () {
-  return [
-    { name: 's', initial: 'Hello World!', type: 'text', caption: 'Text to render', size: 30 },
-    { name: 'c', initial: 'A', type: 'text', caption: 'Char to render', size: 2 }
-  ];
-}
-
-function main (param) {
-  var o = [];
-
-  var l = vector_text(0, 0, param.s); // get line segments [ [ [x1,y1], [x2,y2] ...], [ ]... ]
-
-  l.forEach(function (s) { // process the line segments
-    o.push(rectangular_extrude(s, {w: 2, h: 2}));
-  });
-
-  if (param.c.length) {
-    var c = vector_char(0, 0, param.c); // get data for one character
-    var a = c.segments;
-    for (var i = 0; i < 5; i++) {
-      var p = [];
-      a.forEach(function (s) {
-        p.push(circularExtrude(s, {r: i / 2 + 1, fn: 8})); // variable thickness
-      });
-      o.push(union(p).setColor(hsl2rgb(i / 5, 1, 0.5)).translate([i * (c.width + i / 2), 30, 0]));
-    }
-  }
-  return union(o).scale(0.5).translate([-50, 0, 0]);
-}
-
-// -- simplistic circularExtrude done with cylinders + spheres
-
-function circularExtrude (s, p) {
-  var o = [];
-  var r = 1; fn = 16; rot = 0;
-  if (p) {
-    if (p.r) r = p.r;
-    if (p.fn) fn = p.fn;
-    if (p.rot !== undefined) rot = p.rot;
-  }
-  for (var i = 0; i < s.length - 1; i++) {
-    var p1 = s[i].concat(0);
-    var p2 = s[i + 1].concat(0);
-    o.push(cylinder({start: p1, end: p2, r: r, fn: fn}));
-    o.push(sphere({center: true, r: r, fn: fn}).translate(p1));
-    if (i === s.length - 2) {
-      o.push(sphere({center: true, r: r, fn: fn}).translate(p2));
-    }
-  }
-  return union(o);
-}
-```
-
-#### Name Plate Example
-
-From the [name_plate.jscad](https://github.com/jscad/OpenJSCAD.org/blob/master/packages/examples/name_plate.jscad) example.
 
 ```openjscad/playable/autoplay
+/**
+ * Basic Text Creation
+ * @category Creating Shapes
+ * @skillLevel 10
+ * @description Demonstrating methods of building 3D text
+ * @tags text, font, characters
+ * @authors Simon Clark
+ * @licence MIT License
+ */
 
-// title      : Name Plate
-// author     : Rene K. Mueller
-// license    : MIT License
-// description: create your own name plate
-// date       : 2013/04/24
-// file       : name_plate.jscad
+const jscad = require('@jscad/modeling')
+const { union } = jscad.booleans
+const { extrudeLinear } = jscad.extrusions
+const { hullChain } = jscad.hulls
+const { circle, sphere } = jscad.primitives
+const { vectorText } = jscad.text
+const { translate } = jscad.transforms
 
-function getParameterDefinitions () {
+const getParameterDefinitions = () => {
   return [
-    {name: 'name', initial: 'Joe Example', type: 'text', caption: 'Your name', size: 30},
-    {name: 'title', initial: '3D Printer Developer', type: 'text', caption: 'Your title', size: 30},
-    {name: 'thickness', initial: 3, type: 'float', caption: 'Thickness'}
-  ];
+    { name: 'outline_string', initial: 'Outline', type: 'text', caption: 'Outline Text', size: 30 },
+    { name: 'flat_string', initial: 'Flat', type: 'text', caption: 'Flat Text', size: 30 },
+    { name: 'round_string', initial: 'Round', type: 'text', caption: 'Round Text', size: 30 }
+  ]
 }
 
-function main (param) {
-  var o = []; // our stack of objects
-  var l = []; // our stack of line segments (when rendering vector text)
-  var p = []; // our stack of extruded line segments
+const main = (params) => {
+  const outlineText = buildOutlineText(params.outline_string, 2)
+  const flatText = buildFlatText(params.flat_string, 2, 2)
+  const roundText = buildRoundText(params.round_string, 2)
 
-  // -- render name & extrude
-  l = vector_text(0, 0, param.name);
-  l.forEach(function (s) {
-    p.push(rectangular_extrude(s, {w: param.thickness, h: param.thickness}));
-  });
-  o.push(union(p).setColor([1, 1, 0]).scale([1 / 3, 1 / 3, 1 / 3]).center([true, true, false]).translate([0, 0, param.thickness]));
-
-  if (param.title.length) {
-    // -- render title & extrude
-    l = vector_text(0, 0, param.title);
-    p = [];
-    l.forEach(function (s) {
-      p.push(rectangular_extrude(s, {w: param.thickness, h: param.thickness}));
-    });
-    o.push(union(p).setColor([1, 1, 0]).scale([1 / 8, 1 / 8, 1 / 3]).center([true, true, false]).translate([0, -8, param.thickness]));
-  }
-  o = [union(o)]; // neat: we combine name + title, and make it first entry of an array
-
-  var b = o[0].getBounds();
-  var m = 2;
-  var w = b[1].x - b[0].x + m * 2;
-  var h = b[1].y - b[0].y + m * 2;
-  o.push(cube({size: [w, h, param.thickness], round: true, radius: 0.5}).translate([b[0].x - m, b[0].y - m, 0]));
-
-  return union(o);
+  return [outlineText, flatText, roundText]
 }
+
+// Build text by creating the font strokes (2D).
+const buildOutlineText = (message, characterLineWidth) => {
+  if (message === undefined || message.length === 0) return []
+
+  const lineRadius = characterLineWidth / 2
+  const lineCorner = circle({ radius: lineRadius })
+
+  const lineSegments3D = []
+  const lineSegmentPointArrays = vectorText({ x: 0, y: 0, input: message }) // line segments for each character
+
+  const lineSegments = []
+  lineSegmentPointArrays.forEach((segmentPoints) => { // process the line segment
+    const corners = segmentPoints.map((point) => translate(point, lineCorner))
+    lineSegments.push(hullChain(corners))
+  })
+  const message2D = union(lineSegments)
+  return translate([0, 35, 0], message2D)
+}
+
+// Build text by creating the font strokes (2D), then extruding up (3D).
+const buildFlatText = (message, extrusionHeight, characterLineWidth) => {
+  if (message === undefined || message.length === 0) return []
+
+  const lineRadius = characterLineWidth / 2
+  const lineCorner = circle({ radius: lineRadius })
+
+  const lineSegmentPointArrays = vectorText({ x: 0, y: 0, input: message }) // line segments for each character
+  const lineSegments = []
+  lineSegmentPointArrays.forEach((segmentPoints) => { // process the line segment
+    const corners = segmentPoints.map((point) => translate(point, lineCorner))
+    lineSegments.push(hullChain(corners))
+  })
+  const message2D = union(lineSegments)
+  const message3D = extrudeLinear({ height: extrusionHeight }, message2D)
+  return translate([0, 0, 0], message3D)
+}
+
+// Build text by creating the font strokes (3D).
+const buildRoundText = (message, p) => {
+  if (message === undefined || message.length === 0) return []
+
+  const lineRadius = p / 2
+  const lineCorner = sphere({ radius: lineRadius, center: [0, 0, lineRadius], segments: 16 })
+
+  const lineSegmentPointArrays = vectorText({ x: 0, y: 0, input: message }) // line segments for each character
+  const lineSegments = []
+  lineSegmentPointArrays.forEach((segmentPoints) => { // process the line segment
+    const corners = segmentPoints.map((point) => translate(point, lineCorner))
+    lineSegments.push(hullChain(corners))
+  })
+  const message3D = union(lineSegments)
+  return translate([0, -35, 0], message3D)
+}
+
+module.exports = { main, getParameterDefinitions }
 
 ```
 
+
+#### Importing STL Designs
+
+The following example demonstrates how external files, such as [STL](), can be imported and integrated into an OpenJSCAD design. For this example, we incorporate a binary STL file [frog-OwenCollins.stl](https://github.com/ergogen/oldjscad/blob/master/examples/frog-OwenCollins.stl) into a design that also includes a translucent cube; a Frog-in-a-Box, if you will.
+
+```javascript /openjscad/playable/autoplay
+const { deserializer, extension } = require('@jscad/stl-deserializer');
+
+const { booleans, colors, primitives } = require('@jscad/modeling');
+const { intersect, subtract } = booleans;
+const { colorize } = colors;
+const { cube, cuboid, line, sphere, star } = primitives;
+
+const main = async () => {
+  const logo = [
+    colorize([1.0, 0.4, 1.0], subtract(
+      cube({ size: 300 }),
+      sphere({ radius: 200 })
+    )),
+    colorize([1.0, 1.0, 0], intersect(
+      sphere({ radius: 130 }),
+      cube({ size: 210 })
+    ))
+  ]
+
+  const transpCube = colorize([0, 1, 1, 0.25], cuboid({ size: [50, 50, 50] }))
+  // some colors are intentionally without alpfa channel to test geom2ToGeometries will add alpha channel
+
+  const rawData = await fetch('/gallery/resources/frog-OwenCollins.stl');
+  const rawDataArrayBuffer = await rawData.arrayBuffer();
+  const stlGeometry = deserializer.deserialize({output: 'geometry', filename: 'file.stl'}, rawDataArrayBuffer);
+
+  return [stlGeometry, transpCube];
+};
+
+module.exports = {main};
+```
 
 #### Dynamic Generation
 
@@ -304,17 +400,32 @@ this.dependOn = ['Text'];
 this.depend = function() {
   const ojsScript =
 `
+const jscad = require('@jscad/modeling');
+const { union } = jscad.booleans
+const { hullChain } = jscad.hulls
+const { sphere } = jscad.primitives
+const { vectorText } = jscad.text
+const { translate } = jscad.transforms
+
 function main () {
   var o = [];
 
-  var l = vector_text(0, 0, '${env.Text}');
+  const lineRadius = 3;
+  const lineCorner = sphere({ radius: lineRadius, center: [0, 0, lineRadius], segments: 16 })
 
-  l.forEach(function (s) { // process the line segments
-    o.push(rectangular_extrude(s, {w: 4, h: 4}));
-  });
+  const lineSegmentPointArrays = vectorText({ x: 0, y: 0, input: '${env.Text}' }) // line segments for each character
+  const lineSegments = []
+  lineSegmentPointArrays.forEach((segmentPoints) => { // process the line segment
+    const corners = segmentPoints.map((point) => translate(point, lineCorner))
+    lineSegments.push(hullChain(corners))
+  })
+  const message3D = union(lineSegments)
+  o.push(translate([0, -35, 0], message3D));
 
-  return union(o);  // .scale(0.5); // .translate([-50, 0, 0]);
+  return o;
 }
+
+module.exports = { main }
 `;
 
   smartdown.setVariable('ojsOutput', ojsScript, 'openjscad');
@@ -324,90 +435,6 @@ function main () {
 
 [](:!ojsOutput|openjscad)
 
-
-#### Smartdown Logo via OpenJSCAD
-
-I'd like to build a 3D model of the [Smartdown Logo](https://doctorbud.com/celestial-toys/post/2018-11-23-logo-version-2/#index):
-
-![](/gallery/resources/logo.svg)
-
-
-But so far I've only built a very rough starting point:
-
-
-```openjscad/playable/autoplay
-
-function main () {
-  const height = 30.0;
-
-  var sqrt3 = Math.sqrt(3);
-
-  const v0 = {
-          x: sqrt3 * height / 4.0,
-          y: 0
-        };
-  const v1 = {
-          x: sqrt3 * height / 2.0,
-          y: height / 4.0
-        };
-  const v2 = {
-          x: sqrt3 * height / 2.0,
-          y: 3 * height / 4.0
-        };
-  const v3 = {
-          x: sqrt3 * height / 4.0,
-          y: height
-        };
-  const v4 = {
-          x: 0,
-          y: 3 * height / 4.0
-        };
-  const v5 = {
-          x: 0,
-          y: height / 4.0
-        };
-
-  const width = v1.x;
-  const center = {
-    x: (v1.x - v5.x) / 2.0,
-    y: (v3.y - v0.y) / 2.0,
-  };
-
-  const hexagon = polyhedron({
-    points: [
-      [v0.x, v0.y, 5.0],
-      [v1.x, v1.y, 5.0],
-      [v2.x, v2.y, 5.0],
-      [v3.x, v3.y, 5.0],
-      [v4.x, v4.y, 5.0],
-      [v5.x, v5.y, 5.0],
-    ],
-    triangles: [
-      [1, 0, 5],
-      [2, 1, 0],
-      [3, 2, 1],
-      [4, 3, 2],
-      [5, 4, 3],
-      [0, 5, 4],
-      [5, 0, 1],
-      [0, 1, 2],
-      [1, 2, 3],
-      [2, 3, 4],
-      [3, 4, 5],
-      [4, 5, 0],
-    ]
-  }).setColor(css2rgb('chartreuse'));
-
-  const pyramid = polyhedron({
-    points: [ [5,5,0],[5,-5,0],[-5,-5,0],[-5,5,0], // the four points at base
-              [0,0,10] ],                                  // the apex point
-    triangles: [ [0,1,4],[1,2,4],[2,3,4],[3,0,4],          // each triangle side
-                 [1,0,3],[2,1,3] ]                         // two triangles for square base
-  }).setColor(css2rgb('tomato'));
-
-  return union([pyramid, hexagon]);
-}
-```
 
 ---
 
