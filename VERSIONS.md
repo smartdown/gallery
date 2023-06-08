@@ -80,3 +80,4 @@
 - **0.0.78** - Add Swatch.md. Add Astronomy.md. Fix error in Decorations.md where a --partialborder was not closed correctly.
 - **0.0.79** - Eliminate Mathigon example and support files. Update OpenJSCAD.md to use OpenJSCAD v2.x. Update Typescript.md to correspond to new /module usage of 'this' instead of 'pThis'.
 - **0.0.80** - Adds 'http-server' dependency and 'npm run serve' command. Migrates release history from README.md to VERSIONS.md. Adds 'npm run build' script to copy relevant files into 'dist/'. Adds 'npm run publish' to publish to 'gh-pages'.
+- **0.0.81** - Remove '<style>' tag that causes output cells to be 'width: 100%' and prevents them from abutting nicely. Adds ability to publish to GitLab Pages. Replaced 'npm run serve' with 'npm run servegh' and 'npm run servegl' for GitHub/GitLab Pages, respectively. This uses npm-watch to rebuild the /dist directory upon file changes.

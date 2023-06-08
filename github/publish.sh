@@ -1,14 +1,10 @@
-#
-# Based upon:
-#	https://blog.bloomca.me/2017/12/15/how-to-push-folder-to-github-pages.html
-#
-
 REMOTE=`git remote get-url --push origin`
 rm -rf dist
 npm run build
 rm -rf /tmp/gallery-publish/
 cp -r dist/ /tmp/gallery-publish/
 cd /tmp/gallery-publish/
+
 git init
 git checkout -b master
 git checkout -b gh-pages
