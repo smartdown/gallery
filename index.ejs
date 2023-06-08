@@ -17,21 +17,11 @@
     src="https://unpkg.com/smartdown/dist/lib/smartdown.js">
   </script>
 
-<!--
-  <link
-    rel=stylesheet
-    href="https://localhost:4000/lib/fonts.css">
-  <link
-    rel=stylesheet
-    href="https://localhost:4000/lib/smartdown.css">
-  <script
-    src="https://localhost:4000/lib/smartdown.js">
-  </script>
- -->
-
-<style>
+  <style>
 .smartdown_p .infocell-output {
-width: 100%;
+  //width: 100%;
+  outline: 1px solid red !important;
+  border: 1px solid cyan !important;
 }
   </style>
 </head>
@@ -39,6 +29,7 @@ width: 100%;
 <body
   id="smartdown-outer-container"
   class="smartdown-outer-container">
+
   <div
     class="smartdown-container"
     id="smartdown-output">
@@ -49,21 +40,18 @@ width: 100%;
   <script src="https://unpkg.com/smartdown/dist/lib/starter.js"></script>
   <script>
     window.smartdownBaseURL = 'https://unpkg.com/smartdown/dist/';
-    window.smartdownResourceURL = '/gallery/resources/';
+    window.smartdownResourceURL = '/resources/';
+    if ('<%= targetType %>' === 'github') {
+      window.smartdownResourceURL = '/gallery/resources/';
+    }
+    else if ('<%= targetType %>' === 'gitlab') {
+      window.smartdownResourceURL = '/gallerydemo/resources/';
+    }
+
     window.smartdownDefaultHome = 'Home';
     window.smartdownStarter();
   </script>
 
-<!-- 
-  <script src="https://localhost:4000/lib/calc_handlers.js"></script>
-  <script src="https://localhost:4000/lib/starter.js"></script>
-  <script>
-    window.smartdownBaseURL = 'https://localhost:4000/';
-    window.smartdownResourceURL = '/gallery/resources/';
-    window.smartdownDefaultHome = 'Home';
-    window.smartdownStarter();
-  </script>
--->
 
 </body>
 </html>

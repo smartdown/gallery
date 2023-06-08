@@ -35,19 +35,9 @@ A grid of swatches:
 
 Although Smartdown swatches don't currently have any inherent reactivity with Smartdown variables, the idea of a *dynamic* swatch is easily implemented by using an output cell of type `markdown`, and inserting the appropriate swatch Smartdown code into the cell's associated variable. For example, below we have a grid of output cells which are to be formatted as `markdown` output cells.
 
-*Note: There appears to be a bug in how `markdown` cells are rendered. Instead of a grid, each cell is getting its own line. I'm guessing that there is a CSS problem where `display: inline` is not being applied in the case of a generated `[swatch]()` cell. I need to create an Issue for this.*
-
 [](:!swatch00|markdown)[](:!swatch01|markdown)[](:!swatch02|markdown)
 [](:!swatch10|markdown)[](:!swatch11|markdown)[](:!swatch12|markdown)
 [](:!swatch20|markdown)[](:!swatch21|markdown)[](:!swatch22|markdown)
-
-Meanwhile, here's a Markdown table with the same information.
-
-||||
-|:---:|:---:|:---:|
-|[](:!swatch00\|markdown)|[](:!swatch01\|markdown)|[](:!swatch02\|markdown)|
-|[](:!swatch10\|markdown)|[](:!swatch11\|markdown)|[](:!swatch12\|markdown)|
-|[](:!swatch20\|markdown)|[](:!swatch21\|markdown)|[](:!swatch22\|markdown)|
 
 And we have an associated playable (below), which periodically (once per 5 sec) changes the grid by adjusting the Smartdown within each cell to be a swatch image.
 
