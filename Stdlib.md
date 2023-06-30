@@ -23,7 +23,7 @@ Based upon the Stdlib examples:
 
 const thisDiv = this.div;
 
-var toHTML = stdlib.vdomToHtml;
+var toHTML = Stdlib.vdomToHtml;
 var randn = stdlib.random.base.boxMuller;
 var Plot = stdlib.plot;
 var cdf = stdlib.stats.base.dists.normal.cdf;
@@ -61,87 +61,128 @@ var h = new Plot(
       paddingRight: 50,
     });
 
-thisDiv.innerHTML = stdlib.vdomToHtml( h.render() );
+thisDiv.innerHTML = Stdlib.vdomToHtml( h.render() );
 ```
 
 ---
 
-#### Machine Learning
+### Incremental Classification
 
-From this example: https://stdlib.io/develop/docs/api/@stdlib/ml/online-binary-classification
+From the example in the documentation at [incrBinaryClassification](https://stdlib.io/docs/api/latest/@stdlib/ml/incr/binary-classification).
 
 I honestly don't understand this example (yet), I've just transliterated it to Smartdown.
 
-```javascript/playable
-//smartdown.import=stdlib
+```javascript /stdlib/playable/autoplay
+// var normal = require( '@stdlib/random/base/normal' );
+// var binomial = require( '@stdlib/random/base/binomial' );
+// var array = require( '@stdlib/ndarray/array' );
+// var exp = require( '@stdlib/math/base/special/exp' );
+// var incrBinaryClassification = require( '@stdlib/ml/incr/binary-classification' );
 
-var binomial = stdlib.random.base.binomial;
-var normal = stdlib.random.base.normal;
-var exp = stdlib.math.base.special.exp;
-var onlineBinaryClassification = stdlib.ml.onlineBinaryClassification;
+const binomial = stdlib.random.base.binomial;
+const normal = stdlib.random.base.normal;
+const array = stdlib.ndarray.array;
+const exp = stdlib.math.base.special.exp;
+const incrBinaryClassification = stdlib.ml.incr.incrBinaryClassification;
 
-var phat;
-var lp;
-var x1;
-var x2;
-var y;
-var i;
-
-// Create model:
-var model = onlineBinaryClassification({
-  'lambda': 1e-3,
-  'loss': 'log',
-  'intercept': true
+// Create a new accumulator:
+const acc = incrBinaryClassification( 2, {
+  'intercept': true,
+  'lambda': 1.0e-3,
+  'loss': 'log'
 });
 
-// Update model as data comes in...
+// Incrementally update the classification model...
+var phat;
+var x;
+var i;
 for ( i = 0; i < 10000; i++ ) {
-  x1 = normal( 0.0, 1.0 );
-  x2 = normal( 0.0, 1.0 );
-  lp = (3.0 * x1) - (2.0 * x2) + 1.0;
-  phat = 1.0 / ( 1.0 + exp( -lp ) );
-  y = binomial( 1, phat ) ? 1.0 : -1.0;
-  model.update( [ x1, x2 ], y );
+  x = array( [ normal( 0.0, 1.0 ), normal( 0.0, 1.0 ) ] );
+  phat = 1.0 / ( 1.0+exp( -( ( 3.0*x.get(0) ) - ( 2.0*x.get(1) ) + 1.0 ) ) );
+  acc( x, ( binomial( 1, phat ) ) ? 1.0 : -1.0 );
 }
 
-// Extract model coefficients:
-var markdownCoefficients =
+// Retrieve model coefficients:
+var coefs = acc();
+console.log( 'Feature coefficients: %d, %d', coefs.get( 0 ), coefs.get( 1 ) );
+console.log( 'Intercept: %d', coefs.get( 2 ) );
+
+// Format model coefficients:
+
+const markdownCoefficientsOutput =
 `
 ### Model Coefficients
 
-$$
-${model.coefs}
-$$
+|Coefficient|Value|
+|:---:|---:|
+|coefs.get( 0 )|${coefs.get( 0 )}|
+|coefs.get( 1 )|${coefs.get( 1 )}|
+|coefs.get( 2 )|${coefs.get( 2 )}|
+
 `;
 
-// Predict new observations:
-// console.log( 'Pr(Y=1)_hat = %d; x1 = %d; x2 = %d', model.predict( [0.9, 0.1], 'probability' ), 0.9, 0.1 );
-// console.log( 'y_hat = %d; x1 = %d; x2 = %d', model.predict( [0.1, 0.9], 'link' ), 0.1, 0.9 );
-// console.log( 'y_hat = %d; x1 = %d; x2 = %d', model.predict( [0.9, 0.9], 'link' ), 0.9, 0.9 );
+smartdown.setVariable('MarkdownCoefficientsOutput', markdownCoefficientsOutput);
 
-const p1 = 0.9;
-const p2 = 0.1;
-const predictionProbability = model.predict( [p1, p2], 'probability' );
-const predictionLink12 = model.predict( [p1, p2], 'link' );
-const predictionLink22 = model.predict( [p1, p2], 'link' );
+// Predict new observations...
+x = array( [ [ 0.9, 0.1 ], [ 0.1, 0.9 ], [ 0.9, 0.9 ] ] );
 
-var markdownOutput =
+const xPrediction = acc.predict( x );
+console.log( 'x = [%d, %d]; label = %d', x.get( 0, 0 ), x.get( 0, 1 ), xPrediction.get( 0 ) );
+console.log( 'x = [%d, %d]; label = %d', x.get( 1, 0 ), x.get( 1, 1 ), xPrediction.get( 1 ) );
+console.log( 'x = [%d, %d]; label = %d', x.get( 2, 0 ), x.get( 2, 1 ), xPrediction.get( 2 ) );
+
+const probabilityPrediction = acc.predict( x, 'probability' );
+console.log( 'x = [%d, %d]; P(y=1|x) = %d', x.get( 0, 0 ), x.get( 0, 1 ), probabilityPrediction.get( 0 ) );
+console.log( 'x = [%d, %d]; P(y=1|x) = %d', x.get( 1, 0 ), x.get( 1, 1 ), probabilityPrediction.get( 1 ) );
+console.log( 'x = [%d, %d]; P(y=1|x) = %d', x.get( 2, 0 ), x.get( 2, 1 ), probabilityPrediction.get( 2 ) );
+
+const linearPrediction = acc.predict( x, 'linear' );
+console.log( 'x = [%d, %d]; lp = %d', x.get( 0, 0 ), x.get( 0, 1 ), linearPrediction.get( 0 ) );
+console.log( 'x = [%d, %d]; lp = %d', x.get( 1, 0 ), x.get( 1, 1 ), linearPrediction.get( 1 ) );
+console.log( 'x = [%d, %d]; lp = %d', x.get( 2, 0 ), x.get( 2, 1 ), linearPrediction.get( 2 ) );
+
+var markdownXOutput =
 `
-### Output
+### \`x\` prediction
 
-|Expression|Value|$x_1$|$x_2$|
-|:---:|---:|---:|---:|
-|$\\hat{P_r(Y=1)}$|${predictionProbability}|${x1}|${x2}|
-|$\\hat{y}$|${predictionLink12}|${x1}|${x2}|
-|$\\hat{y}$|${predictionLink22}|${x2}|${x2}|
+|x|Prediction|
+|:---:|---:|
+|\`x.get( 0, 0 ), x.get( 0, 1 )\`|${xPrediction.get( 0 )}|
+|\`x.get( 1, 0 ), x.get( 1, 1 )\`|${xPrediction.get( 1 )}|
+|\`x.get( 2, 0 ), x.get( 2, 1 )\`|${xPrediction.get( 2 )}|
 `;
 
-smartdown.setVariable('MarkdownCoefficients', markdownCoefficients);
-smartdown.setVariable('MarkdownOutput', markdownOutput);
+var markdownProbabilityOutput =
+`
+### \`probability\` prediction
+
+|x|Prediction|
+|:---:|---:|
+|\`x.get( 0, 0 ), x.get( 0, 1 )\`|${probabilityPrediction.get( 0 )}|
+|\`x.get( 1, 0 ), x.get( 1, 1 )\`|${probabilityPrediction.get( 1 )}|
+|\`x.get( 2, 0 ), x.get( 2, 1 )\`|${probabilityPrediction.get( 2 )}|
+`;
+
+var markdownLinearOutput =
+`
+### \`linear\` prediction
+
+|x|Prediction|
+|:---:|---:|
+|\`x.get( 0, 0 ), x.get( 0, 1 )\`|${linearPrediction.get( 0 )}|
+|\`x.get( 1, 0 ), x.get( 1, 1 )\`|${linearPrediction.get( 1 )}|
+|\`x.get( 2, 0 ), x.get( 2, 1 )\`|${linearPrediction.get( 2 )}|
+`;
+
+smartdown.setVariable('MarkdownXOutput', markdownXOutput);
+smartdown.setVariable('MarkdownProbabilityOutput', markdownProbabilityOutput);
+smartdown.setVariable('MarkdownLinearOutput', markdownLinearOutput);
 ```
 
-[](:!MarkdownCoefficients|markdown)
-[](:!MarkdownOutput|markdown)
+[](:!MarkdownCoefficientsOutput|markdown)
+[](:!MarkdownXOutput|markdown)
+[](:!MarkdownProbabilityOutput|markdown)
+[](:!MarkdownLinearOutput|markdown)
 
 ---
 
@@ -218,7 +259,7 @@ This example generates a plot as *virtual DOM*, which is then converted to HTML 
 
 const thisDiv = this.div;
 
-var toHTML = stdlib.vdomToHtml;
+var toHTML = Stdlib.vdomToHtml;
 var randn = stdlib.random.base.boxMuller;
 var Plot = stdlib.plot;
 
@@ -301,9 +342,9 @@ var that = this;
 var saveProgress = this.progress; // Oh, the hack
 this.progress = null;
 
-stdlib.loadSOTU(function() {
+Stdlib.loadSOTU(function() {
   var roundn = stdlib.math.base.special.roundn;
-  var stopwords = stdlib.datasets['stopwords_en'];
+  var stopwords = Stdlib.datasets['stopwords_en'];
   var lda = stdlib.nlp.lda;
 
   var STOPWORDS = stopwords();
@@ -329,7 +370,7 @@ stdlib.loadSOTU(function() {
   var endYear = 2020;
 
   var speechTexts = null;
-  var speeches = stdlib.datasets['sotu-data']();
+  var speeches = Stdlib.datasets['sotu-data']();
 
   speechTexts = speeches.reduce(
                       function (

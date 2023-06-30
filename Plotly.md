@@ -14,22 +14,33 @@ This example enables the user to enter an alternate Title, which is associated w
 
 ---
 
-```plotly/autoplay/playable
-var layout = {
-    title: 'Default Title',
-    autosize: true,
-    width: 500,
-    height: 300,
-    margin: {
-      t: 100, b: 0, l: 0, r: 0
-    }
+```javascript /plotly/autoplay/playable
+const layout = {
+  title: 'Default Title',
+  autosize: true,
+  width: 500,
+  height: 300,
+  margin: {
+    t: 100, b: 0, l: 0, r: 0
+  }
 };
 
-Plotly.newPlot( this.div, [{
-    x: [1, 2, 3, 4, 5],
-    y: [1, 2, 4, 8, 16] }], layout,
-    {displayModeBar: false} );
+this.dependOn.PLOT_TITLE = () => {
+  const newLayout = {
+    ...layout,
+    title: env.PLOT_TITLE,
+  }
+  Plotly.relayout(this.div, newLayout)
+};
 
+Plotly.newPlot(
+  this.div,
+  [{
+    x: [1, 2, 3, 4, 5],
+    y: [1, 2, 4, 8, 16],
+  }],
+  layout,
+  {displayModeBar: false} );
 ```
 
 
@@ -117,10 +128,9 @@ Plotly.newPlot(myDiv, data, layout, {displayModeBar: false});
 
 From [Chloropleth Map](https://plot.ly/javascript/choropleth-maps)
 
+```javascript /plotly/autoplay/playable
 
-```plotly/autoplay
-
-var myDiv = this.div;
+const myDiv = this.div;
 Plotly.d3.csv(
   'https://raw.githubusercontent.com/plotly/datasets/master/2010_alcohol_consumption_by_country.csv',
   function(err, rows) {
@@ -128,7 +138,7 @@ Plotly.d3.csv(
       return rows.map(function(row) { return row[key]; });
     }
 
-    var data = [{
+    const data = [{
       type: 'choropleth',
       locationmode: 'country names',
       locations: unpack(rows, 'location'),
@@ -137,14 +147,14 @@ Plotly.d3.csv(
       autocolorscale: true
     }];
 
-    var layout = {
-      autosize: true,
+    const layout = {
+      autosize: false,
       title: 'Pure alcohol consumption among adults (age 15+) in 2010',
       geo: {
         projection: {
           type: 'robinson'
         }
-      }
+      },
     };
 
     Plotly.newPlot(myDiv, data, layout, {showLink: false, displayModeBar: false});
