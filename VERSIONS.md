@@ -82,3 +82,4 @@
 - **0.0.80** - Adds 'http-server' dependency and 'npm run serve' command. Migrates release history from README.md to VERSIONS.md. Adds 'npm run build' script to copy relevant files into 'dist/'. Adds 'npm run publish' to publish to 'gh-pages'.
 - **0.0.81** - Remove '<style>' tag that causes output cells to be 'width: 100%' and prevents them from abutting nicely. Adds ability to publish to GitLab Pages. Replaced 'npm run serve' with 'npm run servegh' and 'npm run servegl' for GitHub/GitLab Pages, respectively. This uses npm-watch to rebuild the /dist directory upon file changes.
 - **0.0.82** - Use a different CORS proxy for various examples. Improve Plotly.md, fixing an autoresize bug, and properly implementing the dynamic title example. Updated Stdlib.md examples so that they work with latest 'stdlib.js'.
+- **0.0.83** - Improved Markdown.md to demonstrate fenced code blocks with and without a language identifier.
