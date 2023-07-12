@@ -122,33 +122,67 @@ _You **can** combine styles ~~easily~~_
 
 #### Code/Syntax Highlighting
 
-````markdown
+##### Inline Code (source)
 
+````markdown
 Inline: `const a = b + "foo" + 300; // comment`
 Inline Longer: `const myVariable = yourVariable + "existential" + space + 'threat'; // A multiple word comment`
-
-Block:
-```python
-print("Python is sort of a programming language")
-is_a_real_language = 0
-print("LOL, just kidding.")
-```
-
-Link name with code: [`var a = 5;`](https://www.example.com)
-
 ````
 
+##### Inline Code (rendered)
+
 Inline: `const a = b + "foo" + 300; // comment`
 Inline Longer: `const myVariable = yourVariable + "existential" + space + 'threat'; // A multiple word comment`
 
-Block:
-```python
-print("Python is sort of a programming language")
-is_a_real_language = 0
-print("LOL, just kidding.")
+
+##### Block Code without Language Identifier (source)
+
+````markdown
+```
+# This is a shell script
+set a="Hello" # A comment
+echo `ls -l` > /tmp/foo
+```
+````
+
+##### Block Code without Language Identifier (rendered)
+
+```
+# This is a shell script
+set a="Hello" # A comment
+echo `ls -l` > /tmp/foo
 ```
 
-Link name with code: [`var xyz = 10001;`](https://www.example.com)
+
+##### Block Code with Language Identifier (source)
+
+````markdown
+```
+# This is a shell script
+set a="Hello" # A comment
+echo `ls -l` > /tmp/foo
+```
+````
+
+##### Block Code with Language Identifier (rendered)
+
+```
+# This is a shell script
+set a="Hello" # A comment
+echo `ls -l` > /tmp/foo
+```
+
+##### Inline Code within a Link (source)
+
+````markdown
+Link name with code: [`var a = 5;`](https://www.example.com)
+````
+
+##### Inline Code within a Link (rendered)
+
+```
+Link name with code: [`var a = 5;`](https://www.example.com)
+```
 
 #### Blockquotes
 
