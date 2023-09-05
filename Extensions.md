@@ -146,7 +146,7 @@ this.depend = function() {
 ##### Simple JS Include
 
 ```javascript/playable
-//smartdown.include=../gallery/ExtensionsPlayableHelloWorld.js
+//smartdown.include=gallery/ExtensionsPlayableHelloWorld.js
 
 //
 // This code will be ignored and never displayed in the playable, unless OptionB is implemented.
@@ -157,7 +157,7 @@ this.depend = function() {
 
 
 ```p5js/playable
-//smartdown.include=../gallery/ExtensionsPlayableP5.js
+//smartdown.include=gallery/ExtensionsPlayableP5.js
 ```
 
 
@@ -167,7 +167,7 @@ Let's see what happens when an included file does not exist.
 
 
 ```p5js/playable/debug
-//smartdown.include=../gallery/NoSuchFile.js
+//smartdown.include=gallery/NoSuchFile.js
 ```
 
 
@@ -176,14 +176,14 @@ Let's see what happens when an included file does not exist.
 
 
 ```graphviz/playable
-//smartdown.include=../gallery/ExtensionsPlayableGraphviz.gv
+//smartdown.include=gallery/ExtensionsPlayableGraphviz.gv
 ```
 
 
 ##### UMD Inclusion
 
 ```javascript/playable/debug
-//smartdown.import=/gallery/ExtensionsPlayableUMDImport.js
+//smartdown.import=gallery/ExtensionsPlayableUMDImport.js
 
 console.log('UMD Inclusion worked');
 console.log('example', example);

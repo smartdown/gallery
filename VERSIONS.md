@@ -84,3 +84,4 @@
 - **0.0.82** - Use a different CORS proxy for various examples. Improve Plotly.md, fixing an autoresize bug, and properly implementing the dynamic title example. Updated Stdlib.md examples so that they work with latest 'stdlib.js'.
 - **0.0.83** - Improved Markdown.md to demonstrate fenced code blocks with and without a language identifier.
 - **0.0.84** - Basically, a mostly useless version increment because publishing 0.0.83 failed for some reason.
+- **0.0.85** - Fixed Extensions.md so that 'gallery/' references via 'smartdown.include' and 'smartdown.import' work properly when published with a non-empty baseURL (e.g., 'smartdown/').
